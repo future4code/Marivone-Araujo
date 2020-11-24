@@ -32,6 +32,8 @@
 
     align-content:flex-end;
 
+    flex-direction:column-reverse;align-content:center;
+
 }
 
 yellow{
