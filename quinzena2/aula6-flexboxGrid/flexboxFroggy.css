@@ -20,11 +20,8 @@
     flex-direction: row-reverse;
     justify-content: center;
     align-items: flex-end;
+}
 
-
-
-
-
-
-
+yellow{
+    order: 2;
 }
