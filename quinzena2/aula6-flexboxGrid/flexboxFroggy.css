@@ -26,7 +26,7 @@
     flex-direction:column;
     flex-wrap:wrap;
 
-    
+    flex-flow: column wrap;
 
 }
 
