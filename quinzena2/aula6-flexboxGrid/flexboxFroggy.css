@@ -23,6 +23,11 @@
 
     flex-wrap: wrap;
 
+    flex-direction:column;
+    flex-wrap:wrap;
+
+    
+
 }
 
 yellow{
