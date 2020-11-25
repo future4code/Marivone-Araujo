@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+img{
+    height: 20;
+}
+
+header{
+    display: grid;
+    grid-template-rows: 10px;
+    grid-template-columns: 100px 100px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    
+}
+
+.page-container{
+height: 100vh;
+display: grid;
+grid-template-rows: 40px 1fr 40px;
+}
