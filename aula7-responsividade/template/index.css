@@ -1,0 +1,162 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    border: 1px solid black;
+    display: flex;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    border: none;    
+    
+}
+
+
+#blue-yellow-green-hard{
+    display: flex;
+    border: none;
+}
+
+
+.first-block {
+    background-color: red;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border: none;
+
+}
+
+.blue-block{
+    /* background-color:blue; */
+    flex:33%;
+    flex-direction: column;
+    margin: 10px;
+    border: none;
+     
+
+}
+
+.blue-block1 {
+    background-color:blue;
+    justify-content: center; 
+    align-items: center;
+    margin: 5px;
+    height: 100px;
+}
+.blue-block2 {
+    background-color:blue;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    height: 100px;
+    
+}
+
+
+.yellow-block {
+    /* background-color: yellow; */
+    flex:33%;
+    flex-direction: column;
+    margin:10px;
+    border: none;
+
+}
+
+.yellow-block1{
+    background-color: yellow;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    height: 100px;
+}
+.yellow-block2{
+    background-color: yellow;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    height: 100px;
+}
+
+.green-block {
+    /* background-color: green; */
+    flex:33%;
+    flex-direction: column;
+    margin: 10px;
+    border: none;
+}
+
+.green-block1{
+    background-color: green;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    height: 100px;
+}
+
+.green-block2{
+    background-color: green;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    height: 100px;
+
+}
+
+
+#black{
+    display: flex;
+    border: none;
+    
+    
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex: 50%;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    
+}
+
+#white{
+    display: flex;
+    border: none;   
+
+}
+
+.white-block{
+    background-color: white;
+    display: flex;
+    flex:75%;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    height: 100px;
+    
+}
+
+/* mobile */
+
+@media screen and (max-width:827px){
+    .display:flex;
+
+    .green-block1{
+        flex-direction: row;
+
+    }
+    
+
+
+}
