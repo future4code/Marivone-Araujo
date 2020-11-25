@@ -1,0 +1,136 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-container {
+    display:flex;   
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+    
+
+}
+
+#top-container{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    text-align: center;
+    justify-content: center;
+}
+
+.green-background {
+    background-color: green;
+    flex: 30%;    
+    justify-content: center;
+    text-align: center;
+}
+
+.yellow-background {
+    background-color: yellow;
+    flex: 70%;
+    justify-content: center;
+    text-align: center;
+}
+
+.pink-background {
+    background-color: fuchsia;
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+#middle-container{
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    text-align: center;
+    justify-content: center;
+    
+    
+
+}
+
+.content2{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+    text-align: center;    
+    justify-content: center;
+    
+}
+
+.blank{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0.5;
+}
+
+#image{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+#extra{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+.blue-background {
+    background-color: blue;
+    flex:80%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.vertical-middle-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.5;
+    height: 120px;
+    
+  
+}
+
+.blank{
+    flex-grow: 1;
+}
+
+.red-background {
+    background-color: red;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightgreen-background {
+    background-color: lightgreen;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.purple-background {
+    background-color: purple;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    
+    
+}

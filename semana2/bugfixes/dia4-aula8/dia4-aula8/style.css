@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+
+.cacecalho{
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
+
+}
+
+img{
+
+    height: 30px;
+
+}
+
+.container-geral{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.footer {
+    height: 20px;
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: center;
+}
+
+.container-conteudo{
+    flex-grow:1;
+    display: flex;
+}
+
+.menu{
+    width: 300px;
+    background-color: crimson;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.links {
+    width: 200px;
+    background-color: darkolivegreen ;
+}
+
+.posts{
+    background-color: turquoise;
+    flex-grow: 1;
+}
