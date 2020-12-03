@@ -81,3 +81,126 @@
 // } 
 
 
+// // DESAFIO 1
+// const genero = prompt(`Qual é o gênero do filme que você quer assistir?`)
+// const valorIngresso = prompt(`Qual é o valor do ingresso?`)  
+
+// if (genero == `fantasia` && valorIngresso < `15`){
+//     let snack = (prompt(`Qual snack você deseja comprar?`))
+//     console.log(`Bom filme!`)
+//     console.log(`... com ${snack}`)
+
+// }else{
+//     console.log(`Escolha outro filme! :(`)
+// } 
+
+// DESAFIO2
+
+// let nome = prompt( `Digite seu nome completo:` )
+
+// let tipoDeJogo = prompt( `Digite o tipo de jogo: IN (para internacional) ou DO (para jogo doméstico).`)
+
+// let etapaDoJogo = prompt( `Digite a etapa do jogo: SF (semi-final); DT (terceiro lugar); e FI (final).`)
+
+// let categoria = prompt(`Indique a categoria desejada: 1, 2, 3 ou 4.`)
+
+// let ingressos = Number(prompt(`Informe a quantidade de ingressos:`)) 
+
+// let valorDoIngresso
+// let valorDolar
+// let valorTotal 
+
+// console.log(`---Dados da Compra ---`)
+// console.log(`Nome do cliente: ${nome}`)
+
+//     switch(tipoDeJogo){
+//         case `IN`:
+//             console.log(`Tipo de Jogo: Internacional`) 
+//             break
+//         case `DO`:
+//             console.log(`Tipo de Jogo: Nacional`)
+//             break
+//         default:
+//             console.log(`Digite novamente`)    
+//     }
+      
+    
+//     switch(etapaDoJogo){
+//         case `SF`:
+//             console.log(`Etapa do Jogo: Semi-Final`) 
+//             break
+//         case `DT`:
+//             console.log(`Etapa do Jogo: Terceiro Lugar`)
+//             break
+//         case `FI`:
+//             console.log(`Etapa do Jogo: Final`)
+//             break
+//         default:
+//             console.log(`Digite novamente`)    
+//     }
+
+//     switch(categoria){
+//         case `1`:
+//             console.log(`Categoria: 1`)
+//             break
+//         case `2`:
+//             console.log(`Categoria: 2`)
+//             break
+//         case `3`:
+//             console.log(`Categoria: 3`)
+//             break
+//         case `4`:
+//             console.log(`Categoria: 4`)
+//             break
+//         default:
+//             console.log(`Digite novamente`)    
+//     }
+
+    
+    
+//     if(etapaDoJogo === `SF` && categoria === `1`){
+//         valorDoIngresso = 1320
+//         }else if (etapaDoJogo === `SF` && categoria === `2`){
+//             valorDoIngresso = 880
+//         }else if (etapaDoJogo === `SF` && categoria === `3`){
+//             valorDoIngresso = 550
+//         }else if (etapaDoJogo === `SF` && categoria === `4`){
+//             valorDoIngresso = 220
+//         }else if (etapaDoJogo === `DT` && categoria === `1`){
+//             valorDoIngresso = 660
+//         } else if (etapaDoJogo === `DT` && categoria === `2`){
+//             valorDoIngresso = 440
+//         } else if (etapaDoJogo === `DT` && categoria === `3`){
+//             valorDoIngresso = 330
+//         }else if (etapaDoJogo === `DT` && categoria === `4`){
+//             valorDoIngresso = 170
+//         }else if (etapaDoJogo === `FI` && categoria === `1`){
+//             valorDoIngresso = 1980
+//         }else if (etapaDoJogo === `FI` && categoria === `2`){
+//             valorDoIngresso = 1320
+//         }else if (etapaDoJogo === `FI` && categoria === `3`){
+//             valorDoIngresso = 880
+//         }else if (etapaDoJogo === `FI` && categoria === `4`){
+//             valorDoIngresso = 330
+//         }  
+    
+
+// console.log(`Quantidade de Ingressos: ${ingressos} ingressos`)
+// console.log (`---Valores---`)
+
+// if (tipoDeJogo === `IN`){
+//         valorDolar = parseInt(valorDoIngresso * 4.10)
+//         valorTotal = parseInt((valorDolar * ingressos))
+//         console.log(`Valor do Ingresso: $ ${valorDolar}`)
+//         console.log (`Valor total: $ ${valorTotal}`)
+// }else{
+//     valorTotal = parseInt((valorDoIngresso * ingressos))
+//     console.log(`Valor do Ingresso: R$ ${valorDoIngresso}`)
+//     console.log (`Valor total: R$ ${valorTotal}`)
+// } 
+
+
+
+
+
+
