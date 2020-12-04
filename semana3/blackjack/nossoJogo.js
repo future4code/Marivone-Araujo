@@ -13,21 +13,34 @@
 const carta = comprarCarta();
 const jogador1 = comprarCarta()
 const jogador2 = comprarCarta()
-
+let resultado1 = jogador1.valor + jogador1.valor
+let resultado2 = jogador2.valor + jogador2.valor
 
 let inicio = confirm("Quer iniciar uma nova rodada?")
 console.log("Bem-vindo ao jogo de Blackjack!")   
-      if (inicio == true){
+    
+   if (inicio == true){
          console.log("Vamos jogar!")
       
-      let i = 
-      
-         console.log(`Usuário - cartas: ${jogador1.texto} ${jogador1.texto} - pontuação ${jogador1.valor + jogador1.valor}`) 
+         
+         console.log(`Usuário - cartas: ${jogador1.texto} ${jogador1.texto} - pontuação ${resultado1}`) 
              
-         console.log(`Computador - cartas: ${jogador2.texto} ${jogador2.texto} - pontuação ${ jogador2.valor + jogador2.valor}`) 
-                   
+         console.log(`Computador - cartas: ${jogador2.texto} ${jogador2.texto} - pontuação ${ resultado2}`)
+         
+      while (resultado1!==resultado2)
 
-                 
-      }else{
+         if (resultado1>resultado2) {
+            console.log("O usuário ganhou!")
+         break
+         }else if (resultado1<resultado2){
+            console.log("O computador ganhou!")
+         break
+         }else if(resultado1==resultado2){
+            console.log("Empate!")
+         break
+         }
+         
+         }else{
+         
          console.log("O jogo acabou!")
-      }
+   }
