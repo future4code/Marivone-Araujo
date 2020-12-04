@@ -20,7 +20,7 @@
 // Exercícios de escrita de código
 // EXERCICIO 3
 
-const original = [40, 100, 120, 80, 10, 56, 98, 12, 45, 123, 140, 155]
+// const original = [40, 100, 120, 80, 10, 56, 98, 12, 45, 123, 140, 155]
 
 // a.
 // for(let numero of original){
@@ -62,3 +62,33 @@ const original = [40, 100, 120, 80, 10, 56, 98, 12, 45, 123, 140, 155]
 //     }    
 // }
 // console.log("O maior número é", maior,"e o menor é", menor)
+
+// DESAFIO1
+
+// // DESAFIO2
+// let jogador1 = Number(prompt("Jogador 1, escolha um número:"))
+
+// console.log("Vamos jogar!")
+// console.log("O número escolhido foi:", jogador1)
+
+// let jogador2 = Number(prompt("Jogador2, digite um número")) 
+
+// let i = 1
+
+// while(jogador2!==jogador1){
+    
+//     i = (i + 1)
+    
+//     if (jogador2>jogador1) {
+//         console.log("Errou. Número correto é menor") 
+//     } else {
+//         console.log("Errou. Número correto é maior")
+//     }
+
+//     jogador2 = Number(prompt("Jogador2, tente novamente:"))
+
+// }
+
+// console.log(`Acertou! O número de tentativas foi ${i}`)
+
+// DESAFIO3
