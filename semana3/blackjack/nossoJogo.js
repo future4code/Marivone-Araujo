@@ -20,11 +20,11 @@ console.log("Bem-vindo ao jogo de Blackjack!")
       if (inicio == true){
          console.log("Vamos jogar!")
       
-               
-         console.log(`Usuário - cartas: ${carta.texto} ${carta.texto} - pontuação ${ carta.valor + carta.valor}`) 
+      let i = 
       
-       
-         console.log(`Computador - cartas: ${carta.texto} ${carta.texto} - pontuação ${ carta.valor + carta.valor}`) 
+         console.log(`Usuário - cartas: ${jogador1.texto} ${jogador1.texto} - pontuação ${jogador1.valor + jogador1.valor}`) 
+             
+         console.log(`Computador - cartas: ${jogador2.texto} ${jogador2.texto} - pontuação ${ jogador2.valor + jogador2.valor}`) 
                    
 
                  
