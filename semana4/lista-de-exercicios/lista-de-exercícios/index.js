@@ -45,3 +45,16 @@ console.log("Olá mundo!")
 
 2. 
 // a. false; b. false; c. true; d. true; e. true
+
+// 3. 
+let quantidadeDeNumerosPares = 0
+let i = Number(prompt( "Digite um número"))
+
+while(quantidadeDeNumerosPares < i) {
+  console.log(quantidadeDeNumerosPares*2)
+  quantidadeDeNumerosPares++
+}
+
+// Alterei o tipo de variável em quantidadeDeNumerosPares de const para o let e atribuí a ela o valor 0. Na variável i, incluí um prompt para que fosse requerido ao usuário um número qualquer. Na estrutura de repetição, retirei apenas o =, para que a quantidadeDeNumerosPares seja menor que i. Por fim, adiconei o incremento para que o bloco de código seja executado a cada iteração (até antes de chegar ao valor i).
+
+4. 
