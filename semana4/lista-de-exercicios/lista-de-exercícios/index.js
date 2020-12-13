@@ -75,5 +75,37 @@ console.log("Olá mundo!")
 // tamanhoTriangulo (10,10,10)
 // tamanhoTriangulo (9,8,7)]
 
-"Refiz o exercício 1 de Lógica de Programação porque tinha entendido incorretamente o pedido e acrescentei a resolução do exercício 4. 
+ 
 5.
+function calculaMaiorMenor() {
+    
+let a = Number(prompt(`Digite um número:`))
+let b = Number(prompt(`Digite outro número:`))
+
+if (a>b){
+    console.log (`O maior é: ${a}`)
+} else{
+    console.log (`O maior é: ${b}`)
+} 
+
+if (a%b === 0){
+    console.log (`${a} é divisível por ${b}`)
+} else{
+    console.log (`${a} não é divisível por ${b}`)
+}
+
+if (b%a === 0){
+    console.log (`${b} não é divisível por ${a}`)
+}else{
+    console.log (`${b} não é divisível por ${a}`)
+} 
+
+
+if (a>b){
+    console.log(`A diferença entre eles é`, a - b)
+}else{
+    console.log(`A diferença entre eles é`, b -a)
+} 
+}
+
+calculaMaiorMenor()
