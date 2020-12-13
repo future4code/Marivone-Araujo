@@ -202,3 +202,20 @@ console.log("Olá mundo!")
 // console.log(`Venha assistir ao filme ${filmeFavorito.titulo}, de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor}, e estrelado por ${atoresDoFilme}.`)
 
 // // document.write(`Venha assistir ao filme ${filmeFavorito.titulo}, de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor}, e estrelado por ${filmeFavorito.atores.join(",")}.`)
+
+// 4.
+
+// let pessoa = {
+//     nome: "José Ângelo",
+//     idade: 35,
+//     email: "marivone.vieira@gmail.com",
+//     endereco: "Rua Socorro, 245. Bairro Aveh Maria." 
+// }
+
+// function anonimizarPessoa(pessoa){
+//     return{
+//         ...pessoa,
+//         nome: "ANONIMO"
+//     }
+
+// }
