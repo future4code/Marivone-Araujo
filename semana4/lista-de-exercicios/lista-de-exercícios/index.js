@@ -1,6 +1,4 @@
 console.log("Olá mundo!")
-// Recomendamos que cada exercício esteja dentro de uma função.
-
 
 // Exercícios de interpretação de código
 1.
@@ -12,7 +10,7 @@ console.log("Olá mundo!")
 
 // 4. É um código que contém uma array de números chamada numeros, uma variável chamada numero1 que recebe o valor infinity e uma variável chamada numero2 que recebe o valor zero. Todos são seguidos de uma estrutura condicional (for...of) onde as variáveis numero1 e numero2 recebem novos valores conforme a condição imposta: primeiro, se o numero da array numeros for menor que o numero1, numero1 vai ser igual a este numero; segundo, se o numero da array de numeros for maior que numero2, numero2 vai ser igual a este numero. Infinity é maior que qualquer número positivo. Assim, o console vai imprimir em uma linha -10 (número negatico) e na linha abaixo 1590 (o maior número da lista). 
 
-// ------------------------------------------------
+// ------------------------------------------------------------------------
 // Exercícios de Lógica de Programação
 1.
 // // Três maneiras de iterar array são: for, for...of e while.  
@@ -33,7 +31,15 @@ console.log("Olá mundo!")
 //         console.log(i)
 //     }
 
-//     lista.forEach((item, index, array) => {
+//     // while
+
+//         let i = 0
+//         while (i<lista.length){
+//             console.log(lista[i])
+//             i++
+//         }      
+
+//         lista.forEach((item, index, array) => {
 //         console.log("Elemento:", item),
 //         console.log("Index:", index),
 //         console.log("Array:",array)
@@ -76,36 +82,101 @@ console.log("Olá mundo!")
 // tamanhoTriangulo (9,8,7)]
 
  
-5.
-function calculaMaiorMenor() {
+// 5.
+// function calculaMaiorMenor() {
     
-let a = Number(prompt(`Digite um número:`))
-let b = Number(prompt(`Digite outro número:`))
+// let a = Number(prompt(`Digite um número:`))
+// let b = Number(prompt(`Digite outro número:`))
 
-if (a>b){
-    console.log (`O maior é: ${a}`)
-} else{
-    console.log (`O maior é: ${b}`)
-} 
+// if (a>b){
+//     console.log (`O maior é: ${a}`)
+// } else{
+//     console.log (`O maior é: ${b}`)
+// } 
 
-if (a%b === 0){
-    console.log (`${a} é divisível por ${b}`)
-} else{
-    console.log (`${a} não é divisível por ${b}`)
-}
+// if (a%b === 0){
+//     console.log (`${a} é divisível por ${b}`)
+// } else{
+//     console.log (`${a} não é divisível por ${b}`)
+// }
 
-if (b%a === 0){
-    console.log (`${b} não é divisível por ${a}`)
-}else{
-    console.log (`${b} não é divisível por ${a}`)
-} 
+// if (b%a === 0){
+//     console.log (`${b} não é divisível por ${a}`)
+// }else{
+//     console.log (`${b} não é divisível por ${a}`)
+// } 
 
 
-if (a>b){
-    console.log(`A diferença entre eles é`, a - b)
-}else{
-    console.log(`A diferença entre eles é`, b -a)
-} 
-}
+// if (a>b){
+//     console.log(`A diferença entre eles é`, a - b)
+// }else{
+//     console.log(`A diferença entre eles é`, b -a)
+// } 
+// }
 
-calculaMaiorMenor()
+// calculaMaiorMenor()
+// -------------------------------------------------------------------------
+// Exercícios de Funções
+// 1.  NÃOFIZZ-----------------------------------
+
+// function array() {
+  
+    // let array = []
+    // let numeros = [40, 23, 20, 14, 69, 39, 1, 2, 8, 4]
+    
+    // let maior = 0
+    // let menor = ""
+    // let segundoMaior = 0
+    // let segundoMenor = 0
+
+    // array.min = function(array) {
+    //     return Math.min.apply(Math, array)
+    // }
+   
+    // array.max = function(array) {
+    //     return Math.max.apply(Math, array)
+    // }
+    // console.log(array.min(numeros))
+    // console.log(array.max(numeros))
+
+    
+//     for (i=0; i<numeros.length; i++){
+        
+//         if (numeros[i] > maior){
+//             maior = numeros[i]                    
+//     }
+// }
+// console.log(maior)
+
+2. 
+
+// function dizHello() {
+//     return alert("Hello Labenu")
+    
+// }
+// dizHello()
+
+// ------------------------------------------------------------------------
+// Exercícios de Objetos
+// // 1.Arrays e objetos são variáveis compostas, por meio delas é possível armazenar múltiplos valores. A array é uma lista simples de valores sequenciada, que possui um unico nome e seus componentes são acessadas pelo índice. Exemplo de array: "let familia = [Alice, José, Pedro, Ana]", esta é uma array com os integrantes de uma família, sendo Alice o índice 0, José o 1, e assim sucessivamente. Já no objeto, os valores têm propriedades(atributos), assim, é possível acessar esses valores por uma característica (no lugar de utilizar o índice). Vejamos um exemplo de objeto:
+// const familia = {
+//     mae:`Alice`,
+//     pai:`José`,
+//     filho: `Pedro`,
+//     filha:`Ana`      
+// }
+// console.log(familia.mae) 
+
+// 2.
+
+// function criaRetangulo(lado1, lado2) {
+//     let retangulo = {
+//         altura: lado1,
+//         largura: lado2,
+//         perimetro: (2 * (lado1 + lado2)),
+//         area: (lado1 * lado2)
+//     } 
+//     console.log (`Altura: ${retangulo.altura}, Largura: ${retangulo.largura}, Perímetro: ${retangulo.perimetro}, Área: ${retangulo.area}.`)
+// }
+
+// criaRetangulo(2,2)
