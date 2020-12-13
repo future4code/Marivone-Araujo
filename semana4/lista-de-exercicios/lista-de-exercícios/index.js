@@ -180,3 +180,25 @@ console.log("Olá mundo!")
 // }
 
 // criaRetangulo(2,2)
+
+// 3. 
+// const filmeFavorito = {
+//     titulo: "El ángel exterminador",
+//     ano: 1962,
+//     diretor: "Luis Buñuel",
+//     atores: ["Silvia Pinal", "Enrique Rambal", "Jacqueline Rambal", "José Baviera"]
+// }
+
+// let atoresDoFilme = ""
+
+// filmeFavorito.atores.forEach((ator, index, array) => {
+//     if (index !== array.lengh -1){
+//         atoresDoFilme += ator + ","
+//     }else {
+//         atoresDoFilme += ator + "."
+//     }
+// });
+
+// console.log(`Venha assistir ao filme ${filmeFavorito.titulo}, de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor}, e estrelado por ${atoresDoFilme}.`)
+
+// // document.write(`Venha assistir ao filme ${filmeFavorito.titulo}, de ${filmeFavorito.ano}, dirigido por ${filmeFavorito.diretor}, e estrelado por ${filmeFavorito.atores.join(",")}.`)
