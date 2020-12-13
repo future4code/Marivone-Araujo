@@ -15,46 +15,65 @@ console.log("Olá mundo!")
 // ------------------------------------------------
 // Exercícios de Lógica de Programação
 1.
-// // As três maneiras são: forEach, filter e map.  
-// const dadosDaFamilia=[
-//     {nome: "Marivone", idade:"38 anos", mudanças:0},
-//     {nome: "Felipe", idade:"37 anos", mudanças:0},
-//     {nome: "Ícaro", idade:"06 meses", mudanças:0},
-//     {nome: "Yuri", idade:"06 meses",mudanças:0}
-// ]
+// // Três maneiras de iterar array são: for, for...of e while.  
 
-// dadosDaFamilia.forEach((item, index, array) => {
-//     dadosDaFamilia.mudanças = 4
-// })
-// console.log(dadosDaFamilia)
+// function numeros() {
+    
+//     let lista = ["a", "b", "c", "d", "e", "f"]
 
-// const comAnosDeVida = dadosDaFamilia.filter((item, index,array)=>{
-//     if (item.idade === "38 anos"){
-//         return true
-//     } else{
-//         return false
+//     // for
+
+//     for (let i=0; i < lista.length; i++){
+//         console.log(lista[i])
 //     }
-// })
-// console.log (comAnosDeVida)
 
-// const nomesDaFamilia = dadosDaFamilia.map((item, index, array)=>{
-//     return item.nome
-// })
+//     // for of
 
-// console.log(nomesDaFamilia)
+//     for (const i of lista){
+//         console.log(i)
+//     }
 
-2. 
+//     lista.forEach((item, index, array) => {
+//         console.log("Elemento:", item),
+//         console.log("Index:", index),
+//         console.log("Array:",array)
+//     })
+    
+// }    
+
+// numeros() 
+
+// 2. 
 // a. false; b. false; c. true; d. true; e. true
 
 // 3. 
-let quantidadeDeNumerosPares = 0
-let i = Number(prompt( "Digite um número"))
+// O código não funciona porque falta atribuir corretamente valores às variáveis. Corrigir a condição a ser testada no while (no caso, deseja-se que ela termine antes do valor i que será inserido). Também falta o incremento para que o bloco de código seja executado a cada iteração.  
 
-while(quantidadeDeNumerosPares < i) {
-  console.log(quantidadeDeNumerosPares*2)
-  quantidadeDeNumerosPares++
-}
+// let quantidadeDeNumerosPares = 0
+// let i = Number(prompt( "Digite um número"))
 
-// Alterei o tipo de variável em quantidadeDeNumerosPares de const para o let e atribuí a ela o valor 0. Na variável i, incluí um prompt para que fosse requerido ao usuário um número qualquer. Na estrutura de repetição, retirei apenas o =, para que a quantidadeDeNumerosPares seja menor que i. Por fim, adiconei o incremento para que o bloco de código seja executado a cada iteração (até antes de chegar ao valor i).
+// while(quantidadeDeNumerosPares < i) {
+//   console.log(quantidadeDeNumerosPares*2)
+//   quantidadeDeNumerosPares++
+// }
+4.
+// function tamanhoTriangulo(lado1, lado2, lado3) {
+    
+//     if (lado1 === lado2 && lado2 === lado3 && lado3 ===lado1){
+//     console.log("O triângulo é equilátero")
+    
+//     } else if(lado1 !== lado2 && lado2 !== lado3 && lado3 !== lado1){
+//     console.log("O triângulo é escaleno")
+    
+//     } else{
+//     console.log("O triângulo é isósceles")
+// } 
+    
+// }  
 
-4. 
+// tamanhoTriangulo (7,8,8)
+// tamanhoTriangulo (10,10,10)
+// tamanhoTriangulo (9,8,7)]
+
+"Refiz o exercício 1 de Lógica de Programação porque tinha entendido incorretamente o pedido e acrescentei a resolução do exercício 4. 
+5.
