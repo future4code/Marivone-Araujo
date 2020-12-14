@@ -244,3 +244,30 @@ console.log("Olá mundo!")
 //     })
 
 //     console.log(criancas)
+
+// // 2. 
+// const array = [1, 2, 3, 4, 5, 6]
+// // a)
+//     const multiplicadosPorDois = array.map ((num, index, lista)=>{
+//     return num *2
+// })
+
+// // b)
+//     const multiplicadosPorTres = array.map ((num, index, lista)=>{
+//     const multiplicadosPorTres = num *3
+//     return multiplicadosPorTres.toString()
+// })
+
+// // c)
+//     const parImpar = array.map ((num)=>{
+//         if (num%2 === 0){
+//            return `${num} é par`
+//         } else{
+//            return `${num} é impar`
+//         }         
+//     })    
+
+// console.log(multiplicadosPorDois)
+// console.log(multiplicadosPorTres)
+// console.log(parImpar)
+
