@@ -219,3 +219,28 @@ console.log("Olá mundo!")
 //     }
 
 // }
+// -----------------------------------------------------------------------
+// Exercícios de Funções de array
+1.
+// // a)
+//     const dados = [
+//         { nome: "Pedro", idade: 20 },
+//         { nome: "João", idade: 10 },
+//         { nome: "Paula", idade: 12 },
+//         { nome: "Artur", idade: 89 } 
+//     ]
+    
+//     const adultos = dados.filter((dado) => {
+//             return dado.idade >= 20
+//                 return true
+//         })
+        
+//     console.log(adultos)
+    
+// // b)
+//     const criancas = dados.filter((dado) => {
+//             return dado.idade < 20
+                    
+//     })
+
+//     console.log(criancas)
