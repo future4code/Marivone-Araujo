@@ -271,3 +271,26 @@ console.log("Olá mundo!")
 // console.log(multiplicadosPorTres)
 // console.log(parImpar)
 
+// // 3. 
+// const pessoas = [
+// 	{ nome: "Paula", idade: 12, altura: 1.8},
+// 	{ nome: "João", idade: 20, altura: 1.3},
+// 	{ nome: "Pedro", idade: 15, altura: 1.9},
+// 	{ nome: "Luciano", idade: 22, altura: 1.8},
+// 	{ nome: "Artur", idade: 10, altura: 1.2},
+// 	{ nome: "Soter", idade: 70, altura: 1.9}
+// ]
+
+//     // a)
+    
+//     const acessoLiberado = pessoas.filter ((num, Index, array)=>{
+//         return num.altura >= 1.5 && num.idade <=60
+              
+//     })
+   
+//     // b)
+//     const acessoVetado = pessoas.filter ((num, Index, array)=>{
+//         return num.altura < 1.5 || num.idade <14|| num.idade >60
+//     })
+//     console.log (acessoLiberado)
+//     console.log (acessoVetado)
