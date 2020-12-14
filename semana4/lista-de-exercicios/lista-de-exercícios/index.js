@@ -294,3 +294,4 @@ console.log("Olá mundo!")
 //     })
 //     console.log (acessoLiberado)
 //     console.log (acessoVetado)
+
