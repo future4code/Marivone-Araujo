@@ -104,32 +104,57 @@ export default class App extends React.Component {
     this.setState({defineTela: false})
   }
 
-  deletarCadastrado = (id) => {
-    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
-      headers: {
-        Authorization: "marivone-araujo-epps"
-        }
-      }).then((resposta) => {
-        console.log(resposta)
-        this.pegarUsuarios()
-      }).catch((erro) =>{
-        console.log(erro)
-      })
-  }
+  // deletarCadastrado = (id) => {
+  //   axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
+  //     headers: {
+  //       Authorization: "marivone-araujo-epps"
+  //       }
+  //     }).then((resposta) => {
+  //       console.log(resposta)
+  //       this.pegarUsuarios()
+  //     }).catch((erro) =>{
+  //       console.log(erro)
+  //     })
+  // }
   
-
-  pegarUsuarios = () => {
-    axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
+   deletarCadastrado = async (id) => {
+     try{
+    const resposta = await axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
       headers: {
         Authorization: "marivone-araujo-epps"
+    }})
+      console.log(resposta)
+      this.pegarUsuarios()
+    } catch (erro) {
+        console.log(erro)
       }
-    }).then((resposta) => {
+  }
+
+  pegarUsuarios = async () => {
+    try{
+    const resposta = await axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
+      headers: {
+        Authorization: "marivone-araujo-epps"
+    }})
       this.setState({ usuarios: resposta.data })
-    }).catch((erro) => {
+    } catch (erro){
       console.log(erro.message)
       alert("Impossível pegar usuários" + erro.message)
-    })
+    }
   }
+
+  // pegarUsuarios = () => {
+  //   axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
+  //     headers: {
+  //       Authorization: "marivone-araujo-epps"
+  //     }
+  //   }).then((resposta) => {
+  //     this.setState({ usuarios: resposta.data })
+  //   }).catch((erro) => {
+  //     console.log(erro.message)
+  //     alert("Impossível pegar usuários" + erro.message)
+  //   })
+  // }
 
   onChangeNome = (e) => {
     this.setState({ inputName: e.target.value })
@@ -139,36 +164,52 @@ export default class App extends React.Component {
     this.setState({ inputEmail: e.target.value })
   }
 
-  criarUsuario = () => {
+  criarUsuario = async () => {
     const body = {
       name: this.state.inputName,
       email: this.state.inputEmail
     }
-    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body,
+    try {
+    const resposta = await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body,
       {
         headers: {
           Authorization: "marivone-araujo-epps",
-        }
-      }).then(() => {
-        alert("Cadastro realizado!")
-        this.setState({ name: "", email: "" })
-        this.pegarUsuarios()
-      }).catch((erro) => {
+    }})
+      alert("Cadastro realizado!")
+      this.setState({ inputName: "", inputEmail: "" })
+      this.pegarUsuarios()
+ 
+    } catch(erro) {
         console.log(body)
         alert("Usuário não foi cadastrado..." + erro.message)
-      })
+      }
   }
-  render() {
 
-    //   const renderedPegarUsuarios = this.state.usuarios.map((usuario) => {
-    //   return <p>{usuario.name}</p>
-    // })
+  // criarUsuario = () => {
+  //   const body = {
+  //     name: this.state.inputName,
+  //     email: this.state.inputEmail
+  //   }
+  //   axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body,
+  //     {
+  //       headers: {
+  //         Authorization: "marivone-araujo-epps",
+  //       }
+  //     }).then(() => {
+  //       alert("Cadastro realizado!")
+  //       this.setState({ inputName: "", inputEmail: "" })
+  //       this.pegarUsuarios()
+  //     }).catch((erro) => {
+  //       console.log(body)
+  //       alert("Usuário não foi cadastrado..." + erro.message)
+  //     })
+  // }
 
+
+  render() {   
     return (
       <div>
-        {this.defineTela()}
-        {/* <div>{renderedPegarUsuarios}</div>   */}
-        
+        {this.defineTela()}             
       </div>
 
     );
