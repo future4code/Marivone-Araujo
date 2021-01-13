@@ -24,11 +24,15 @@ export default class App extends React.Component {
   }
 
   defineTela = () =>{
+
+      const renderedPegarUsuarios = this.state.usuarios.map((usuario) => {
+      return <p>{usuario.name}</p>    })
+
     if(this.state.defineTela){
       return(
        <div>
         <h3>Alunos Cadastrados</h3>
-        {/* <div>{pegarUsuarios()}</div>    */}
+        <div>{renderedPegarUsuarios}</div>  
         <p>
         <button onClick ={this.voltar}>Voltar</button>
         </p>
@@ -111,7 +115,6 @@ export default class App extends React.Component {
       name: this.state.name,
       email: this.state.email
     }
-
     axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body,
       {
         headers: {
@@ -126,22 +129,12 @@ export default class App extends React.Component {
         alert("Usuário não foi cadastrado..." + erro.message)
       })
   }
-
   render() {
-
-    const renderedPegarUsuarios = this.state.usuarios.map((usuario) => {
-      return <p>{usuario.name}</p>
-    })
-
+  
     return (
-
-
       <div>
-
         {this.defineTela()}
-        <div>{renderedPegarUsuarios}</div>   
-
-
+        
       </div>
 
     );
