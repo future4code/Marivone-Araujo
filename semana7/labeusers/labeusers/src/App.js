@@ -3,22 +3,26 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 
-const BotaoLista = styled.div`
-/* border: 1px solid black; */
-text-align:center;
-padding: 1px;
-margin: 4px;
-`
 const ContainerCentral = styled.div`
 border: 1px solid black;
 text-align:center;
 `
+const ContainerAlunos =  styled.div`
+display: flex;
+border: 1px solid black;
+text-align:center;
+`
+const BotaoDeleta = styled.button`
+color: blue;
+margin: 4px;
+`
+
 
 export default class App extends React.Component {
   state = {
     usuarios: [],
-    name: "",
-    email: "",
+    inputName: "",
+    inputEmail: "",
     defineTela: false
 
   }
@@ -26,16 +30,27 @@ export default class App extends React.Component {
   defineTela = () =>{
 
       const renderedPegarUsuarios = this.state.usuarios.map((usuario) => {
-      return <p>{usuario.name}</p>    })
+      return <p>{usuario.name}   
+             
+             <BotaoDeleta onClick= {() => {this.deletarCadastrado(usuario.id)}} >X<strong></strong></BotaoDeleta>
+             </p>})
 
     if(this.state.defineTela){
-      return(
-       <div>
-        <h3>Alunos Cadastrados</h3>
-        <div>{renderedPegarUsuarios}</div>  
+      return(               
+        <div>
         <p>
         <button onClick ={this.voltar}>Voltar</button>
         </p>
+
+        <h3>Alunos Cadastrados</h3> 
+
+        <ContainerAlunos>       
+            
+        <div>{renderedPegarUsuarios}
+        
+        </div>          
+        </ContainerAlunos>
+        
         </div>
       )
     } else{
@@ -48,7 +63,7 @@ export default class App extends React.Component {
               id="name"
               className="Name"
               type="text"
-              value={this.state.name}
+              value={this.state.inputName}
               onChange={this.onChangeNome} />
           </p>
           <p>
@@ -57,7 +72,7 @@ export default class App extends React.Component {
               id="email"
               className="Email"
               type="text"
-              value={this.state.email}
+              value={this.state.inputEmail}
               onChange={this.onChangeEmail} />
           </p>
           <p>
@@ -77,6 +92,10 @@ export default class App extends React.Component {
     }
   }
   
+  componentDidMount = () => {
+    this.pegarUsuarios()
+  }
+ 
   mostrarCadastrados =()=>{
     this.setState({defineTela: true})
   }
@@ -85,9 +104,19 @@ export default class App extends React.Component {
     this.setState({defineTela: false})
   }
 
-  componentDidMount = () => {
-    this.pegarUsuarios()
+  deletarCadastrado = (id) => {
+    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`, {
+      headers: {
+        Authorization: "marivone-araujo-epps"
+        }
+      }).then((resposta) => {
+        console.log(resposta)
+        this.pegarUsuarios()
+      }).catch((erro) =>{
+        console.log(erro)
+      })
   }
+  
 
   pegarUsuarios = () => {
     axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
@@ -103,17 +132,17 @@ export default class App extends React.Component {
   }
 
   onChangeNome = (e) => {
-    this.setState({ name: e.target.value })
+    this.setState({ inputName: e.target.value })
   }
 
   onChangeEmail = (e) => {
-    this.setState({ email: e.target.value })
+    this.setState({ inputEmail: e.target.value })
   }
 
   criarUsuario = () => {
     const body = {
-      name: this.state.name,
-      email: this.state.email
+      name: this.state.inputName,
+      email: this.state.inputEmail
     }
     axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body,
       {
@@ -130,10 +159,15 @@ export default class App extends React.Component {
       })
   }
   render() {
-  
+
+    //   const renderedPegarUsuarios = this.state.usuarios.map((usuario) => {
+    //   return <p>{usuario.name}</p>
+    // })
+
     return (
       <div>
         {this.defineTela()}
+        {/* <div>{renderedPegarUsuarios}</div>   */}
         
       </div>
 
