@@ -10,14 +10,16 @@ state = {
 	price: 0,
     link: "",
    
-}  
-    displayLink = () =>{
-        if (this.state.link !== ""){
-            <a href={this.state.link} target="_blank">Saiba Mais!</a>   
-        } else{
-            <p></p>
-        }
-    }
+}      
+
+// displayLink = () =>{
+//     if (this.setState.link !== ""){
+//         <a href={this.state.link} target="_blank">Saiba Mais!</a>   
+//     } else{
+//         <p></p>
+//     }
+// }
+
 
     getActivity =()=>{
         axios.get ('https://www.boredapi.com/api/activity/')
@@ -35,18 +37,23 @@ state = {
             console.log(error)
         })
     }
+    
     render(){
         console.log(this.state)
+                
         return(
             <div>
             <h2> Saia da rotina! </h2>
             <button onClick={this.getActivity}> Escolha uma atividade:</button>
+
             <h3>Mãos à obra!</h3>
+
             <p>Atividade: {this.state.activity}</p>
             <p>Número de participantes: {this.state.participants}</p>
             <p>Acessibilidade: {this.state.accessibility}</p>
             <p>Preço: {this.state.price}</p>
-            {this.displayLink()}  
+            <a href={this.state.link} target="_blank">Leia mais!</a>
+            {/* {this.displayLink()} */}
             </div>
         )
     }
