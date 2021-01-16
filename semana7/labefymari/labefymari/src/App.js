@@ -3,10 +3,23 @@ import React from "react"
 import './App.css';
 import Home from "./componentes/Home";
 import VerPlaylists from "./componentes/VerPlaylist";
+import styled from "styled-components"
+
+const TelaCheia = styled.div`
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+text-align: center;
+background-color: darkorange;
+color: white;
+width: 500px;
+border-radius: 90px;
+box-shadow: 3px 3px 4px gray;
+`;
+
 
 export default class App extends React.Component {
   state = {
     playlist: false
+    
   }
 
   goPlaylists = () => {
@@ -23,11 +36,11 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <div className="App">
+      <TelaCheia>
         
         <p>{this.setScreen()}</p>        
       
-      </div>
+      </TelaCheia>
     );
   }
 }

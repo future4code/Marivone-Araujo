@@ -1,23 +1,96 @@
 import React from "react";
 import axios from "axios"
+import styled from "styled-components";
+
+const Voltar = styled.button`
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;border: black;
+color: black;
+background-color: blueviolet;
+border-radius: 3px;
+margin-top: 5px;
+padding: 4px;
+color: white;
+text-shadow: 1.5px 1.5px 1.5px black;
+font-size: 15px;
+:hover{
+    position: relative;
+    top: 3px;
+}
+`
+
+const CriarPL = styled.button`
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+border: none;
+color: white;
+background-color: purple;
+margin: 3px;
+border-radius: 3px;
+padding: 4px;
+margin-top: 20px;
+font-size: 20px;
+text-shadow: 1.5px 1.5px 1.5px black;
+:hover{
+    position: relative;
+    top: 3px;
+}
+`
+
+const H = styled.h1`
+text-shadow: 1.5px 1.5px 1.5px black;
+`
+const C = styled.h1`
+text-shadow: 1.5px 1.5px 1.5px black;
+`
+
+const DeletePL = styled.button`
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+border: none;
+color: white;
+background-color: black;
+margin: 3px;
+border-radius: 3px;
+padding: 4px;
+:hover{
+    position: relative;
+    left: 3px;
+}
+
+` 
+const NamePL = styled.button`
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+border: none;
+color: white;
+background-color: purple;
+margin: 3px;
+border-radius: 3px;
+padding: 4px;
+margin: 20px;
+font-size: 20px;
+text-shadow: 1.5px 1.5px 1.5px black;
+:hover{
+    position: relative;
+    top: 3px;
+}
+`
+
 
 export default class VerPlaylists extends React.Component {
 
     state = {
         playlists: [],
         id: [],
-        idFiltrado: ""
+        inputPlaylistName:"",
+        inputName: "",
+        inputArtist: "",
+        inputSong: ""
+                
     }
-
+    
     componentDidMount = () => {
         this.getPlaylists()
     }
 
-    idFiltrado = (e) =>{
-        console.log(e)       
-                   
-    }
-    
+
     getPlaylists = () => {
 
         axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists", {
@@ -28,8 +101,7 @@ export default class VerPlaylists extends React.Component {
             .then((res) => {
                 this.setState({ playlists: res.data.result.list })
                 console.log(res.data.result.list)
-                this.setState({id: res.data.result.list.id})
-                
+                this.setState({ id: res.data.result.list.id })
 
             })
             .catch((error) => {
@@ -38,42 +110,104 @@ export default class VerPlaylists extends React.Component {
             })
     }
 
-    deletePlaylist = (id) =>{
-        axios.delete( `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idFiltrado}` , {
+    deletePlaylist = (id) => {
+        axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`, {
 
+            headers: {
+                Authorization: 'marivone-araujo-epps'
+            }
+        })
+            .then((res) => {
+                console.log(res)
+                alert("Playlist deletada com sucesso!")
+                this.getPlaylists()
+            })
+            .catch((err) => {
+                alert("Playlist não pode ser criada!" + err.menssage)
+                console.log(err)
+            })
+    }
+
+    handleinputSongName = (e) =>{
+        this.setState({inputName: e.target.value})
+    }
+    
+    handleinputArtist = (e) =>{
+        this.setState({inputArtist: e.target.value})
+    }
+    
+    handleinputSong = (e) =>{
+        this.setState({inputSong: e.target.value})
+    }
+
+    createPlaylist = (id) =>{
+        const body = {
+            name: this.state.inputName,
+            artist: this.state.inputArtist,
+            url: this.state.inputSong
+        }
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`, body, {
             headers: {
                 Authorization: 'marivone-araujo-epps'
             }
         })
         .then((res) =>{
             console.log(res)
+            alert ("Criada com sucesso!")
             this.getPlaylists()
-        })
-        .catch((err) =>{
-            console.log(err)
+                        
+            this.setState({
+                inputName:"",
+                inputArtist:"",
+                inputSong:"",
+            })
+        }) 
+        .catch((error) =>{
+            console.log(error)
+            alert ("Tente novamente!" + error.message)
         })
     }
+    
 
     render() {
         // console.log(this.state.playlists)
 
         return (
             <div>
-                <button onClick={this.props.goPlaylists}>Voltar</button>
+                <Voltar onClick={this.props.goPlaylists}>Voltar</Voltar>
 
-                <h1>Ver Playlists</h1> 
+                    <C>Agora, insira uma música!</C>
+                <p></p>
+                    <label for="SongName">Título: </label>
+                    <input id="SongName" placeholder="nome da música" value={this.state.inputName} onChange={this.handleinputSongName} />
+                <p></p>
+                    <label for="artist"> Artista: </label>
+                    <input id="artist" placeholder="Banda? Cantor?" value={this.state.inputArtist} onChange={this.handleinputArtist} />
+                <p></p>
+                    <label for="song">Link da música: </label>
+                    <input id="song" placeholder="Manda o Link!" value={this.state.inputSong} onChange={this.handleinputSong} />
+
+
+   <div>
+    <CriarPL onClick={this.createPlaylist}>Criar Playlist</CriarPL>
+    </div>
+
+<hr></hr>
+<hr></hr>
+                <H>Ver Playlists</H>
 
                 {this.state.playlists.map((playlist) => {
                     return (
-                        <div>
-                            <h2>{playlist.name}</h2>
 
-                            <button onClick={() => {this.deletePlaylist(playlist.idFiltrado)}}>Deletar Playlist</button>
+                        <div>
+                            <NamePL>{playlist.name}</NamePL>
+                            <DeletePL onClick={() => { this.deletePlaylist(playlist.id) }}>Deletar Playlist</DeletePL> 
+
                         </div>
+                        
                     )
                 })}
 
-                
             </div>
         )
     }
