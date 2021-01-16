@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios"
-import VerPlaylist from "../componentes/VerPlaylist";
-import PlaylistDetails from "../componentes/PlaylistDetails";
+import VerPlaylists from "./VerPlaylist"
+import PlaylistDetails from "./PlaylistDetails"
 import styled from "styled-components"
 
 const H = styled.h1`
@@ -48,15 +48,28 @@ text-align: center;
 
 export default class Home extends React.Component{
 state ={
-    
+   
+    consultarPL: false,
     id: []
 }
+
+goPlaylistDetails = () => {
+    this.setState({playlist:!this.state.consultarPL})
+  }
+
+changeScreen = () =>{
+
+   if (this.state.playlist){
+     return <VerPlaylists goPlaylistDetails={this.goPlaylistDetails}/>
+   } else{
+     return <PlaylistDetails goPlaylistDetails={this.goPlaylistDetails}/>
+   }
+}
+
 
 handleinputPlaylistName = (e) =>{
     this.setState({inputPlaylistName: e.target.value})
 }
-
-
 
 registerPlaylist = () =>{
     const body = {
@@ -95,7 +108,7 @@ registerPlaylist = () =>{
             <p>
             <BotaoVerPL onClick = {this.props.goPlaylists}>Ver Playlists</BotaoVerPL>
             </p>
-
+            
         </Page> 
         )
     }

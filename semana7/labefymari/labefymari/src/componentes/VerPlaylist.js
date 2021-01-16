@@ -18,7 +18,7 @@ font-size: 15px;
 }
 `
 
-const CriarPL = styled.button`
+const CriarPL = styled.option`
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 border: none;
 color: white;
@@ -47,15 +47,16 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubun
 border: none;
 color: white;
 background-color: black;
-margin: 3px;
+margin: 4px;
 border-radius: 3px;
-padding: 4px;
+padding: 5px;
+font-size: 12px;
 :hover{
     position: relative;
     left: 3px;
 }
 
-` 
+`
 const NamePL = styled.button`
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 border: none;
@@ -67,25 +68,23 @@ padding: 4px;
 margin: 20px;
 font-size: 20px;
 text-shadow: 1.5px 1.5px 1.5px black;
-:hover{
-    position: relative;
-    top: 3px;
+
 }
 `
-
 
 export default class VerPlaylists extends React.Component {
 
     state = {
         playlists: [],
         id: [],
-        inputPlaylistName:"",
+        inputPlaylistName: "",
         inputName: "",
         inputArtist: "",
-        inputSong: ""
-                
+        inputSong: "",
+       
     }
-    
+
+
     componentDidMount = () => {
         this.getPlaylists()
     }
@@ -128,19 +127,22 @@ export default class VerPlaylists extends React.Component {
             })
     }
 
-    handleinputSongName = (e) =>{
-        this.setState({inputName: e.target.value})
-    }
-    
-    handleinputArtist = (e) =>{
-        this.setState({inputArtist: e.target.value})
-    }
-    
-    handleinputSong = (e) =>{
-        this.setState({inputSong: e.target.value})
+    handleinputSongName = (e) => {
+        this.setState({ inputName: e.target.value })
     }
 
-    createPlaylist = (id) =>{
+    handleinputArtist = (e) => {
+        this.setState({ inputArtist: e.target.value })
+    }
+
+    handleinputSong = (e) => {
+        this.setState({ inputSong: e.target.value })
+    }
+
+    createPlaylist = (id) => {
+
+        console.log(id)
+
         const body = {
             name: this.state.inputName,
             artist: this.state.inputArtist,
@@ -151,23 +153,23 @@ export default class VerPlaylists extends React.Component {
                 Authorization: 'marivone-araujo-epps'
             }
         })
-        .then((res) =>{
-            console.log(res)
-            alert ("Criada com sucesso!")
-            this.getPlaylists()
-                        
-            this.setState({
-                inputName:"",
-                inputArtist:"",
-                inputSong:"",
+            .then((res) => {
+                console.log(res)
+                this.setState({
+                    inputName: "",
+                    inputArtist: "",
+                    inputSong: "",
+                })
+                alert("Criada com sucesso!")
+                this.getPlaylists()
+
             })
-        }) 
-        .catch((error) =>{
-            console.log(error)
-            alert ("Tente novamente!" + error.message)
-        })
+            .catch((error) => {
+                console.log(error)
+                alert("Tente novamente!" + error.message)
+            })
     }
-    
+
 
     render() {
         // console.log(this.state.playlists)
@@ -176,35 +178,45 @@ export default class VerPlaylists extends React.Component {
             <div>
                 <Voltar onClick={this.props.goPlaylists}>Voltar</Voltar>
 
-                    <C>Agora, insira uma música!</C>
+                <C>Agora, insira uma música!</C>
                 <p></p>
-                    <label for="SongName">Título: </label>
-                    <input id="SongName" placeholder="nome da música" value={this.state.inputName} onChange={this.handleinputSongName} />
+                <label for="SongName">Título: </label>
+                <input id="SongName" placeholder="nome da música" value={this.state.inputName} onChange={this.handleinputSongName} />
                 <p></p>
-                    <label for="artist"> Artista: </label>
-                    <input id="artist" placeholder="Banda? Cantor?" value={this.state.inputArtist} onChange={this.handleinputArtist} />
+                <label for="artist"> Artista: </label>
+                <input id="artist" placeholder="Banda? Cantor?" value={this.state.inputArtist} onChange={this.handleinputArtist} />
                 <p></p>
-                    <label for="song">Link da música: </label>
-                    <input id="song" placeholder="Manda o Link!" value={this.state.inputSong} onChange={this.handleinputSong} />
+                <label for="song">Link da música: </label>
+                <input id="song" placeholder="Manda o Link!" value={this.state.inputSong} onChange={this.handleinputSong} />
+                <p></p>
+                <div>
+                    <label for="select">Escoha a playlist: </label>
+                    <select>
+                        {this.state.playlists.map((playlist) => {
+                            return (
+                                <option value={playlist.id}>{playlist.name}</option>
+                            )
+                        })}
+                    </select>
+                    <CriarPL onClick={this.createPlaylist}> Postar </CriarPL>
+                </div>
 
-
-   <div>
-    <CriarPL onClick={this.createPlaylist}>Criar Playlist</CriarPL>
-    </div>
-
-<hr></hr>
-<hr></hr>
+                <hr></hr>
+                <hr></hr>
                 <H>Ver Playlists</H>
+
 
                 {this.state.playlists.map((playlist) => {
                     return (
 
                         <div>
-                            <NamePL>{playlist.name}</NamePL>
-                            <DeletePL onClick={() => { this.deletePlaylist(playlist.id) }}>Deletar Playlist</DeletePL> 
+
+                            <NamePL>Sua playlist "{playlist.name}"</NamePL>
+
+                            <DeletePL onClick={() => { this.deletePlaylist(playlist.id) }}>Deletar Playlist</DeletePL>
 
                         </div>
-                        
+
                     )
                 })}
 
