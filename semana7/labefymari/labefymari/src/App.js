@@ -14,8 +14,7 @@ color: white;
 width: 500px;
 border-radius: 90px;
 box-shadow: 3px 3px 4px gray;
-
-// margin-left: 400px;
+margin-left: 400px;
 
 `
 
