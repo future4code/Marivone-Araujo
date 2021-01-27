@@ -36,16 +36,12 @@ useEffect(() =>{
 })
 
   return (  
-    <div>
-      
+    <div>      
       <div>{setScreen()}</div>
-
       <div>
         {/* {page? <Home/>:<OkMatch />} */}
-        {/* <button onClick={goScreen}>Trocar página</button> */}
-        
-      </div>
-    
+        {/* <button onClick={goScreen}>Trocar página</button> */}        
+      </div>    
     </div>    
   );
 }
