@@ -2,11 +2,27 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
+const Logo = styled.img`
+width: 79%;
+position: relative;
+Top:-74px;
+left: 10px;
+z-index: 0;
+`
 const MainPage = styled.div`
 display: grid;
 background-color: lightgray;
 grid-template-columns: 1fr 1fr 1fr;  
 // border: 1px solid black;
+`
+const HeartsMatch = styled.img`
+width: 70px;
+height: 70px;
+margin-left: 350px;
+// margin-top: -90px;
+:hover{
+  cursor: pointer;
+}
 `
 const CentralGrid = styled.div`
 // background-color: lightblue;
@@ -14,63 +30,73 @@ const CentralGrid = styled.div`
 color: white;
 `
 const Top = styled.div`
-background-color: red;
+background-color: white;
 // border: 1px solid black;
-color: white;
+color: black;
 height: 10vh;
-`
-const MatchButton = styled.button`
-margin-left: 75%;
-margin-top: 2%;
 `
 const Center = styled.div`
 background-color: white;
 // border: 1px solid black;
 color: white;
-height: 78vh;
+height: 71vh;
 padding: 10px;
 `
 const GridCruch = styled.div`
 // border: 1px solid black;
 text-align: center;
 alin-item: center;
+height: 430px;
 
 `
 const Img = styled.img`
 width: 360px;
-height: 450px;
+height: 400px;
+margin-top: 14px;
+box-shadow: 0px 5px 15px black;
 // border: 1px solid black;
+`
+const Bio = styled.p`
+position: relative;
+top: -20px;
 `
 const Descript = styled.div`
 background-color: white;
 color: black;
 position: relative;
-top: -150px;
+top: -140px;
 left: 30px;
 border-radius: 10px;
 opacity: 0.7;
-width: 65%;
+width: 70%;
+box-shadow: 0px 0.5px 15px gray;
 `
-
-const Like = styled.button`
+const HeartWantButton = styled.img`
+width: 75px;
+height: 73px;
 position: relative;
-top: -70px;
-left: 150px;
+left: 20px;
+:hover{
+  cursor: pointer;
+}
 `
-
-const ButtonDontWant = styled.button`
-border: none;
-color: red;
-background-color: white;
+const HeartDontWant = styled.img`
+width: 72px;
+height: 70px;
+position: relative;
+left: -5px;
+:hover{
+  cursor: pointer;
+  
+}
 `
-
-
 const Bottom = styled.div`
-background-color: lightblue;
-border: 1px solid black;
+background-color: white;
+// border: 1px solid black;
 color: white;
-height: 10vh;
+height: 15vh;
 text-align: center;
+
 `
 
 function Main(props) {
@@ -109,26 +135,50 @@ function Main(props) {
       })
     }
 
+    const dontMatch =(id) =>{
+
+      const body ={
+          "id": `${id}`,
+          "choice": false
+        }
+  
+        axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marivone/choose-person
+        `, body)
+  
+        .then((res) => {
+          console.log(res)
+          alert ("Vê com outros olhos...")
+          getCruch()
+  
+        })
+        .catch((err) =>{
+          console.log(err)
+          alert ("Aconteceu um probleminha..." + err)
+        })
+      }
+  
+
+
   return (
     
 <MainPage>
-    <div>Oi</div>
+    <p></p>
         <CentralGrid>           
-            <Top>Astromatch
-                <MatchButton onClick={props.stayHome}>Ver Matches</MatchButton>
+           <Top>
+
+           <HeartsMatch src="https://i.pinimg.com/originals/54/9c/33/549c339b7e3b84f934385943bf4c9088.gif" onClick={props.stayHome}/>
+
+           <Logo src='https://i.imgur.com/wWt4yEh.jpg'/>
+                               
+                
             </Top>
             <Center>
                 <GridCruch> 
                     
                     <Img src={user.photo}/>
                     
-                    <Like
-
-                    onClick = {( ()  => doMatch(user.id) )}>Quero</Like>
-                     
                       <Descript>
-                        <h3>{user.name}, {user.age}</h3>
-                        <p>"{user.bio}"</p>
+                        <h3>{user.name}, {user.age}</h3> <Bio>"{user.bio}"</Bio>
 
                       </Descript>
                       
@@ -136,12 +186,18 @@ function Main(props) {
             </Center>
             <Bottom>
 
-            <ButtonDontWant>X</ButtonDontWant>
+            <HeartDontWant src="https://cdn.shopify.com/s/files/1/1061/1924/products/Broken_Red_Heart_Emoji_1024x1024.png?v=1571606066"
+            
+            onClick = {( ()  => dontMatch(user.id) )}/>
+
+            <HeartWantButton src="http://pngimg.com/uploads/heart/heart_PNG51341.png" 
+                                        
+                    onClick = {( ()  => doMatch(user.id) )}/>
             
               </Bottom>
 
-        </CentralGrid>   
-    <div><button>Limpar swipes e matches</button></div>    
+        </CentralGrid>
+           
 </MainPage>
   );
 }

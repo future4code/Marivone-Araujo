@@ -3,46 +3,62 @@ import styled from 'styled-components'
 import axios from "axios";
 
 const MainLayout = styled.div`
-border: 1px solid black;
+// border: 1px solid black;
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 `
 const Top = styled.div`
-background-color: red;
+background-color: white;
 // border: 1px solid black;
 color: white;
 height: 15vh;
 place-items: center;
 `
-const BackButton = styled.button`
-// place-items: center;
-margin-left: 85%;
-margin-top: 15%;
+const BackButton = styled.img`
+margin-top: 2%;
+width: 75px;
+height: 65px;
+:hover{
+    cursor: pointer;
+  }
+`
+const Logo1 = styled.img`
+width: 70%;
+margin-left: 40px;
+// margin-bottom: 40px;
+
 `
 const Center = styled.div`
-background-color: black;
-color: white;
+color: black;
 height: 200vh;
 `
 const IMG = styled.img`
 widtch: 10vh;
 height: 10vh;
-// position: relative;
-// top: -150px;
+border-radius: 100%;
 `
 const MiniGrid = styled.div`
-border: 1px solid white;
-
+border-bottom: 1px solid black;
+text-align: center;
+`
+const CleanMatches = styled.button`
+border: 1px solid #c70000;
+color: white;
+background-color: #c70000;
+padding: 10px 5px;
+// border-radius: 50px;
+margin-left: 40px;
+margin-top: 300px;
 `
 
 
 function Match(props) {
     const [match, setMatch] = useState([])
     
+    
     const getAllMatches = () =>{
         axios.get (`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marivone/matches`)
         .then (response => setMatch(response.data.matches))
-        // .then (response => console.log(response.data.matches))
         .catch(error => console.log(error))  
       }
 
@@ -50,27 +66,47 @@ function Match(props) {
         getAllMatches()
       }, [])    
 
+            
+      const clearAllMatches = () =>{        
+        axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marivone/clear`)
 
+      .then((res) => {
+        console.log(res)
+        alert ("Sem matches!")
+        getAllMatches()
+
+      })
+      .catch((err) =>{
+        console.log(err)
+        alert ("Aconteceu um probleminha..." + err)
+      })
+    }
+    
   return (
 <MainLayout>
-    <oi>Oi</oi>
+    <oi></oi>
+    
     <div>
         <Top>
-            <BackButton onClick={props.changeToMatch}>Voltar</BackButton>
+            <BackButton src="https://static.vecteezy.com/system/resources/previews/001/186/864/non_2x/heart-arrow-png.png" onClick={props.changeToMatch} />
+
+            <Logo1 src='https://i.imgur.com/wWt4yEh.jpg'/>
+
         </Top>
 
-        <Center> Seus Matches
+        <Center> 
 
         {match.map((matching) =>{
             return( 
-                <MiniGrid><IMG src={matching.photo}/>{matching.name}</MiniGrid> 
+                <MiniGrid><IMG src={matching.photo}/>
+                
+                <strong>{matching.name}</strong></MiniGrid> 
             ) 
         })}
         
         </Center>     
-
     </div>
-    <oi><button>Limpar swipes e matches</button></oi>
+    <p><CleanMatches onClick = {clearAllMatches}>Limpar matches</CleanMatches></p>
 </MainLayout>
   );
 }
