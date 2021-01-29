@@ -137,7 +137,7 @@ function Match(props) {
         <DialogTitle id="alert-dialog-title">{"Tem certeza que deseja limpar seus matches?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Clicando aqui você limpa todos os seus matches.
+            Você está prestes a limpar todos os seus matches:
           </DialogContentText>
         </DialogContent>
         <DialogActions>
