@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import axios from "axios";
 
 const MainLayout = styled.div`
-// border: 1px solid black;
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 `
@@ -19,8 +18,9 @@ margin-top: 2%;
 width: 75px;
 height: 65px;
 :hover{
-    cursor: pointer;
-  }
+  cursor: pointer;
+  
+}
 `
 const Logo1 = styled.img`
 width: 70%;
@@ -33,13 +33,19 @@ color: black;
 height: 200vh;
 `
 const IMG = styled.img`
-widtch: 10vh;
+width: 10vh;
 height: 10vh;
 border-radius: 100%;
 `
+
+const CentralLine = styled.div`
+border: 2px dotted black;
+
+`
 const MiniGrid = styled.div`
-border-bottom: 1px solid black;
+border-bottom: 2px dotted black;
 text-align: center;
+padding: 10px;
 `
 const CleanMatches = styled.button`
 border: 1px solid #c70000;
@@ -86,7 +92,7 @@ function Match(props) {
 <MainLayout>
     <oi></oi>
     
-    <div>
+    <CentralLine>
         <Top>
             <BackButton src="https://static.vecteezy.com/system/resources/previews/001/186/864/non_2x/heart-arrow-png.png" onClick={props.changeToMatch} />
 
@@ -105,7 +111,8 @@ function Match(props) {
         })}
         
         </Center>     
-    </div>
+    </CentralLine>
+
     <p><CleanMatches onClick = {clearAllMatches}>Limpar matches</CleanMatches></p>
 </MainLayout>
   );

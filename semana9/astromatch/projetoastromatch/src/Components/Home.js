@@ -6,44 +6,39 @@ const Logo = styled.img`
 width: 79%;
 position: relative;
 Top:-74px;
-left: 10px;
+left: 12px;
 z-index: 0;
 `
 const MainPage = styled.div`
 display: grid;
 background-color: lightgray;
 grid-template-columns: 1fr 1fr 1fr;  
-// border: 1px solid black;
 `
 const HeartsMatch = styled.img`
 width: 70px;
 height: 70px;
 margin-left: 350px;
-// margin-top: -90px;
 :hover{
   cursor: pointer;
+  top: 5px;
 }
 `
 const CentralGrid = styled.div`
-// background-color: lightblue;
-// border: 1px solid black;
 color: white;
+border: 2px dotted black;
 `
 const Top = styled.div`
 background-color: white;
-// border: 1px solid black;
 color: black;
 height: 10vh;
 `
 const Center = styled.div`
 background-color: white;
-// border: 1px solid black;
 color: white;
-height: 71vh;
+height: 70.8vh;
 padding: 10px;
 `
 const GridCruch = styled.div`
-// border: 1px solid black;
 text-align: center;
 alin-item: center;
 height: 430px;
@@ -54,7 +49,6 @@ width: 360px;
 height: 400px;
 margin-top: 14px;
 box-shadow: 0px 5px 15px black;
-// border: 1px solid black;
 `
 const Bio = styled.p`
 position: relative;
@@ -78,6 +72,7 @@ position: relative;
 left: 20px;
 :hover{
   cursor: pointer;
+  left: 2px;
 }
 `
 const HeartDontWant = styled.img`
@@ -87,7 +82,8 @@ position: relative;
 left: -5px;
 :hover{
   cursor: pointer;
-  
+  left: 2px;   
+  filter: blur (20px) grayscale (100%)
 }
 `
 const Bottom = styled.div`
@@ -98,6 +94,8 @@ height: 15vh;
 text-align: center;
 
 `
+
+
 
 function Main(props) {
 
@@ -113,6 +111,7 @@ function Main(props) {
     getCruch()
   }, {})
 
+ 
   const doMatch =(id) =>{
 
     const body ={
@@ -125,13 +124,13 @@ function Main(props) {
 
       .then((res) => {
         console.log(res)
-        alert ("Gostou, hein?")
+        alert ("Será que vai dar match?!? Consulta nos corações alí em cima!")
         getCruch()
 
       })
       .catch((err) =>{
         console.log(err)
-        alert ("Vê com outros olhos!" + err)
+        alert ("Aconteceu um probleminha..." + err)
       })
     }
 
@@ -147,7 +146,7 @@ function Main(props) {
   
         .then((res) => {
           console.log(res)
-          alert ("Vê com outros olhos...")
+          alert ("Não desiste de procurar!")
           getCruch()
   
         })
@@ -155,8 +154,7 @@ function Main(props) {
           console.log(err)
           alert ("Aconteceu um probleminha..." + err)
         })
-      }
-  
+      }  
 
 
   return (
@@ -192,7 +190,7 @@ function Main(props) {
 
             <HeartWantButton src="http://pngimg.com/uploads/heart/heart_PNG51341.png" 
                                         
-                    onClick = {( ()  => doMatch(user.id) )}/>
+            onClick = {( ()  => doMatch(user.id) )}/>
             
               </Bottom>
 
