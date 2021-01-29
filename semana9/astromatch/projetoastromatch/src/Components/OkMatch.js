@@ -62,7 +62,7 @@ margin-left: 70px;
 
 function Match(props) {
     const [match, setMatch] = useState([])
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -91,7 +91,8 @@ function Match(props) {
         console.log(res)
         // alert ("Sem matches!")
         getAllMatches()
-
+        handleClose()
+               
       })
       .catch((err) =>{
         console.log(err)
@@ -124,8 +125,6 @@ function Match(props) {
         </Center>     
     </CentralLine>
 
-    {/* <CleanMatches onClick = {clearAllMatches}>Limpar matches</CleanMatches> */}
-
       <CleanMatches><Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Limpar matches
       </Button>
@@ -142,16 +141,14 @@ function Match(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          {/* <Button onClick={handleClose} color="primary">
-            Disagree
-          </Button> */}
-          <Button onClick={handleClose} onClick = {clearAllMatches} color="primary" autoFocus>
+          <Button onClick={handleClose} color="primary">
+            Ai, não!
+          </Button>
+          <Button  onClick={handleClose} onClick = {clearAllMatches} color="primary" autoFocus>
             Eu quero, sim!
           </Button>
         </DialogActions>
       </Dialog></CleanMatches>
-
-
 
 </MainLayout>
   );

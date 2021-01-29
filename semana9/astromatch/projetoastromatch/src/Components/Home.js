@@ -100,8 +100,18 @@ text-align: center;
 function Main(props) {
 
   const [user, setUser] = useState({})
+  const [open, setOpen] = useState(false);
 
-   
+  
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
+  
 
   const getCruch = () =>{
 
