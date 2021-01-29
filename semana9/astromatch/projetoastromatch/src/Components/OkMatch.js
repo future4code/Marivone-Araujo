@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from "axios";
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const MainLayout = styled.div`
 display: grid;
@@ -47,19 +53,24 @@ border-bottom: 2px dotted black;
 text-align: center;
 padding: 10px;
 `
-const CleanMatches = styled.button`
-border: 1px solid #c70000;
-color: white;
-background-color: #c70000;
-padding: 10px 5px;
-// border-radius: 50px;
-margin-left: 40px;
-margin-top: 300px;
+const CleanMatches = styled.div`
+margin-top: 200px;
+margin-left: 70px;
+
 `
 
 
 function Match(props) {
     const [match, setMatch] = useState([])
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
     
     
     const getAllMatches = () =>{
@@ -78,7 +89,7 @@ function Match(props) {
 
       .then((res) => {
         console.log(res)
-        alert ("Sem matches!")
+        // alert ("Sem matches!")
         getAllMatches()
 
       })
@@ -113,7 +124,35 @@ function Match(props) {
         </Center>     
     </CentralLine>
 
-    <p><CleanMatches onClick = {clearAllMatches}>Limpar matches</CleanMatches></p>
+    {/* <CleanMatches onClick = {clearAllMatches}>Limpar matches</CleanMatches> */}
+
+      <CleanMatches><Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Limpar matches
+      </Button>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Tem certeza que deseja limpar seus matches?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Clicando aqui você limpa todos os seus matches.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          {/* <Button onClick={handleClose} color="primary">
+            Disagree
+          </Button> */}
+          <Button onClick={handleClose} onClick = {clearAllMatches} color="primary" autoFocus>
+            Eu quero, sim!
+          </Button>
+        </DialogActions>
+      </Dialog></CleanMatches>
+
+
+
 </MainLayout>
   );
 }

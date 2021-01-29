@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
+
+
 const Logo = styled.img`
 width: 79%;
 position: relative;
@@ -95,11 +97,11 @@ text-align: center;
 
 `
 
-
-
 function Main(props) {
 
   const [user, setUser] = useState({})
+
+   
 
   const getCruch = () =>{
 
@@ -195,7 +197,7 @@ function Main(props) {
               </Bottom>
 
         </CentralGrid>
-           
+
 </MainPage>
   );
 }
