@@ -7,6 +7,8 @@ import Router from './Components/Router'
 import TripDetails from './Components/TripDetailsPage'
 import TripsList from './Components/ListTripsPage'
 import Header from './Components/Header'
+import CreateTripPage from './Components/CreateTripPage'
+
 
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
       
       {/* <Header /> */}
 
-      <HomePage />
+      {/* <HomePage /> */}
 
       {/* <Application /> */}
 
@@ -26,6 +28,8 @@ function App() {
       {/* <Login /> */}
 
       {/* <Router /> */}
+      
+      <CreateTripPage />
 
     </div>
   );

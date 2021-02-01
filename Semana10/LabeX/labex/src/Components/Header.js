@@ -7,7 +7,7 @@ grid-template-rows: 1fr 1fr;
 `
 const Logo = styled.img`
 width: 36%;
-margin-left: 40%;
+margin-left: 46%;
 `
 
 const Menu = styled.div`
