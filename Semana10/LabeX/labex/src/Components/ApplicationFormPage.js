@@ -1,8 +1,9 @@
 import React from 'react'
-import Header from './Header'
 import styled from 'styled-components'
 
 const ApplicationForm = styled.div` 
+font-family: monospace;
+font-size: 20px;
 width: 100%;
 height: 900px;;
 margin-top: -134px;
@@ -14,20 +15,19 @@ color: white;
 `
 
 const InputsForm = styled.div`
-padding-top: 50px;
+padding-top: 20px;
 padding-left: 100px;
 `
 
 function Application() {
   return (
     <div>
-    <Header />
-    
+   
     <ApplicationForm>
     <InputsForm>
 
-      <h1>Candidate-se a uma viagem:</h1>
-  
+      <h2>Candidate-se a uma viagem:</h2>
+      <br></br>
       <label for="name">Seu nome completo:</label>      
       <p><input id="name"/></p>
 
@@ -44,8 +44,8 @@ function Application() {
       <label for="destination">Destino dos sonhos:</label>
       <p><input id="destination"/></p>
 
-      <label for="why">Por que devemos escolher <strong>VOCÊ:</strong></label>
-      <p><textarea rows= "20" cols="32" id="why"/></p>
+      <label for="why">Por que escolher <strong>VOCÊ:</strong></label>
+      <p><textarea rows= "17" cols="32" id="why"/></p>
          
       </InputsForm>
     </ApplicationForm>

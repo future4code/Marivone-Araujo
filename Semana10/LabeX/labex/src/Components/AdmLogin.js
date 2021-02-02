@@ -11,22 +11,6 @@ background-size:100%;
 color: white;
 `
 
-// const ButtonCreateTrip = styled.button`
-// padding: 2px;
-// margin-left: 350px;
-// margin-top: 110px;
-// font-family: monospace;
-// background-color: black;
-// color: white;
-// box-shadow: 1px 1px 5px gray;
-// :hover{
-//   cursor: pointer;
-//   left: 5px;   
-//   transform: scale(1.2);
-// }
-
-// `
-
 const Form = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
@@ -36,33 +20,25 @@ font-family: monospace;
 font-size: 20px;
 `
 
-function LoginPage() {
+function AdmLogin() {
   return (
     <div>
-
+            
       <Central>
-        
-        {/* <ButtonCreateTrip>Clique para criar viagens!</ButtonCreateTrip> */}
       
       <Form>
         <div></div>
         <div></div>
 
       <div>
-        <h1>Login</h1>
+        <h1>ADM Login</h1>
 
         <label for="email">Email:</label>      
         <p><input id="email"/></p>
 
         <label for="senha">Senha:</label>      
         <p><input id="senha"/></p>
-
-        <button>Enviar</button>
-      
-      
-      </div>
-
-        
+        </div>
 
       </Form>
 
@@ -72,4 +48,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default AdmLogin;

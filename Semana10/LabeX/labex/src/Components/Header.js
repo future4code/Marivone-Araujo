@@ -1,5 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import {useHistory} from "react-router-dom"
+import { goToLogin } from "../Routes/Coordinator";
+import { goToHome } from "../Routes/Coordinator";
+import { goToTripsList } from "../Routes/Coordinator";
+import { goToApplication } from "../Routes/Coordinator";
+import { goToAbout } from "../Routes/Coordinator";
+
 
 const HeaderLayout = styled.div`
 display: grid;
@@ -8,6 +15,9 @@ grid-template-rows: 1fr 1fr;
 const Logo = styled.img`
 width: 36%;
 margin-left: 46%;
+:hover{
+  cursor: pointer;
+ }
 `
 
 const Menu = styled.div`
@@ -16,7 +26,7 @@ grid-template-columns: 0.4fr 0.4fr 0.5fr 0.7fr 0.4fr 1.2fr 1fr 0.7fr;
 `
 
 const MenuButton = styled.button`
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-family: font-family: monospace;
 background-color: white;
 font-size: 20px;
 border: none;
@@ -31,8 +41,6 @@ border: none;
 
 const LogoFacebook = styled.img`
 width: 26%;
-/* width: 54px; */
-/* height: 52px; */
 position: relative;
 top: 6px;
 :hover{
@@ -45,8 +53,6 @@ top: 6px;
 
 const LogoTwitter = styled.img`
 width: 20%;
-/* width: 40px; */
-/* height: 40px; */
 :hover{
   cursor: pointer;
   left: 5px;     
@@ -56,8 +62,6 @@ width: 20%;
 
 const LogoInstagram = styled.img`
 width: 30%;
-/* width: 60px; */
-/* height: 45px; */
 :hover{
   cursor: pointer;
   left: 5px;   
@@ -65,23 +69,32 @@ width: 30%;
 }
 `
 
+  const Header = () => {
+    const history = useHistory()
 
+  
 
-function Header() {
   return (
     <HeaderLayout>
-      <Logo src="https://i.imgur.com/VGSIBxH.jpg" alt = "Logo"/>
+      
+      <Logo src="https://i.imgur.com/VGSIBxH.jpg" alt = "Logo" onClick={() => goToHome(history)}/>
    
 
       <div>
 
       <Menu>  
         
-        <div><MenuButton>LOGIN</MenuButton></div>
-        <div><MenuButton>HOME</MenuButton></div>
-        <div><MenuButton>DESTINOS</MenuButton></div>
-        <div><MenuButton>CADASTRE-SE</MenuButton></div>
-        <div><MenuButton>SOBRE</MenuButton></div>
+        <div><MenuButton onClick={() => goToLogin(history)}>login</MenuButton></div>
+
+        <div><MenuButton onClick={() => goToHome(history)}>home</MenuButton></div>
+
+        <div><MenuButton onClick={() => goToTripsList(history)}>destinos</MenuButton></div>
+
+        <div><MenuButton onClick={() => goToApplication(history)}>cadastre-se</MenuButton></div>
+
+        <div><MenuButton onClick={() => goToAbout(history)}>sobre</MenuButton></div>
+
+
         <div></div>
         <div></div>
              
@@ -95,9 +108,7 @@ function Header() {
         </div>
         
       </Menu>
-      <hr></hr>
-
-
+      
       </div>
     </HeaderLayout>
   );

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Header from './Header'
 
 const CreateTripForm = styled.div`
+font-family: monospace;
 margin-top: -140px;
 margin-left: 500px;
 `
@@ -11,11 +11,13 @@ function CreateTripPage() {
   
   return (
     <div>
-    <Header />
-        
+       
     <CreateTripForm>
 
       <h1>Crie uma viagem:</h1>
+
+      <label for="img">IMG.JPG</label>      
+      <p><input id="img"/></p>
   
       <label for="id">ID</label>      
       <p><input id="name"/></p>
@@ -47,21 +49,4 @@ function CreateTripPage() {
   );
 }
   
-//   return (
-
-//     <div>
-//     <Header />
-
-//       <div>id:</div>
-//       <div>name:</div>
-//       <div>planet</div>
-//       <div>date</div>
-//       <div>description</div>
-//       <div>Duration Days</div>
-    
-      
-//     </div>
-//   );
-// }
-
 export default CreateTripPage;
