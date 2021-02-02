@@ -10,11 +10,11 @@ import { goToAbout } from "../Routes/Coordinator";
 
 const HeaderLayout = styled.div`
 display: grid;
-grid-template-rows: 1fr 1fr;
+grid-template-rows: 1fr 0.2fr;
 `
 const Logo = styled.img`
-width: 36%;
-margin-left: 46%;
+width: 35%;
+margin-left: 55%;
 :hover{
   cursor: pointer;
  }
@@ -39,35 +39,35 @@ border: none;
 
 `
 
-const LogoFacebook = styled.img`
-width: 26%;
-position: relative;
-top: 6px;
-:hover{
-  cursor: pointer;
-  left: 5px;   
-  color: blue;
-  transform: scale(1.2);
-}
-`
+// const LogoFacebook = styled.img`
+// width: 26%;
+// position: relative;
+// top: 6px;
+// :hover{
+//   cursor: pointer;
+//   left: 5px;   
+//   color: blue;
+//   transform: scale(1.2);
+// }
+// `
 
-const LogoTwitter = styled.img`
-width: 20%;
-:hover{
-  cursor: pointer;
-  left: 5px;     
-  transform: scale(1.2);
-}
-`
+// const LogoTwitter = styled.img`
+// width: 20%;
+// :hover{
+//   cursor: pointer;
+//   left: 5px;     
+//   transform: scale(1.2);
+// }
+// `
 
-const LogoInstagram = styled.img`
-width: 30%;
-:hover{
-  cursor: pointer;
-  left: 5px;   
-  transform: scale(1.2);
-}
-`
+// const LogoInstagram = styled.img`
+// width: 30%;
+// :hover{
+//   cursor: pointer;
+//   left: 5px;   
+//   transform: scale(1.2);
+// }
+// `
 
   const Header = () => {
     const history = useHistory()
@@ -77,9 +77,10 @@ width: 30%;
   return (
     <HeaderLayout>
       
-      <Logo src="https://i.imgur.com/VGSIBxH.jpg" alt = "Logo" onClick={() => goToHome(history)}/>
+      <Logo src="https://i.imgur.com/z6an6rd.jpg" alt = "Logo" onClick={() => goToHome(history)}/>
    
-
+      {/* src="https://i.imgur.com/VGSIBxH.jpg" */}
+      
       <div>
 
       <Menu>  
@@ -98,14 +99,14 @@ width: 30%;
         <div></div>
         <div></div>
              
-
+{/* 
         <div><a href="https://www.facebook.com/" target="_blank" ><LogoFacebook src="https://cdn3.iconfinder.com/data/icons/glypho-social-and-other-logos/64/logo-facebook-512.png" alt="Facebook"/></a>
 
         <a href="https://twitter.com/login?lang=pt" target="_blank"><LogoTwitter src="https://image.flaticon.com/icons/png/512/23/23681.png" alt="Twitter"/></a>
       
-        <a href="https://www.instagram.com/?hl=pt-br" target="_blank"><LogoInstagram src="https://i.pinimg.com/originals/63/9b/3d/639b3dafb544d6f061fcddd2d6686ddb.png" alt="Instagram"/></a>
+        <a href="https://www.instagram.com/?hl=pt-br" target="_blank"><LogoInstagram src="https://i.pinimg.com/originals/63/9b/3d/639b3dafb544d6f061fcddd2d6686ddb.png" alt="Instagram"/></a> */}
 
-        </div>
+        {/* </div> */}
         
       </Menu>
       

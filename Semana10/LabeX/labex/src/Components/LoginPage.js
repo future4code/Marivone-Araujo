@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const Central = styled.div` 
 width: 100%;
 height: 700px;;
-margin-top: -136px;
 background-image: url('https://arquitetoexpert.com/wp-content/uploads/2019/01/rocket.jpg');
 background-repeat: no-repeat;
 background-size:100%;

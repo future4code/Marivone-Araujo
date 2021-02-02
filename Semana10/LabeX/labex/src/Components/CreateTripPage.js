@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const CreateTripForm = styled.div`
 font-family: monospace;
-margin-top: -140px;
+/* margin-top: -140px; */
 margin-left: 500px;
 `
 

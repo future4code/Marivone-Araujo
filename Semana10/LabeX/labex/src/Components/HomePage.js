@@ -8,7 +8,7 @@ height: 2000px;
 
 `
 const MainIMG = styled.img`
-margin-top: -140px;
+/* margin-top: -140px; */
 width: 100%;
 `
 const SearchTrip = styled.input`
@@ -47,7 +47,8 @@ background-color: red;
 border: 1px solid black;
 width: 360px;
 height: 300px;
-margin: 30px;`
+margin: 30px;
+`
 
 const ButtonDetails = styled.button`
 font-family: monospace;

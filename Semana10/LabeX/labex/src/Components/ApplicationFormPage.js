@@ -6,7 +6,7 @@ font-family: monospace;
 font-size: 20px;
 width: 100%;
 height: 900px;;
-margin-top: -134px;
+/* margin-top: -134px; */
 background-image: url('https://www.nationalgeographic.com/interactive-assets/nggraphics/ngm-1907-moon-landing-rockets/build-2019-06-13_12-02-54/ngm-assets/img/ngm-1907-moon-landing-rockets_ai2html-desktop-medium.jpg');
 background-repeat: no-repeat;
 background-size:100%;
@@ -16,7 +16,7 @@ color: white;
 
 const InputsForm = styled.div`
 padding-top: 20px;
-padding-left: 100px;
+padding-left: 85px;
 `
 
 function Application() {

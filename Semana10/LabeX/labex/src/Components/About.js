@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Central = styled.div` 
 width: 100%;
 height: 700px;;
-margin-top: -136px;
+/* margin-top: -136px; */
 background-image: url('http://www.esa.int/var/esa/storage/images/esa_multimedia/images/2019/06/europe_s_rockets/19421217-6-eng-GB/Europe_s_rockets.jpg');
 background-repeat: no-repeat;
 background-size:100%;
@@ -18,15 +18,14 @@ margin-left: 20px;
 
 const Line = styled.div`
 font-family: monospace;
-font-size: 26px;
+font-size: 20px;
 margin-left: 240px;
 padding: 20px;
 text-shadow: 1px 1px 5px blue;
 `
-
 const Author = styled.div`
 font-family: monospace;
-font-size: 20px;
+font-size: 17px;
 margin-left: 630px;
 text-shadow: 1px 1px 5px blue;
 `
@@ -42,7 +41,7 @@ font-family: monospace;
 `
 const Line2 = styled.div`
 font-family: monospace;
-font-size: 24px;
+font-size: 22px;
 margin-left: 850px;
 `
 const Author2 = styled.div`
@@ -65,7 +64,7 @@ function About() {
       <Central>
 
         <Quote>
-            <Line><i>"Nunca se fez nada grande sem uma esperança exagerada",</i></Line>
+            <Line>"Nunca se fez nada grande sem uma esperança exagerada",</Line>
             
             <Author>Jules Verne</Author>
         </Quote>
@@ -77,12 +76,12 @@ function About() {
               <div></div>
               <div></div>
               <div></div>
-              <H1>Sobre a LabeX</H1>
+              <H1></H1>
               <div></div>
 
             </GridAbout>
               <div>
-                <Line2><i>"O que eu mais vou lembrar sobre o voo é que foi divertido. Na verdade, foi a coisa mais divertida que vivenciei em minha vida!",</i></Line2>
+                <Line2>"O que mais vou lembrar sobre o voo é que foi divertido. Na verdade, foi a coisa mais divertida que vivenciei em minha vida!",</Line2>
         
                 <Author2>Sally K. Ride, <Author2Detail>primeira mulher a orbitar a Terra numa nave espacial.</Author2Detail></Author2>
               </div>
