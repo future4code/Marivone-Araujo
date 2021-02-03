@@ -7,6 +7,7 @@ import TripsListPage from '../Components/TripsListPage'
 import Header from '../Components/Header'
 import CreateTripPage from '../Components/CreateTripPage'
 import About from '../Components/About'
+import AdmDetails from '../Components/AdmDetails'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 
@@ -44,6 +45,10 @@ function router() {
 
           <Route exact path="/trips/create">
             <CreateTripPage />
+          </Route>
+
+          <Route exact path="/trips/AdmDetails">
+            <AdmDetails />
           </Route>
 
           

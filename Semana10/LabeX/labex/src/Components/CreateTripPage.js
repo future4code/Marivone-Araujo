@@ -25,22 +25,14 @@ function CreateTripPage() {
       <label for="name">Nome:</label>
       <p><input id="name"/></p>
 
-      <label for="planeta">País que reside:</label>
-      <p><select id="country"/></p>
+      <label for="planeta">Planeta:</label>
+      <p><input type="text" id="planeta"/></p>
       
-
-      <label for="job">Sua profissão:</label>
-      <p><input id="job"/></p>
-
-      <label for="date">Data:</label>
-      <p><input type="date" id="date"/></p>
-
-      <label for="description">Duração:</label>
-      <p><input type="description" id="date"/></p>
-
-      
-      <label for="duration">Descrição:</label>
-      <p><input type="duration" id="date"/></p>
+      <label for="date">Data (dias):</label>
+      <p><input type="number" id="date"/></p>
+     
+      <label for="descricao">Descrição:</label>
+      <p><input type="descricao" id="date"/></p>
          
       
     </CreateTripForm>

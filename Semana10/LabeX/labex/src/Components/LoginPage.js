@@ -1,5 +1,9 @@
-import React from 'react'
+import axios from 'axios'
+import React, {useState} from 'react'
 import styled from 'styled-components'
+import {useHistory} from "react-router-dom"
+
+
 
 const Central = styled.div` 
 width: 100%;
@@ -9,23 +13,6 @@ background-repeat: no-repeat;
 background-size:100%;
 color: white;
 `
-
-// const ButtonCreateTrip = styled.button`
-// padding: 2px;
-// margin-left: 350px;
-// margin-top: 110px;
-// font-family: monospace;
-// background-color: black;
-// color: white;
-// box-shadow: 1px 1px 5px gray;
-// :hover{
-//   cursor: pointer;
-//   left: 5px;   
-//   transform: scale(1.2);
-// }
-
-// `
-
 const Form = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
@@ -34,15 +21,45 @@ padding-top: 150px;
 font-family: monospace;
 font-size: 20px;
 `
-
 function LoginPage() {
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const history = useHistory()
+
+
+  const handleEmail = (e) =>{
+    setEmail (e.target.value)
+    
+  }
+
+  const handlePassword = (e) =>{
+    setPassword (e.target.value)
+    
+  }
+
+  const Login = () =>{
+      const body ={
+        email: email,
+        password: password
+      }
+
+    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/login", body)
+      .then((res) =>{
+        localStorage.setItem("token", res.data.token)
+        history.push('/trips/details')
+
+      }).catch((err) =>{
+        console.log(err.message)
+        alert (err.message)
+      })
+  }
+
   return (
     <div>
 
       <Central>
-        
-        {/* <ButtonCreateTrip>Clique para criar viagens!</ButtonCreateTrip> */}
-      
+              
       <Form>
         <div></div>
         <div></div>
@@ -51,12 +68,12 @@ function LoginPage() {
         <h1>Login</h1>
 
         <label for="email">Email:</label>      
-        <p><input id="email"/></p>
+        <p><input value={email} onChange={handleEmail} id="email"/></p>
 
         <label for="senha">Senha:</label>      
-        <p><input id="senha"/></p>
+        <p><input value={password} onChange={handlePassword} id="senha"/></p>
 
-        <button>Enviar</button>
+        <button onClick={Login}>Enviar</button>
       
       
       </div>

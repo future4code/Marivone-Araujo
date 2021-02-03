@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import {useHistory} from "react-router-dom"
+
 
 
 const Main = styled.div`
@@ -34,13 +36,11 @@ margin-left: 320px;
 font-size: 20px;
 font-family: monospace;
 `
-
 const GridTrips = styled.div`
 /* background-color: yellow; */
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 `
-
 const CardGrid = styled.div`
 font-family: monospace;
 background-color: red;
@@ -49,7 +49,6 @@ width: 360px;
 height: 300px;
 margin: 30px;
 `
-
 const ButtonDetails = styled.button`
 font-family: monospace;
 border: none;
@@ -60,7 +59,6 @@ background-color: white;
   transform: scale(1.2);
 } 
 `
-
 function HomePage() {
   const [trips, setTrips] = useState([])
   const [textInput, setTextInput] =  useState("")
@@ -81,6 +79,13 @@ function HomePage() {
         })
 
   }, [])
+
+  const history = useHistory()
+
+  const goToTripsList = () =>{
+   history.push("/trips/list")
+  }
+
 
   const filteredTrips = trips.filter(trip => trip.name.includes(textInput))
 
@@ -104,7 +109,7 @@ function HomePage() {
 	          <p>{trip.durationInDays}</p>
             <p>{trip.date}</p>
 
-            <ButtonDetails><strong>+Detalhes</strong></ButtonDetails>              
+            <ButtonDetails onClick={goToTripsList}><strong>+Detalhes</strong></ButtonDetails>              
             </CardGrid>              
         )})}
           

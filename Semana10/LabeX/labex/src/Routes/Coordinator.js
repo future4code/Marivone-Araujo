@@ -27,4 +27,11 @@ export const goToAbout = (history) => {
   export const goToCreate = (history) => {
     history.push("/trips/create");
   };
+
+  export const goToAdmDetails = (history) => {
+    history.push("/trips/AdmDetails");
+  };
+
+
+  
   
