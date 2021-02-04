@@ -43,16 +43,29 @@ grid-template-columns: 1fr 1fr 1fr;
 `
 const CardGrid = styled.div`
 font-family: monospace;
-background-color: red;
-border: 1px solid black;
-width: 360px;
-height: 300px;
+width: 300px;
+height: 200px;
 margin: 25px;
-padding: 5px;
+padding: 5px; 
+
+padding-left: 50px;
+background-color: white;
+color: black;
+top: 10px;
+left: 30px;
+border-radius: 10px;
+opacity: 0.7;
+box-shadow: 0px 0.5px 15px gray;
+
+:hover{
+  cursor: pointer;
+  color: blue;
+  transform: scale(1.1);
+} 
+
 `
 const ButtonDetails = styled.button`
 font-family: monospace;
-border: none;
 background-color: white;
 :hover{
   cursor: pointer;
@@ -69,7 +82,7 @@ function HomePage() {
   }
   
   useEffect (() => {
-    axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-epps/trips')
+    axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips')
     .then((response) =>{
       setTrips(response.data.trips)
       console.log(response.data.trips)
@@ -96,7 +109,7 @@ function HomePage() {
     
       <MainIMG src = "https://cdn.pixabay.com/photo/2016/10/30/20/22/astronaut-1784245_1280.jpg"/>
 
-      <SearchTrip type="text" placeholder= "Busque aqui pelas melhores viagens espaciais!" onChange={handleTextInput} value={textInput}/>
+      <SearchTrip type="text" placeholder= "Qual planeta você sonha conhecer?" onChange={handleTextInput} value={textInput}/>
       <Contador><i>Temos <strong>{filteredTrips.length}</strong> experiências inesquecíveis esperando por você!</i></Contador>
 
       <GridTrips>
@@ -105,7 +118,7 @@ function HomePage() {
             return (
             <CardGrid>
             <p>{trip.img}</p>
-            <p>{trip.name}</p>
+            <p><strong>{trip.name}</strong></p>
             <p>Planeta:{trip.planet}</p>
 	          <p>{trip.durationInDays} dias</p>
             <p>Partida:{trip.date}</p>

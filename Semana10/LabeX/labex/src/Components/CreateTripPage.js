@@ -1,13 +1,12 @@
 import React, {useState} from 'react'
 import useForm from '../hooks/useForm'
 import styled from 'styled-components'
-// import axios from 'axios';
+import axios from 'axios';
 
 const CreateTripForm = styled.div`
 font-family: monospace;
 margin-left: 500px;
 `
-
 function CreateTripPage() {
   
   const [form, onChange, clearFields] = useForm({
@@ -23,34 +22,28 @@ function CreateTripPage() {
     console.log(form);
     clearFields();
 
-    // axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips", body,{
-    //   headers:{
-    //     auth: localStorage.getItem("token")
-    //   }
-    // })
-    // .then((res) =>{
-    //   console.log(res.data.trip)
+    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips", form,{
+      headers:{
+        auth: localStorage.getItem("token")
+      }
+    })
+    .then((res) =>{
+      console.log(res.data.trip)
 
-    // })
-    // .catch((err) =>{
-    //     console.log(err)
-    // })
-
+    })
+    .catch((err) =>{
+        console.log(err)
+    })
   };
-
-
   
   return (
     <div>
        
     <CreateTripForm>
-
       <h1>Crie uma viagem:</h1>
-      <label for="name">Nome:</label>
-      
+      <label for="name">Nome:</label>      
 
-      <form onSubmit={onClickButton}> 
-      
+      <form onSubmit={onClickButton}>       
       <p><input 
       type="text"    
       id="name"      
@@ -60,8 +53,7 @@ function CreateTripPage() {
       placeholder="Nome"
       required
       pattern={"^.{5,}"}
-      title={"O nome deve ter no mínimo 5 caracteres"}
-      
+      title={"O nome deve ter no mínimo 5 caracteres"}    
         
       /></p>
 
@@ -76,6 +68,7 @@ function CreateTripPage() {
       placeholder="planeta"
       required            
       >
+        <option>Escolha</option>
         <option>Mercúrio</option>
         <option>Vênus</option>
         <option>Terra</option>
@@ -110,13 +103,13 @@ function CreateTripPage() {
       title={"O texto deve ter no mínimo 30 letras"}
       /></p>
 
-      <label for="duration">Duração (Dias):</label>
+      <label for="durationInDays">Duração (Dias):</label>
       <p><input 
       type="number" 
       min={50}
-      id="duration"    
-      name="duration"
-      value={form.duration}
+      id="durationInDays"    
+      name="durationInDays"
+      value={form.durationInDays}
       onChange={onChange}
       placeholder="Duração"
       required

@@ -29,7 +29,9 @@ export default function App () {
 
     return (
       <div className="App">
+
         <select onChange={changePokeName}>
+          
           <option value={""}>Nenhum</option>
           {pokeList.map(pokemon => {
             return (

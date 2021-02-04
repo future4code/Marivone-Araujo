@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import useForm from '../hooks/useForm'
-// import axios from 'axios';
+import axios from 'axios';
 
 
 const ApplicationForm = styled.div` 
@@ -16,7 +16,7 @@ color: white;
 `
 
 const InputsForm = styled.div`
-padding-top: 15px;
+padding-top: 5px;
 padding-left: 50px;
 background-color: white;
 color: black;
@@ -25,20 +25,54 @@ top: 10px;
 left: 30px;
 border-radius: 10px;
 opacity: 0.7;
-width: 320px;
+width: 350px;
 box-shadow: 0px 0.5px 15px gray;
+`
+const ButtonDits = styled.button`
+margin-left: 90px;
+margin-bottom: 10px;
+width:80px;
+height: 30px;
+font-family: monospace;
+background-color: white;
+:hover{
+  cursor: pointer;
+  color: blue;
+  transform: scale(1.2);
+  
 `
 
 function Application() {
 
 
-  return (
-    <div>
+  // const [trip, setTrip] = useState ([])
+  // const [tripName, setTripName] = useState ('')
+  
+
+  const changeTripName = event => {
+    // setTripName(event.target.value);
+  };
+
+  const getTripName = (trip) => {
+    axios
+      .get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trip/${trip}`)
+      // .then(response => setTrip(response.data.trip))
+      .catch(err => console.log(err));
+    
+    }
+
+
+    // useEffect (() =>{
+      // getTripName()
+    // })
+
+    return (
+    <form>
    
     <ApplicationForm>
     <InputsForm>
 
-      <h2>Candidate-se a uma viagem:</h2>
+      <h2>Candidate-se a uma viagem espacial:</h2>
       <br></br>
       
       <label for="name">Seu nome completo:</label>      
@@ -47,8 +81,8 @@ function Application() {
       type="text"    
       id="name"      
       name="name"
-      value={form.name}
-      onChange={onChange}
+      // value={form.name}
+      // onChange={onChange}
       placeholder="Nome"
       required
       pattern={"^.{5,}"}
@@ -61,25 +95,42 @@ function Application() {
       min={18}
       id="age"    
       name="age"
-      value={form.age}
-      onChange={onChange}
+      // value={form.age}
+      // onChange={onChange}
       placeholder="Idade"
       required
       /></p>
 
+      
+      <label for="tripId">Destino dos sonhos:</label>
+      <p><select 
+      id="tripId"
+      name="tripId"
+      // value={form.tripId}
+      // onChange={onChange}
+      onChange={changeTripName}>
+      <option value={""}>Nenhum</option>
+          {/* {trip.map(travel => { */}
+            {/* return ( */}
+              {/* <option key={travel.name} value={travel.name}> */}
+                {/* {travel.name} */}
+              {/* </option>      */}
+        );
+      })}
+      </select></p>
+
       <label for="country">País que reside:</label>
       
-      <select 
+      <p><select 
       
       id="country"      
       type="select"                 
       name="country"
-      value={form.country}
-      onChange={onChange}
+      // value={form.country}
+      // onChange={onChange}
       placeholder="country"
       required            
       >
-        <div>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -324,45 +375,44 @@ function Application() {
                 <option value="Yemen">Yemen</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
-            </select>
+            </select></p>
 
-        </div>
 
       <label for="job">Sua profissão:</label>
       <p><input      
       type="text"    
       id="profession" 
       name="profession"
-      value={form.profession}
-      onChange={onChange}
+      // value={form.profession}
+      // onChange={onChange}
       placeholder="Profissão"
       required
       pattern={"^.{5,}"}
       title={"O nome deve ter no mínimo 3 caracteres"}
       
       /></p>
-{/* 
-      <label for="tripId">Destino dos sonhos:</label>
-      <p><input id="destination" value={destination} onChange={handleDestination}/></p> */}
-
+ 
       <label for="applicationText">Por que escolher <strong>VOCÊ:</strong></label>
-      <p><textarea rows= "15" cols="32" 
+      <p><textarea rows= "12" cols="32" 
       type="text"
       id="applicationText" 
       name="applicationText"
-      value={form.applicationText}
-      onChange={onChange}
+      // value={form.applicationText}
+      // onChange={onChange}
       placeholder="Escreva aqui"
       required
       pattern={"^.{30,}"}
       title={"O texto deve ter no mínimo 30 caracteres"}
       /></p> 
+
+      <ButtonDits>Enviar</ButtonDits>
          
       </InputsForm>
     </ApplicationForm>
 
-    </div>
-  );
+</form>
+
+); 
 }
 
 export default Application;

@@ -3,19 +3,62 @@ import styled from "styled-components"
 import axios from "axios"
 import {useHistory} from "react-router-dom"
 
-const CardGrid = styled.div`
-font-family: monospace;
-background-color: red;
-border: 1px solid black;
 
-/* width: 360px;
-height: 250px; */
+const ButtonCreate = styled.button`
+font-size: 25px;
+margin: 50px;
+margin-left: 140px;
+width: 150px;
+height: 100px;
+font-family: monospace;
+background-color: white;
+:hover{
+  cursor: pointer;
+  color: blue;
+
+}
 `
 
-const ButtonTripDetails =styled.div`
-border: none;
+const CardGrid = styled.div`
+font-family: monospace;
+width: 300px;
+height: 150px;
+margin: 50px;
+padding: 30px;
+background-color: white;
+color: black;
+top: 10px;
+left: 30px;
+border-radius: 10px;
+opacity: 0.7;
+box-shadow: 0px 0.5px 15px gray;
+
 :hover{
-  cursor:pointer;
+  cursor: pointer;
+  color: blue;
+ }
+`
+
+const Titulo = styled.div`
+font-family: monospace;
+font-size: 25px;
+width: 300px;
+margin: 30px;
+padding-left: 75px;
+`
+
+const Trips = styled.div`
+font-size: 20px;
+color: white;
+`
+
+const ButtonTripDetails = styled.button`
+font-family: monospace;
+background-color: white;
+:hover{
+  cursor: pointer;
+  color: blue;
+  transform: scale(1.2);
 }
 `
 
@@ -28,21 +71,13 @@ function TripDetails() {
    history.push("/trips/create")
   }
 
-  const historian = useHistory()
-  const goToAdmDetails = () =>{
-   history.push("/trips/AdmDetails")
-  }
 
 
-  useEffect ((id) => {
-    axios.get (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trip/${id}`, {
-      headers:{
-        auth:localStorage.getItem("token")
-      }
-    })
-    .then((res) =>{
-      setTrips(res.data.trips)
-      console.log(res.data.trips)
+  useEffect (() => {
+    axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips')
+    .then((response) =>{
+      setTrips(response.data.trips)
+      console.log(response.data.trips)
     })
     .catch((err) =>{
           console.log(err)
@@ -51,22 +86,26 @@ function TripDetails() {
 
   }, [])
 
+  
+ 
 
   return (
     <div>
 
-    <button onClick={goToCreate}>Criar Viagem</button>
+    <ButtonCreate onClick={goToCreate}>Criar Viagem</ButtonCreate>
 
-    <div><strong>Lista de Viagens</strong></div>
+    <Titulo><strong>Lista de Viagens</strong></Titulo>
 
-      <div >
-   {/* {trips.map((trip) => {
+      <Trips >
+   {trips.map((trip) => {
             return (
             <CardGrid>
-              <ButtonTripDetails onClick={goToAdmDetails}>{trip.name}</ButtonTripDetails>
+              <p>{trip.name}</p>
+
+              <ButtonTripDetails>TripDetails</ButtonTripDetails>
             </CardGrid>              
-        )})} */}
-       </div>
+        )})}
+       </Trips>
             
     </div>
   );

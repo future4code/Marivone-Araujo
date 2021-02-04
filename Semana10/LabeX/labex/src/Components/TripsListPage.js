@@ -6,13 +6,37 @@ import {useHistory} from "react-router-dom"
 
 const CardGrid = styled.div`
 font-family: monospace;
-background-color: red;
-border: 1px solid black;
-width: 360px;
-height: 250px;
-padding: 10px;
-margin: 10px;
+width: 300px;
+height: 200px;
+margin: 25px;
+padding: 5px; 
+
+padding-left: 50px;
+background-color: white;
+color: black;
+top: 10px;
+left: 30px;
+border-radius: 10px;
+opacity: 0.7;
+box-shadow: 0px 0.5px 15px gray;
+
+:hover{
+  cursor: pointer;
+  color: blue;
+  transform: scale(1.1);
+} 
+
 `
+
+const ButtonDits = styled.button`
+font-family: monospace;
+background-color: white;
+:hover{
+  cursor: pointer;
+  color: blue;
+  transform: scale(1.2);
+`
+
 function TripsListPage() {
   const [trips, setTrips] = useState([])
   
@@ -40,13 +64,13 @@ function TripsListPage() {
             return (
             <CardGrid>
             <p>{trip.img}</p>
-            <p>Experiência: {trip.name}</p>
+            <p><strong>Experiência: {trip.name}</strong></p>
             <p>Planeta: {trip.planet}</p>
 	          <p>Duração: {trip.durationInDays} dias</p>
             <p>"{trip.description}"</p>
             <p>Partida: {trip.date}</p>
 
-            <button onClick={goToApplication}>Candidatar-se</button>              
+            <ButtonDits onClick={goToApplication}>Candidatar-se</ButtonDits>              
             </CardGrid>              
         )})}
        </div>

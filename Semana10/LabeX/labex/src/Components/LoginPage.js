@@ -5,6 +5,7 @@ import {useHistory} from "react-router-dom"
 
 
 
+
 const Central = styled.div` 
 width: 100%;
 height: 700px;;
@@ -20,7 +21,42 @@ padding-left: 350px;
 padding-top: 150px;
 font-family: monospace;
 font-size: 20px;
+
 `
+
+const BoxLogin = styled.div`
+font-family: monospace;
+width: 250px;
+height: 350px;
+margin: 25px;
+padding: 5px; 
+
+padding-left: 50px;
+background-color: white;
+color: black;
+top: 10px;
+left: 30px;
+border-radius: 10px;
+opacity: 0.7;
+box-shadow: 0px 0.5px 15px gray;
+
+:hover{
+  cursor: pointer;
+  color: blue;
+
+} 
+`
+
+const ButtonDits = styled.button`
+font-family: monospace;
+background-color: white;
+:hover{
+  cursor: pointer;
+  color: blue;
+  transform: scale(1.2);
+}
+`
+
 function LoginPage() {
 
   const [email, setEmail] = useState('')
@@ -64,7 +100,7 @@ function LoginPage() {
         <div></div>
         <div></div>
 
-      <div>
+      <BoxLogin>
         <h1>Login</h1>
 
         <label for="email">Email:</label>      
@@ -73,10 +109,10 @@ function LoginPage() {
         <label for="senha">Senha:</label>      
         <p><input value={password} onChange={handlePassword} id="senha"/></p>
 
-        <button onClick={Login}>Enviar</button>
+        <ButtonDits onClick={Login}>Enviar</ButtonDits>
       
       
-      </div>
+      </BoxLogin>
 
         
 
