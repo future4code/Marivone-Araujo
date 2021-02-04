@@ -34,8 +34,8 @@ function TripDetails() {
   }
 
 
-  useEffect (() => {
-    axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-epps/trips', {
+  useEffect ((id) => {
+    axios.get (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trip/${id}`, {
       headers:{
         auth:localStorage.getItem("token")
       }
@@ -60,12 +60,12 @@ function TripDetails() {
     <div><strong>Lista de Viagens</strong></div>
 
       <div >
-   {trips.map((trip) => {
+   {/* {trips.map((trip) => {
             return (
             <CardGrid>
               <ButtonTripDetails onClick={goToAdmDetails}>{trip.name}</ButtonTripDetails>
             </CardGrid>              
-        )})}
+        )})} */}
        </div>
             
     </div>

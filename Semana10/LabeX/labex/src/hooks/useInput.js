@@ -8,3 +8,4 @@ export function useInput() {
     }
     return [input, handleInput]
 }
+

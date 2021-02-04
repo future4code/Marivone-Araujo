@@ -5,7 +5,7 @@ import axios from "axios"
 function AdmDetails() {
   // const [trip, setTrip] = useState({})
 
-  // const getTripDetail = () => {
+  // const getTripDetail = (id) => {
   //   axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trip/${id}`, {
   //     headers: {
   //       auth: localStorage.getItem("token")
@@ -26,7 +26,8 @@ function AdmDetails() {
   return (
     < div>
 
-    <hi>Get Trip Details</hi>
+    {/* <hi>{trip.name}</hi> */}
+    Oi
     
     </div>
   );

@@ -47,7 +47,7 @@ function router() {
             <CreateTripPage />
           </Route>
 
-          <Route exact path="/trips/AdmDetails">
+          <Route exact path="/trips/AdmDetails/">
             <AdmDetails />
           </Route>
 
