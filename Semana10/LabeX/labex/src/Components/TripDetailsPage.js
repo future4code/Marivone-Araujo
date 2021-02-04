@@ -28,10 +28,18 @@ function TripDetails() {
    history.push("/trips/create")
   }
 
+  const historian = useHistory()
+  const goToAdmDetails = () =>{
+   history.push("/trips/AdmDetails")
+  }
 
 
   useEffect (() => {
-    axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-epps/trips')
+    axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-epps/trips', {
+      headers:{
+        auth:localStorage.getItem("token")
+      }
+    })
     .then((res) =>{
       setTrips(res.data.trips)
       console.log(res.data.trips)
@@ -55,7 +63,7 @@ function TripDetails() {
    {trips.map((trip) => {
             return (
             <CardGrid>
-              <ButtonTripDetails>{trip.name}</ButtonTripDetails>
+              <ButtonTripDetails onClick={goToAdmDetails}>{trip.name}</ButtonTripDetails>
             </CardGrid>              
         )})}
        </div>

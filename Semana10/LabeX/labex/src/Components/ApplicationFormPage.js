@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import {useInput} from '../hooks/useInput'
+
 
 const ApplicationForm = styled.div` 
 font-family: monospace;
@@ -20,6 +22,15 @@ padding-left: 85px;
 `
 
 function Application() {
+  const [naming, handlingName] = useInput();
+  const [age, handlingAge] = useInput();
+  const [country, handleCountry] = useInput();
+  const [job, handleJob] = useInput();
+  const [destination, handleDestination] = useInput();
+  const [why, handleWhy] = useInput();
+
+
+
   return (
     <div>
    
@@ -29,23 +40,23 @@ function Application() {
       <h2>Candidate-se a uma viagem:</h2>
       <br></br>
       <label for="name">Seu nome completo:</label>      
-      <p><input id="name"/></p>
+      <p><input id="name" value={naming} onChange={handlingName}/></p>
 
       <label for="age">Sua idade:</label>
-      <p><input id="age"/></p>
+      <p><input id="age" value={age} onChange={handlingAge}/></p>
 
       <label for="country">País que reside:</label>
-      <p><input id="country"/></p>
+      <p><input id="country" value={country} onChange={handleCountry}/></p>
       
 
       <label for="job">Sua profissão:</label>
-      <p><input id="job"/></p>
+      <p><input id="job" value={job} onChange={handleJob}/></p>
 
       <label for="destination">Destino dos sonhos:</label>
-      <p><input id="destination"/></p>
+      <p><input id="destination" value={destination} onChange={handleDestination}/></p>
 
       <label for="why">Por que escolher <strong>VOCÊ:</strong></label>
-      <p><textarea rows= "17" cols="32" id="why"/></p>
+      <p><textarea rows= "17" cols="32" id="why" value={why} onChange={handleWhy}/></p>
          
       </InputsForm>
     </ApplicationForm>

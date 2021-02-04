@@ -10,9 +10,12 @@ background-color: red;
 border: 1px solid black;
 width: 360px;
 height: 250px;
+padding: 10px;
+margin: 10px;
 `
 function TripsListPage() {
   const [trips, setTrips] = useState([])
+  
   useEffect (() => {
     axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-epps/trips')
     .then((response) =>{
@@ -37,9 +40,9 @@ function TripsListPage() {
             return (
             <CardGrid>
             <p>{trip.img}</p>
-            <p>{trip.name}</p>
-            <p>Planeta:{trip.planet}</p>
-	          <p>Experiência: {trip.durationInDays} dias</p>
+            <p>Experiência: {trip.name}</p>
+            <p>Planeta: {trip.planet}</p>
+	          <p>Duração: {trip.durationInDays} dias</p>
             <p>"{trip.description}"</p>
             <p>Partida: {trip.date}</p>
 

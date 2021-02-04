@@ -47,7 +47,8 @@ background-color: red;
 border: 1px solid black;
 width: 360px;
 height: 300px;
-margin: 30px;
+margin: 25px;
+padding: 5px;
 `
 const ButtonDetails = styled.button`
 font-family: monospace;
@@ -105,9 +106,9 @@ function HomePage() {
             <CardGrid>
             <p>{trip.img}</p>
             <p>{trip.name}</p>
-            <p>{trip.planet}</p>
-	          <p>{trip.durationInDays}</p>
-            <p>{trip.date}</p>
+            <p>Planeta:{trip.planet}</p>
+	          <p>{trip.durationInDays} dias</p>
+            <p>Partida:{trip.date}</p>
 
             <ButtonDetails onClick={goToTripsList}><strong>+Detalhes</strong></ButtonDetails>              
             </CardGrid>              
