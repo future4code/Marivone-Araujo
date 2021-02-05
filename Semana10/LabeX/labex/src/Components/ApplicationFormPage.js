@@ -14,7 +14,6 @@ background-repeat: no-repeat;
 background-size:100%;
 color: white;
 `
-
 const InputsForm = styled.div`
 padding-top: 5px;
 padding-left: 50px;
@@ -50,9 +49,10 @@ function Application(id) {
     profession: "",
     country: "",
     applicationText: "",
-    id: ""
+    trip: ""
   });
-  const [goTravel, setGoTravel] = useState()
+  const [goTravel, setGoTravel] = useState([])
+
 
 
   const onClickButton = (e) => {
@@ -63,9 +63,10 @@ function Application(id) {
     axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/${id}/apply`, form)
         
     .then((res) =>{
-      goTravel(res.data.message)
-      window.alert(res.data.message)
-      console.log(res.data.message)
+
+      goTravel(res.data)
+      window.alert("funcionou")
+      console.log(res.data)
       
     })
     .catch((err) =>{
@@ -76,7 +77,7 @@ function Application(id) {
  
     return (
 
-    <form>
+    <form onSubmit={onClickButton}>
    
     <ApplicationForm>
     <InputsForm>
@@ -140,6 +141,22 @@ function Application(id) {
       title={"O texto deve ter no mínimo 30 caracteres"}
       /></p> 
 
+
+        
+      <label for="id">Escolha a viagem:</label>
+      <p><select>
+      {goTravel.map((trip) =>{
+        return(
+      <option
+      id="id"
+      value={form.id}
+      onChange={onChange}
+      > {trip.id}</option>
+        )
+      })}
+
+      </select></p>
+     
 
       <label for="country">País que reside:</label>
       <p><select       
