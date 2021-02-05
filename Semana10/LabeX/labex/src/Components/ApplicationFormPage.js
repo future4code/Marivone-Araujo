@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState,  useEffect } from 'react'
 import styled from 'styled-components'
 import useForm from '../hooks/useForm'
 import axios from 'axios';
-
 
 const ApplicationForm = styled.div` 
 font-family: monospace;
@@ -51,8 +50,22 @@ function Application(id) {
     applicationText: "",
     trip: ""
   });
+  const [trips, setTrips] = useState([])
   const [goTravel, setGoTravel] = useState([])
 
+
+  useEffect (() => {
+    axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips')
+    .then((response) =>{
+      setTrips(response.data.trips)
+      console.log(response.data.trips)
+    })
+    .catch((err) =>{
+          console.log(err)
+          alert ("Aconteceu um probleminha..." + err)
+        })
+
+  }, [])
 
 
   const onClickButton = (e) => {
@@ -60,11 +73,11 @@ function Application(id) {
     console.log(form)
     clearFields()
     
-    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/${id}/apply`, form)
+    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips/${id}/apply`, form)
         
     .then((res) =>{
 
-      goTravel(res.data)
+      setGoTravel(res.data)
       window.alert("funcionou")
       console.log(res.data)
       
@@ -145,13 +158,14 @@ function Application(id) {
         
       <label for="id">Escolha a viagem:</label>
       <p><select>
-      {goTravel.map((trip) =>{
+
+      {trips && trips.map((trip) =>{
         return(
       <option
       id="id"
       value={form.id}
       onChange={onChange}
-      > {trip.id}</option>
+      > {trip.name} ({trip.planet})</option>
         )
       })}
 
