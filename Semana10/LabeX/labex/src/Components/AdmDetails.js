@@ -1,37 +1,49 @@
 import React, { useState, useEffect } from 'react'
-import axios from "axios"
+import styled from 'styled-components'
 
 
-function AdmDetails(props) {
-  const [trip, setTrip] = useState({})
+const MainGrid = styled.div`
+margin-left: 950px;
+margin-right: 20px;
+position: absolute;
 
-  const getTripDetail = (trip) => {
-    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trip/${trip}`, {
-      headers: {
-        auth: localStorage.getItem("token")
-      }
-    })
-    .then(response => setTrip(response.data))
-    .catch(err => console.log(err))
-};
+`
 
-useEffect(() =>{
-    getTripDetail()
-  })
-  useEffect(() =>{
-    if (trip !== props.trip) {
-      getTripDetail(props.trip);
-    }
-  }, [props.trip])
+function AdmDetails( viagens, candidatos) {
 
+  return (   
 
-  return (
-    < div>
+    <MainGrid>
 
-    <hi>{trip.name}</hi>
-    Oi
-    
-    </div>
+      <div>
+      
+      <p></p>
+  
+        <div><strong>Dados da viagem:</strong></div>
+        <p></p>
+        <div><i>Name:</i>  "{viagens.viagens.name}"</div>
+        <div><i>Planet:</i>  {viagens.viagens.planet}</div>
+        <div><i>Duration:</i>  {viagens.viagens.durationInDays}</div>
+        <div><i>Date:</i>  {viagens.viagens.date}</div>  
+        <div><i>Description:</i>  "{viagens.viagens.description}"</div>
+  
+      {/* {viagens.viagens.map((trip) => {
+      return (  
+       <div>
+  
+      <p></p>
+       <div><strong>Candidatos:</strong></div>
+       <p></p>        
+        <div>Name:{candidatos.viagens.name}</div>
+        <div>Age:{candidatos.viagens.age}</div>
+        <div>Profession:{candidatos.viagens.profession}</div>        
+        <div>Country:{candidatos.viagens.country}</div>   
+        <div>ApplicationText:{candidatos.viagens.applicationText}</div>
+      </div>            
+)})}   */}
+
+ </div>
+    </MainGrid>
   );
 }
 

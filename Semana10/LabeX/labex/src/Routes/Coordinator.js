@@ -29,7 +29,7 @@ export const goToAbout = (history) => {
   };
 
   export const goToAdmDetails = (history) => {
-    history.push("/trips/AdmDetails");
+    history.push(`/trips/AdmDetails/`);
   };
 
 

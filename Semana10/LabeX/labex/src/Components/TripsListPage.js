@@ -4,18 +4,27 @@ import axios from "axios"
 import {useHistory} from "react-router-dom"
 
 
-const CardGrid = styled.div`
-font-family: monospace;
-width: 300px;
-height: 200px;
-margin: 25px;
-padding: 5px; 
+const Central = styled.div`
+width: 100%;
+background-image: url('https://i.ytimg.com/vi/NtOwzU5Rpp8/maxresdefault.jpg');
+background-repeat: repeat;
+background-size:100%;
+color: white;
+padding: 10px;
+`
 
-padding-left: 50px;
+const CardGrid = styled.div`
+font-size: 15px;
+font-family: monospace;
+width: 315px;
+height: 350px;
+margin: 30px;
+margin-left: 430px;
+margin-top: 50px; 
+
+padding: 30px;
 background-color: white;
 color: black;
-top: 10px;
-left: 30px;
 border-radius: 10px;
 opacity: 0.7;
 box-shadow: 0px 0.5px 15px gray;
@@ -31,6 +40,7 @@ box-shadow: 0px 0.5px 15px gray;
 const ButtonDits = styled.button`
 font-family: monospace;
 background-color: white;
+margin-top: 20px;
 :hover{
   cursor: pointer;
   color: blue;
@@ -41,7 +51,7 @@ function TripsListPage() {
   const [trips, setTrips] = useState([])
   
   useEffect (() => {
-    axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-epps/trips')
+    axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips')
     .then((response) =>{
       setTrips(response.data.trips)
       console.log(response.data.trips)
@@ -58,8 +68,9 @@ function TripsListPage() {
    history.push("/Cadastro")
   }
 
+
   return (
-    <div >
+    <Central>
    {trips.map((trip) => {
             return (
             <CardGrid>
@@ -73,7 +84,7 @@ function TripsListPage() {
             <ButtonDits onClick={goToApplication}>Candidatar-se</ButtonDits>              
             </CardGrid>              
         )})}
-       </div>
+       </Central>
   );
 }
 export default TripsListPage;

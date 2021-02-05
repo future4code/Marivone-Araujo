@@ -1,10 +1,9 @@
 import axios from 'axios'
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {useHistory} from "react-router-dom"
-
-
-
+import useForm from '../hooks/useForm'
+import { useProtectedPage } from '../hooks/useProtectedPage';
 
 const Central = styled.div` 
 width: 100%;
@@ -23,7 +22,6 @@ font-family: monospace;
 font-size: 20px;
 
 `
-
 const BoxLogin = styled.div`
 font-family: monospace;
 width: 250px;
@@ -46,7 +44,6 @@ box-shadow: 0px 0.5px 15px gray;
 
 } 
 `
-
 const ButtonDits = styled.button`
 font-family: monospace;
 background-color: white;
@@ -56,68 +53,66 @@ background-color: white;
   transform: scale(1.2);
 }
 `
-
 function LoginPage() {
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [form, onChange, clearFields] = useForm({
+    email: "",
+    password: "",    
+  });
   const history = useHistory()
+  useProtectedPage()
+  
+  
 
-
-  const handleEmail = (e) =>{
-    setEmail (e.target.value)
-    
-  }
-
-  const handlePassword = (e) =>{
-    setPassword (e.target.value)
-    
-  }
-
-  const Login = () =>{
-      const body ={
-        email: email,
-        password: password
-      }
-
-    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/login", body)
+  const onClickButton = (event) => {
+    event.preventDefault();
+    console.log(form);
+    clearFields();    
+    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/login", form)
       .then((res) =>{
         localStorage.setItem("token", res.data.token)
         history.push('/trips/details')
-
       }).catch((err) =>{
         console.log(err.message)
         alert (err.message)
       })
-  }
-
+}
   return (
     <div>
-
-      <Central>
-              
+      <Central>              
       <Form>
         <div></div>
         <div></div>
-
       <BoxLogin>
         <h1>Login</h1>
 
-        <label for="email">Email:</label>      
-        <p><input value={email} onChange={handleEmail} id="email"/></p>
-
-        <label for="senha">Senha:</label>      
-        <p><input value={password} onChange={handlePassword} id="senha"/></p>
-
-        <ButtonDits onClick={Login}>Enviar</ButtonDits>
-      
-      
-      </BoxLogin>
-
+        <form onSubmit={onClickButton}>
+          <label for="email">Email:</label>      
+          <p><input 
+          id="email"
+          type="email"
+          name="email"
+          value={form.email} 
+          onChange={onChange}
+          required 
+          /></p>
+          <label for="password">Senha:</label>      
+          <p><input 
+          id="password"
+          name="password"
+          value={form.password} 
+          onChange={onChange}
+          title={"A senha deve ter no mínimo 3 caracteres"}
+          pattern={"^.{3,}"}
+          required 
         
+          /></p>
+
+          <ButtonDits>Enviar</ButtonDits>
+        </form>      
+      
+      </BoxLogin>        
 
       </Form>
-
       </Central>
       
     </div>

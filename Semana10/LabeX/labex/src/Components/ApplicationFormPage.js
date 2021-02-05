@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import useForm from '../hooks/useForm'
 import axios from 'axios';
@@ -42,31 +42,40 @@ background-color: white;
   
 `
 
-function Application() {
+function Application(id) {
+
+  const [form, onChange, clearFields] = useForm({
+    name: "",
+    age: "",
+    profession: "",
+    country: "",
+    applicationText: "",
+    id: ""
+  });
+  const [goTravel, setGoTravel] = useState()
 
 
-  // const [trip, setTrip] = useState ([])
-  // const [tripName, setTripName] = useState ('')
-  
-
-  const changeTripName = event => {
-    // setTripName(event.target.value);
-  };
-
-  const getTripName = (trip) => {
-    axios
-      .get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trip/${trip}`)
-      // .then(response => setTrip(response.data.trip))
-      .catch(err => console.log(err));
+  const onClickButton = (e) => {
+    e.preventDefault()
+    console.log(form)
+    clearFields()
     
-    }
+    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/${id}/apply`, form)
+        
+    .then((res) =>{
+      goTravel(res.data.message)
+      window.alert(res.data.message)
+      console.log(res.data.message)
+      
+    })
+    .catch((err) =>{
+        console.log(err)
+    })
 
-
-    // useEffect (() =>{
-      // getTripName()
-    // })
-
+  };
+ 
     return (
+
     <form>
    
     <ApplicationForm>
@@ -81,13 +90,14 @@ function Application() {
       type="text"    
       id="name"      
       name="name"
-      // value={form.name}
-      // onChange={onChange}
+      value={form.name}
+      onChange={onChange}
       placeholder="Nome"
       required
       pattern={"^.{5,}"}
       title={"O nome deve ter no mínimo 3 caracteres"}
       /></p>
+
 
       <label for="age">Sua idade:</label>
       <p><input 
@@ -95,39 +105,49 @@ function Application() {
       min={18}
       id="age"    
       name="age"
-      // value={form.age}
-      // onChange={onChange}
+      value={form.age}
+      onChange={onChange}
       placeholder="Idade"
       required
       /></p>
 
+      <label for="job">Sua profissão:</label>
+      <p><input      
+      type="text"    
+      id="profession" 
+      name="profession"
+      value={form.profession}
+      onChange={onChange}
+      placeholder="Profissão"
+      required
+      pattern={"^.{5,}"}
+      title={"O nome deve ter no mínimo 3 caracteres"}
       
-      <label for="tripId">Destino dos sonhos:</label>
-      <p><select 
-      id="tripId"
-      name="tripId"
-      // value={form.tripId}
-      // onChange={onChange}
-      onChange={changeTripName}>
-      <option value={""}>Nenhum</option>
-          {/* {trip.map(travel => { */}
-            {/* return ( */}
-              {/* <option key={travel.name} value={travel.name}> */}
-                {/* {travel.name} */}
-              {/* </option>      */}
-        );
-      })}
-      </select></p>
+      /></p>
+
+
+ 
+      <label for="applicationText">Por que escolher <strong>VOCÊ:</strong></label>
+      <p><textarea rows= "12" cols="32" 
+      type="text"
+      id="applicationText" 
+      name="applicationText"
+      value={form.applicationText}
+      onChange={onChange}
+      placeholder="Escreva aqui"
+      required
+      pattern={"^.{30,}"}
+      title={"O texto deve ter no mínimo 30 caracteres"}
+      /></p> 
+
 
       <label for="country">País que reside:</label>
-      
-      <p><select 
-      
+      <p><select       
       id="country"      
       type="select"                 
       name="country"
-      // value={form.country}
-      // onChange={onChange}
+      value={form.country}
+      onChange={onChange}
       placeholder="country"
       required            
       >
@@ -377,33 +397,6 @@ function Application() {
                 <option value="Zimbabwe">Zimbabwe</option>
             </select></p>
 
-
-      <label for="job">Sua profissão:</label>
-      <p><input      
-      type="text"    
-      id="profession" 
-      name="profession"
-      // value={form.profession}
-      // onChange={onChange}
-      placeholder="Profissão"
-      required
-      pattern={"^.{5,}"}
-      title={"O nome deve ter no mínimo 3 caracteres"}
-      
-      /></p>
- 
-      <label for="applicationText">Por que escolher <strong>VOCÊ:</strong></label>
-      <p><textarea rows= "12" cols="32" 
-      type="text"
-      id="applicationText" 
-      name="applicationText"
-      // value={form.applicationText}
-      // onChange={onChange}
-      placeholder="Escreva aqui"
-      required
-      pattern={"^.{30,}"}
-      title={"O texto deve ter no mínimo 30 caracteres"}
-      /></p> 
 
       <ButtonDits>Enviar</ButtonDits>
          

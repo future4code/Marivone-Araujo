@@ -2,13 +2,43 @@ import React, {useState} from 'react'
 import useForm from '../hooks/useForm'
 import styled from 'styled-components'
 import axios from 'axios';
+import {useHistory} from "react-router-dom"
+
+const BigGrid = styled.div`
+display: grid;
+grid-template-columns: 1fr 1.0fr;
+`
+const BackToAdm = styled.button`
+font-size: 25px;
+margin: 50px;
+margin-left: 140px;
+width: 150px;
+height: 100px;
+font-family: monospace;
+background-color: white;
+:hover{
+  cursor: pointer;
+  color: blue;
+
+`
 
 const CreateTripForm = styled.div`
 font-family: monospace;
-margin-left: 500px;
 `
+
+const CreateTripButton = styled.button`
+font-family: monospace;
+font-family: monospace;
+background-color: white;
+:hover{
+  cursor: pointer;
+  color: blue;
+  transform: scale(1.2);
+}
+`
+
 function CreateTripPage() {
-  
+
   const [form, onChange, clearFields] = useForm({
     name: "",
     planet: "",
@@ -16,6 +46,11 @@ function CreateTripPage() {
     description: "",
     durationInDays: "",
   });
+  const history = useHistory()
+
+  const goBack = () =>{
+    history.goBack()
+  }
 
   const onClickButton = (event) => {
     event.preventDefault();
@@ -29,6 +64,7 @@ function CreateTripPage() {
     })
     .then((res) =>{
       console.log(res.data.trip)
+      alert ("Viagem criada")
 
     })
     .catch((err) =>{
@@ -37,7 +73,11 @@ function CreateTripPage() {
   };
   
   return (
-    <div>
+    <BigGrid>
+
+      
+
+    <div><BackToAdm onClick={goBack}>Voltar para ADM</BackToAdm></div>
        
     <CreateTripForm>
       <h1>Crie uma viagem:</h1>
@@ -83,6 +123,8 @@ function CreateTripPage() {
       <label for="date">Data (dias):</label>
       <p><input 
       type="date"
+      title={"Escolha uma data futura"}
+      min={"2022-01-01"}
       id="date"      
       name="date"
       value={form.date}
@@ -116,13 +158,14 @@ function CreateTripPage() {
      
       /></p>
 
-      <button>Criar Viagem</button>
+      <CreateTripButton>Criar Viagem</CreateTripButton>
     
     </form>     
       
     </CreateTripForm>
 
-    </div>
+      
+    </BigGrid>
   );
 }
   
