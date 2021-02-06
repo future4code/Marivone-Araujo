@@ -44,7 +44,6 @@ function App() {
         <ImagemButton 
           imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" 
           texto="Facebook" 
-          
         />        
 
         <ImagemButton 

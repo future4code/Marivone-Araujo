@@ -1,0 +1,1799 @@
+{
+	"info": {
+		"_postman_id": "9f633a12-03d6-4594-8407-7046f1743417",
+		"name": "Shine from the grave: Playlist da Mari!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Playlists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Metal Sinfônico",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Metal sinfônico\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				},
+				"description": "Metal sinfônico."
+			},
+			"response": []
+		},
+		{
+			"name": "Rock 90s",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Rock 90s\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				},
+				"description": "Rock, anos 90."
+			},
+			"response": []
+		},
+		{
+			"name": "Let's Blood on the Dance Floor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"David Bowie & Michael Jackson\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				},
+				"description": "David Bowie & Michael Jackson"
+			},
+			"response": []
+		},
+		{
+			"name": "Epica - Abyss O'Time ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Abyss O'Time\", \r\n    \"artist\": \"Epica\",\r\n    \"url\": \"http://spoti4.future4.com.br/1.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "3a3d309a-7c91-435e-9c81-8294a9cb9016"
+						}
+					]
+				},
+				"description": "Música Abyss O'Time do Epica"
+			},
+			"response": []
+		},
+		{
+			"name": "Nightwish - Élan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Élan\", \r\n    \"artist\": \"Nightwish\",\r\n    \"url\": \"http://spoti4.future4.com.br/2.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "3a3d309a-7c91-435e-9c81-8294a9cb9016"
+						}
+					]
+				},
+				"description": "Nightwish - Élan"
+			},
+			"response": []
+		},
+		{
+			"name": "The Smashing Pumpkins - Bullet with butterfly wings",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Bullet with butterfly wings\", \r\n    \"artist\": \"The Smashing Pumpkins\",\r\n    \"url\": \"http://spoti4.future4.com.br/3.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				},
+				"description": "The Smashing Pumpkins - Bullet with butterfly wings"
+			},
+			"response": []
+		},
+		{
+			"name": "Radiohead - Weird Fishes/Arpeggi",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Weird Fishes/Arpeggi\", \r\n    \"artist\": \"Radiohead\",\r\n    \"url\": \"http://spoti4.future4.com.br/4.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				},
+				"description": "Radiohead - Weird Fishes/Arpeggi"
+			},
+			"response": []
+		},
+		{
+			"name": "David Bowie - John, I'm only dancing",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"John, I'm only dancing\", \r\n    \"artist\": \"David Bowie\",\r\n    \"url\": \"http://spoti4.future4.com.br/5.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7fa42093-91dc-4c74-aa77-692a5eed5533"
+						}
+					]
+				},
+				"description": "David Bowie - John, I'm only dancing"
+			},
+			"response": []
+		},
+		{
+			"name": "Michael Jackson - Blood on the dancing floor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Blood on the dancing floor\", \r\n    \"artist\": \"Michael Jackson\",\r\n    \"url\": \"http://spoti4.future4.com.br/6.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7fa42093-91dc-4c74-aa77-692a5eed5533"
+						}
+					]
+				},
+				"description": "Michael Jackson - Blood on the dancing floor"
+			},
+			"response": []
+		},
+		{
+			"name": "ver Metal Sinfônico",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "3a3d309a-7c91-435e-9c81-8294a9cb9016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver Rock 90s",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver Let's blood on the dance floor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7fa42093-91dc-4c74-aa77-692a5eed5533"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add 1 a Metal Sinfônico",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"I walk alone\", \r\n    \"artist\": \"Tarja Turunen\",\r\n    \"url\": \"http://spoti4.future4.com.br/7.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "3a3d309a-7c91-435e-9c81-8294a9cb9016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add 2 a Metal Sinfônico",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"The Haunting\", \r\n    \"artist\": \"Kamelot\",\r\n    \"url\": \"http://spoti4.future4.com.br/8.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "3a3d309a-7c91-435e-9c81-8294a9cb9016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Metal Sinfônico com add 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "3a3d309a-7c91-435e-9c81-8294a9cb9016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add música que não gosto ao Rock 90s",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Fake Plastic Trees\", \r\n    \"artist\": \"Radiohead\",\r\n    \"url\": \"http://spoti4.future4.com.br/9.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				},
+				"description": "Na verdade, eu gosto da música, mas enjoei de tanto tocarem. Também, a banda já evoluiu muito desde essa música."
+			},
+			"response": []
+		},
+		{
+			"name": "ver add 1 a Rock 90s",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletar 1 em Rock 90s",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId\n",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks",
+						":trackId\n"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						},
+						{
+							"key": "trackId\n",
+							"value": "93846a0b-bce8-4bf5-86f8-b65d549c75bd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver del 1 em Rock 90s",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add 1 a Rock 90s",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Plug in baby\", \r\n    \"artist\": \"Muse\",\r\n    \"url\": \"http://spoti4.future4.com.br/8.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add 2 a Rock 90s",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"I'm a monster\", \r\n    \"artist\": \"Ours\",\r\n    \"url\": \"http://spoti4.future4.com.br/10.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver add 1 e 2 em Rock 90s",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del Metal Sinfônico",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "3a3d309a-7c91-435e-9c81-8294a9cb9016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del Rock 90s",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7d913a87-e367-43e5-b19d-f9f85e3431fe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del Let's Blood on the Dance Floor",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "7fa42093-91dc-4c74-aa77-692a5eed5533"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver playlists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tash Metal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Trash Metal\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				},
+				"description": "Nova Playlist"
+			},
+			"response": []
+		},
+		{
+			"name": "ver Trash Metal",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=string",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "string"
+						}
+					]
+				},
+				"description": "search"
+			},
+			"response": []
+		},
+		{
+			"name": "Kreator - Phobia",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Phobia\", \r\n    \"artist\": \"Kreator\",\r\n    \"url\": \"http://spoti4.future4.com.br/20.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f4f7977d-bad6-4a9f-87c4-3bb0cbf2c092"
+						}
+					]
+				},
+				"description": "Kreator - Phobia"
+			},
+			"response": []
+		},
+		{
+			"name": "kreator - Pleasure to kill",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pleasure to Kill\", \r\n    \"artist\": \"Kreator\",\r\n    \"url\": \"http://spoti4.future4.com.br/20.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f4f7977d-bad6-4a9f-87c4-3bb0cbf2c092"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kreator - Gods of Violence",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Gods of Violence\", \r\n    \"artist\": \"Kreator\",\r\n    \"url\": \"http://spoti4.future4.com.br/8.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f4f7977d-bad6-4a9f-87c4-3bb0cbf2c092"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver Trash Metal",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f4f7977d-bad6-4a9f-87c4-3bb0cbf2c092"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del 1 de Trash Metal",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks",
+						":trackId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f4f7977d-bad6-4a9f-87c4-3bb0cbf2c092"
+						},
+						{
+							"key": "trackId",
+							"value": "1d882f05-66e7-4de9-b341-098ddfe67f7d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver Trash Metal",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f4f7977d-bad6-4a9f-87c4-3bb0cbf2c092"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Power Metal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Power Metal\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aliquid - Home",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Home\", \r\n    \"artist\": \"Aliquid\",\r\n    \"url\": \"http://spoti4.future4.com.br/21.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f132f496-8f8b-4b7d-885d-e22944af6383"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clássica",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Clássica\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				},
+				"description": "música clássica"
+			},
+			"response": []
+		},
+		{
+			"name": "Handel -  Lascia ch'io pianga",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Lascia ch'io pianga\", \r\n    \"artist\": \"Handel\",\r\n    \"url\": \"http://spoti4.future4.com.br/23.mp3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "680b5711-0aef-494f-891a-da7e0473fd49"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver Power Metal",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f132f496-8f8b-4b7d-885d-e22944af6383"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "del 1 Power Metal",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks",
+						":trackId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f132f496-8f8b-4b7d-885d-e22944af6383"
+						},
+						{
+							"key": "trackId",
+							"value": "d85db2bf-d29c-4d11-801d-428e12440747"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver Power Metal",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "f132f496-8f8b-4b7d-885d-e22944af6383"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver Clássica",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "marivone-araujo-epps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "680b5711-0aef-494f-891a-da7e0473fd49"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
