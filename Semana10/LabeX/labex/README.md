@@ -4,8 +4,11 @@
 - usuário: astrodev@gmail.com
 - senha: 123456
 
+Acesso também:
+login: marivone@gmail.com.br
+senha: 666666
 
-### 🔗 Link do Surge: http://fumbling-air.surge.sh/
+### 🔗 Link do Surge: http://overconfident-addition.surge.sh/
 
 <h4 align='center'>
 👉 Status: Em construção... 
@@ -20,6 +23,7 @@
 - [x] Página de admin para login com verificação de e-mail e senha;
 - [x] Página para o admin criar uma nova viagem e listar os candidatos que se increveram em cada viagem;
 - [ ] Possibiliade do Adm aprovar ou não um candidato.
+- [ ] Responsividade.
 
 ### Layout:
 - Styled-componentes

@@ -15,6 +15,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const ApplicationForm = styled.div` 
 font-family: monospace;
 font-size: 20px;
+padding-top: 10px;
 width: 100%;
 height: 900px;
 background-image: url('https://www.nationalgeographic.com/interactive-assets/nggraphics/ngm-1907-moon-landing-rockets/build-2019-06-13_12-02-54/ngm-assets/img/ngm-1907-moon-landing-rockets_ai2html-desktop-medium.jpg');
@@ -30,7 +31,7 @@ color: black;
 position: relative;
 left: 30px;
 border-radius: 10px;
-opacity: 0.7;
+opacity: 0.9;
 width: 350px;
 box-shadow: 0px 0.5px 15px gray;
 `
@@ -39,19 +40,15 @@ width: 310px;
 `
 const ButtonSend = styled.button`
 margin-left: 90px;
-width: 100px;
-height: 30px;
 margin-bottom: 10px;
 :hover{
   cursor: pointer;
-  color: blue;
-  
+   
 `
 
 function Application() {
-  const [match, setMatch] = useState([])
+  
   const [open, setOpen] = useState(false);
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -87,7 +84,7 @@ function Application() {
     console.log(form)
     clearFields()
     applicationForm()
-    alert ("Cadastro realizado com sucesso")
+    /* alert ("Cadastro realizado com sucesso") */
     } 
 
     const applicationForm = () =>{
@@ -459,8 +456,33 @@ function Application() {
                 <option value="Zimbabwe">Zimbabwe</option>
             </select></p>
 
-          
-                    <ButtonSend>Enviar</ButtonSend>
+
+            <ButtonSend><Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                Enviar
+                </Button>
+                <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+            <DialogTitle id="alert-dialog-title">{"Cadastro realizado com sucesso!"}</DialogTitle>
+            <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Parabéns! Aguarde nosso contato.
+            </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+            <Button onClick={handleClose} color="primary">
+            Ai, não!
+            </Button>
+            <Button  onClick = {onClickButton} onClick={handleClose} color="primary" autoFocus>
+            Ok!
+            </Button>
+            </DialogActions>
+            </Dialog></ButtonSend>    
+
+
       </InputsForm>
     </ApplicationForm> 
 
