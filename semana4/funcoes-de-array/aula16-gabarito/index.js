@@ -8,10 +8,7 @@ function imprimirDespesas(despesas){
     let divDespesas = document.getElementById('despesas')
     divDespesas.innerHTML = '<p><u>Despesas Detalhadas</u></p>'
 
-    // AQUI VEM A IMPLEMENTAÇÃO ok
-        despesas.forEach(gasto => {
-        divDespesas.innerHTML += `valor:R$${gasto.valor}|tipo:${gasto.tipo}|descrição:${gasto.descricao} <p></p>`
-        
+    
     })
 }
 
@@ -21,16 +18,6 @@ function imprimirExtrato(){
     let gastoTotal = 0
     let gastoAlimentacao = 0
     let gastoUtilidades = 0
-    let gastoViagem = 0
-
-    
-
-    // AQUI VEM A IMPLEMENTAÇÃO
-
-    divExtrato.innerHTML = `<p>Extrato: Gasto Total: R$${gastoTotal} | Alimentação: R$${gastoAlimentacao} | 
-                                        Utilidades: R$${gastoUtilidades} | Viagem: R$${gastoViagem}</p>`
-}
-
 
 function limparFiltros() {
     document.getElementById('tipoFiltro').value = ""
