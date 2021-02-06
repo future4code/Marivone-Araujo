@@ -74,23 +74,19 @@ function TripDetails() {
   const [trips, setTrips] = useState([])
   const [candidates, setCandidates] = useState()
   const [showPage, setShowPage] = useState(false)
-  const [tripId, setTripId] = useState([])
-    
+  const [tripId, setTripId] = useState([])    
  
   const historian = useHistory()
   const goToCreate = () =>{
    history.push("/trips/create")
   }
-
-  const history = useHistory()
- 
+  const history = useHistory() 
+  
   const showAdmDetails = () =>{
-
     if (showPage===true){      
       return(<AdmDetails  viagens={tripId} candidatos={candidates} />)      
     }    
   }
-  
 
   useEffect (() => {
     axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips')
@@ -104,13 +100,11 @@ function TripDetails() {
         })
 
   }, [])
-
   const getTripDetails = (id) =>{
 
     axios.get (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trip/${id}`, {
       headers:{
-        auth: localStorage.getItem("token")
-      }
+        auth: localStorage.getItem("token")      }
     })
     .then((res) =>{
         

@@ -8,9 +8,11 @@ margin-right: 20px;
 position: absolute;
 `
 
-function AdmDetails( viagens, candidatos) {
+function AdmDetails( viagens) {
 
-  console.log(viagens)
+  
+  console.log(viagens.candidatos)
+  
   return (   
 
     <MainGrid>
@@ -21,26 +23,27 @@ function AdmDetails( viagens, candidatos) {
   
         <div><strong>Dados da viagem:</strong></div>
         <p></p>
-        <div><i>Name:</i>  "{viagens.viagens.name}"</div>
-        <div><i>Planet:</i>  {viagens.viagens.planet}</div>
-        <div><i>Duration:</i>  {viagens.viagens.durationInDays}</div>
-        <div><i>Date:</i>  {viagens.viagens.date}</div>  
-        <div><i>Description:</i>  "{viagens.viagens.description}"</div>
-  
-  {viagens.candidatos.map((trip) => {
-      return (  
-       <div>
-  
+        <div><i>Nome:</i>  "{viagens.viagens.name}"</div>
+        <div><i>Planeta:</i>  {viagens.viagens.planet}</div>
+        <div><i>Duração:</i>  {viagens.viagens.durationInDays}</div>
+        <div><i>Data:</i>  {viagens.viagens.date}</div>  
+        <div><i>Descrição:</i>  {viagens.viagens.description}</div>
+
+  {viagens.candidatos  && viagens.candidatos.map((trip) => {
+    return (   
+       <div>  
       <p></p>
-       <div><strong>Candidatos:</strong></div>
+       <div><strong><i>Candidatos:</i></strong></div>
        <p></p>        
-        <div>Name:{viagens.vianges.candidatos.name}</div>
-        {/* <div>Age:{viagens.candidatos.age}</div> */}
-        {/* <div>Profession:{viagens.candidatos.profession}</div>         */}
-        {/* <div>Country:{viagens.candidatos.country}</div>    */}
-        {/* <div>ApplicationText:{viagens.candidatos.applicationText}</div> */}
+        <div><i>Nome:</i> {trip.name}</div>
+        <div><i>Idade:</i> {trip.age}</div>
+        <div><i>Profissão:</i> {trip.country}</div>
+        <div><i>País:</i> {trip.profession}</div>
+        <div><i>Texto:</i> {trip.applicationText}</div>
+
+        
       </div>             
-)})} 
+)})}
 
  </div>
     </MainGrid>

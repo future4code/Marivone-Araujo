@@ -87,7 +87,7 @@ function Application() {
     console.log(form)
     clearFields()
     applicationForm()
-    alert ("funcionou")
+    alert ("Cadastro realizado com sucesso")
     } 
 
     const applicationForm = () =>{
@@ -103,7 +103,7 @@ function Application() {
         
     .then((res) =>{
       console.log("sucesso")
-      alert ('sucesso')
+      /* alert ('sucesso') */
     })
     .catch((err) =>{
         console.log(err)
