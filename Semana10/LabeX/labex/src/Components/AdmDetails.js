@@ -6,11 +6,11 @@ const MainGrid = styled.div`
 margin-left: 950px;
 margin-right: 20px;
 position: absolute;
-
 `
 
 function AdmDetails( viagens, candidatos) {
 
+  console.log(viagens)
   return (   
 
     <MainGrid>
@@ -27,20 +27,20 @@ function AdmDetails( viagens, candidatos) {
         <div><i>Date:</i>  {viagens.viagens.date}</div>  
         <div><i>Description:</i>  "{viagens.viagens.description}"</div>
   
-      {/* {viagens.viagens.map((trip) => {
+  {viagens.candidatos.map((trip) => {
       return (  
        <div>
   
       <p></p>
        <div><strong>Candidatos:</strong></div>
        <p></p>        
-        <div>Name:{candidatos.viagens.name}</div>
-        <div>Age:{candidatos.viagens.age}</div>
-        <div>Profession:{candidatos.viagens.profession}</div>        
-        <div>Country:{candidatos.viagens.country}</div>   
-        <div>ApplicationText:{candidatos.viagens.applicationText}</div>
-      </div>            
-)})}   */}
+        <div>Name:{viagens.vianges.candidatos.name}</div>
+        {/* <div>Age:{viagens.candidatos.age}</div> */}
+        {/* <div>Profession:{viagens.candidatos.profession}</div>         */}
+        {/* <div>Country:{viagens.candidatos.country}</div>    */}
+        {/* <div>ApplicationText:{viagens.candidatos.applicationText}</div> */}
+      </div>             
+)})} 
 
  </div>
     </MainGrid>

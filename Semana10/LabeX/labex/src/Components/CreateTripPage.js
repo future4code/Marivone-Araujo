@@ -117,6 +117,7 @@ function CreateTripPage() {
         <option>Saturno</option>
         <option>Urano</option>
         <option>Netuno</option>
+        <option>Plutão</option>
       </select></p>
 
       
@@ -124,7 +125,7 @@ function CreateTripPage() {
       <p><input 
       type="date"
       title={"Escolha uma data futura"}
-      min={"2022-01-01"}
+      min={"01-01-2022"}
       id="date"      
       name="date"
       value={form.date}

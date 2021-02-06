@@ -3,6 +3,15 @@ import styled from 'styled-components'
 import useForm from '../hooks/useForm'
 import axios from 'axios';
 
+
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+
 const ApplicationForm = styled.div` 
 font-family: monospace;
 font-size: 20px;
@@ -15,32 +24,41 @@ color: white;
 `
 const InputsForm = styled.div`
 padding-top: 5px;
-padding-left: 50px;
+padding-left: 55px;
 background-color: white;
 color: black;
 position: relative;
-top: 10px;
 left: 30px;
 border-radius: 10px;
 opacity: 0.7;
 width: 350px;
 box-shadow: 0px 0.5px 15px gray;
 `
-const ButtonDits = styled.button`
+const SelectTrip = styled.select`
+width: 310px;
+`
+const ButtonSend = styled.button`
 margin-left: 90px;
-margin-bottom: 10px;
-width:80px;
+width: 100px;
 height: 30px;
-font-family: monospace;
-background-color: white;
+margin-bottom: 10px;
 :hover{
   cursor: pointer;
   color: blue;
-  transform: scale(1.2);
   
 `
 
-function Application(id) {
+function Application() {
+  const [match, setMatch] = useState([])
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const [form, onChange, clearFields] = useForm({
     name: "",
@@ -50,9 +68,7 @@ function Application(id) {
     applicationText: "",
     trip: ""
   });
-  const [trips, setTrips] = useState([])
-  const [goTravel, setGoTravel] = useState([])
-
+  const [trips, setTrips] = useState([]) 
 
   useEffect (() => {
     axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips')
@@ -64,23 +80,30 @@ function Application(id) {
           console.log(err)
           alert ("Aconteceu um probleminha..." + err)
         })
-
   }, [])
-
 
   const onClickButton = (e) => {
     e.preventDefault()
     console.log(form)
     clearFields()
-    
-    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips/${id}/apply`, form)
+    applicationForm()
+    alert ("funcionou")
+    } 
+
+    const applicationForm = () =>{
+      const body ={
+        name: form.name,
+        age: form.age,
+        profession: form.profession,
+        country: form.country,
+        applicationText: form.applicationText,
+      } 
+
+    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips/${form.trip}/apply`, body)
         
     .then((res) =>{
-
-      setGoTravel(res.data)
-      window.alert("funcionou")
-      console.log(res.data)
-      
+      console.log("sucesso")
+      alert ('sucesso')
     })
     .catch((err) =>{
         console.log(err)
@@ -88,6 +111,8 @@ function Application(id) {
 
   };
  
+ 
+
     return (
 
     <form onSubmit={onClickButton}>
@@ -142,7 +167,7 @@ function Application(id) {
 
  
       <label for="applicationText">Por que escolher <strong>VOCÊ:</strong></label>
-      <p><textarea rows= "12" cols="32" 
+      <p><textarea rows= "12" cols="39" 
       type="text"
       id="applicationText" 
       name="applicationText"
@@ -156,21 +181,27 @@ function Application(id) {
 
 
         
-      <label for="id">Escolha a viagem:</label>
-      <p><select>
-
+      <label for="viagem">Escolha a viagem:</label>
+      <p><SelectTrip
+      
+      name ={'trip'}
+      onChange={onChange}
+      value={form.trip}>
+      
       {trips && trips.map((trip) =>{
         return(
       <option
-      id="id"
-      value={form.id}
+      viagem="id"
+      value={trip.id}
+      name="trip"
       onChange={onChange}
       > {trip.name} ({trip.planet})</option>
+                
         )
       })}
 
-      </select></p>
-     
+      </SelectTrip></p>
+
 
       <label for="country">País que reside:</label>
       <p><select       
@@ -181,7 +212,7 @@ function Application(id) {
       onChange={onChange}
       placeholder="country"
       required            
-      >
+      >         <option value="Afghanistan">Escolha o país</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -428,11 +459,10 @@ function Application(id) {
                 <option value="Zimbabwe">Zimbabwe</option>
             </select></p>
 
-
-      <ButtonDits>Enviar</ButtonDits>
-         
+          
+                    <ButtonSend>Enviar</ButtonSend>
       </InputsForm>
-    </ApplicationForm>
+    </ApplicationForm> 
 
 </form>
 

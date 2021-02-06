@@ -5,12 +5,14 @@ import {useHistory} from "react-router-dom"
 
 
 const Central = styled.div`
-width: 100%;
+/* width: 100%; */
 background-image: url('https://i.ytimg.com/vi/NtOwzU5Rpp8/maxresdefault.jpg');
 background-repeat: repeat;
 background-size:100%;
 color: white;
 padding: 10px;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
 `
 
 const CardGrid = styled.div`
@@ -18,8 +20,8 @@ font-size: 15px;
 font-family: monospace;
 width: 315px;
 height: 350px;
-margin: 30px;
-margin-left: 430px;
+/* margin: 30px; */
+/* margin-left: 430px; */
 margin-top: 50px; 
 
 padding: 30px;

@@ -14,7 +14,7 @@ display: grid;
 grid-template-rows: 1fr 0.3fr;
 `
 const Logo = styled.img`
-width: 20%;
+width: 25%;
 margin-left: 75%;
 object-fit: cover;
 :hover{
@@ -24,7 +24,7 @@ object-fit: cover;
 
 const Menu = styled.div`
 display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+grid-template-columns: 0.3fr 0.5fr 0.7fr 1fr 1fr 1fr 0.5fr 0.5fr;
 `
 
 const MenuButton = styled.button`
@@ -63,9 +63,6 @@ border: none;
 
       <Menu>  
         
-        <div><MenuButton onClick={() => goToLogin(history)}>login</MenuButton></div>
-
-        <div><MenuButton onClick={() => logout()}>Logout</MenuButton></div>
     
 
         <div><MenuButton onClick={() => goToHome(history)}>home</MenuButton></div>
@@ -76,9 +73,14 @@ border: none;
 
         <div><MenuButton onClick={() => goToAbout(history)}>sobre</MenuButton></div>
 
-
-        {/* <div></div> */}
+        
         <div></div>
+        <div></div>
+
+        <div><MenuButton onClick={() => goToLogin(history)}>login</MenuButton></div>
+
+        <div><MenuButton onClick={() => logout()}>Logout</MenuButton></div>
+
              
       </Menu>
       

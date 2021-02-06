@@ -1,3 +1,33 @@
+# PROJETO LABEX
+
+### 🔓 Informações de acesso:
+- usuário: astrodev@gmail.com
+- senha: 123456
+
+
+### 🔗 Link do Surge: http://fumbling-air.surge.sh/
+
+<h4 align='center'>
+👉 Status: Em construção... 
+</h4>
+
+<br />
+
+### ✨ Funcionamento:
+- [x] Home com lista de viagens disponíveis, além de filtro de busca por título;
+- [x] Página com lista mais detalhada das viagens e botão para cadastro do usuário;
+- [x] Página para cadastro de interessados em viajar;
+- [x] Página de admin para login com verificação de e-mail e senha;
+- [x] Página para o admin criar uma nova viagem e listar os candidatos que se increveram em cada viagem;
+- [ ] Possibiliade do Adm aprovar ou não um candidato.
+
+### Layout:
+- Styled-componentes
+
+
+<hr />
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
