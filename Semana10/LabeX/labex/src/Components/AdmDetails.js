@@ -21,18 +21,20 @@ function AdmDetails( viagens) {
       
       <p></p>
   
-        <div><strong>Dados da viagem:</strong></div>
+        <div><strong>Detalhes da viagem:</strong></div>
         <p></p>
-        <div><i>Nome:</i>  "{viagens.viagens.name}"</div>
+        <div><i><strong>Nome:</strong></i> <strong> "{viagens.viagens.name}"</strong></div>
         <div><i>Planeta:</i>  {viagens.viagens.planet}</div>
         <div><i>Duração:</i>  {viagens.viagens.durationInDays}</div>
         <div><i>Data:</i>  {viagens.viagens.date}</div>  
         <div><i>Descrição:</i>  {viagens.viagens.description}</div>
 
+<hr/>
   {viagens.candidatos  && viagens.candidatos.map((trip) => {
     return (   
        <div>  
       <p></p>
+    
        <div><strong><i>Candidatos:</i></strong></div>
        <p></p>        
         <div><i>Nome:</i> {trip.name}</div>
