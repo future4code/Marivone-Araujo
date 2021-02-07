@@ -6,30 +6,35 @@ import {useHistory} from "react-router-dom"
 
 const BigGrid = styled.div`
 display: grid;
-grid-template-columns: 1fr 1.0fr;
+grid-template-columns: 1fr 1.5fr;
 `
 const BackToAdm = styled.button`
 font-size: 25px;
 margin: 50px;
-margin-left: 140px;
+margin-top: 200px;
 width: 150px;
 height: 100px;
+
 font-family: monospace;
 background-color: white;
 :hover{
   cursor: pointer;
   color: blue;
+}
 
 `
 
 const CreateTripForm = styled.div`
 font-family: monospace;
+
 `
 
 const CreateTripButton = styled.button`
 font-family: monospace;
 font-family: monospace;
 background-color: white;
+margin-bottom: 10px;
+margin-left: 27px;
 :hover{
   cursor: pointer;
   color: blue;
@@ -46,6 +51,7 @@ function CreateTripPage() {
     description: "",
     durationInDays: "",
   });
+ 
   const history = useHistory()
 
   const goBack = () =>{

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import axios from "axios"
 import {useHistory} from "react-router-dom"
-
+import { goToApplication } from "../Routes/Coordinator"
 
 const Central = styled.div`
 /* width: 100%; */
@@ -14,7 +14,6 @@ padding: 10px;
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 `
-
 const CardGrid = styled.div`
 font-size: 15px;
 font-family: monospace;
@@ -38,7 +37,6 @@ box-shadow: 0px 0.5px 15px gray;
 } 
 
 `
-
 const ButtonDits = styled.button`
 font-family: monospace;
 background-color: white;
@@ -51,6 +49,7 @@ margin-top: 20px;
 
 function TripsListPage() {
   const [trips, setTrips] = useState([])
+  const history = useHistory()
   
   useEffect (() => {
     axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips')
@@ -65,12 +64,6 @@ function TripsListPage() {
 
   }, [])
 
-  const history = useHistory()
-  const goToApplication = () =>{
-   history.push("/Cadastro")
-  }
-
-
   return (
     <Central>
    {trips.map((trip) => {
@@ -83,7 +76,7 @@ function TripsListPage() {
             <p>"{trip.description}"</p>
             <p>Partida: {trip.date}</p>
 
-            <ButtonDits onClick={goToApplication}>Candidatar-se</ButtonDits>              
+            <ButtonDits onClick={() => goToApplication(history)}>Candidatar-se</ButtonDits>              
             </CardGrid>              
         )})}
        </Central>

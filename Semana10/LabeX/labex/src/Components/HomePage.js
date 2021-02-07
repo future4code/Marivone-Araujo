@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import {useHistory} from "react-router-dom"
+import {goToTripsList} from '../Routes/Coordinator'
 
 
 
@@ -76,6 +77,9 @@ background-color: white;
 function HomePage() {
   const [trips, setTrips] = useState([])
   const [textInput, setTextInput] =  useState("")
+ 
+  const history = useHistory()
+
 
   const handleTextInput = (e) =>{
     setTextInput(e.target.value)    
@@ -94,11 +98,9 @@ function HomePage() {
 
   }, [])
 
-  const history = useHistory()
-
-  const goToTripsList = () =>{
-   history.push("/trips/list")
-  }
+  // const goToTripsList = () =>{
+  //  history.push("/trips/list")
+  // }
 
 
   const filteredTrips = trips.filter(trip => trip.name.includes(textInput))
@@ -123,7 +125,7 @@ function HomePage() {
 	          <p>{trip.durationInDays} dias</p>
             <p>Partida:{trip.date}</p>
 
-            <ButtonDetails onClick={goToTripsList}><strong>+Detalhes</strong></ButtonDetails>              
+            <ButtonDetails onClick={() => goToTripsList(history)}><strong>+Detalhes</strong></ButtonDetails>              
             </CardGrid>              
         )})}
           

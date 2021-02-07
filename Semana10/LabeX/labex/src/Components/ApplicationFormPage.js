@@ -209,7 +209,8 @@ function Application() {
       onChange={onChange}
       placeholder="country"
       required            
-      >         <option value="Afghanistan">Escolha o país</option>
+      >         <option value="Choose">Escolha o país</option> 
+                <option value="Extraterrestre">Extraterrestre</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>

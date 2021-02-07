@@ -8,7 +8,7 @@ Acesso também:
 login: marivone@gmail.com.br
 senha: 666666
 
-### 🔗 Link do Surge: http://substantial-animal.surge.sh/
+### 🔗 Link do Surge: 
 
 <h4 align='center'>
 👉 Status: Em construção... 
@@ -17,13 +17,13 @@ senha: 666666
 <br />
 
 ### ✨ Funcionamento:
-- [x] Home com lista de viagens disponíveis, além de filtro de busca por título;
-- [x] Página com lista mais detalhada das viagens e botão para cadastro do usuário;
-- [x] Página para cadastro de interessados em viajar;
-- [x] Página de admin para login com verificação de e-mail e senha;
-- [x] Página para o admin criar uma nova viagem e listar os candidatos que se increveram em cada viagem;
-- [ ] Possibiliade do Adm aprovar ou não um candidato.
-- [ ] Responsividade.
+- [Sim] Home com lista de viagens disponíveis, além de filtro de busca por título;
+- [Sim] Página com lista mais detalhada das viagens e botão para cadastro do usuário;
+- [Sim] Página para cadastro de interessados em viajar;
+- [Sim] Página de admin para login com verificação de e-mail e senha;
+- [Sim] Página para o admin criar uma nova viagem e listar os candidatos que se increveram em cada viagem;
+- [Sim] Possibiliade do Adm aprovar ou não um candidato.
+- [Não] Responsividade.
 
 ### Layout:
 - Styled-componentes

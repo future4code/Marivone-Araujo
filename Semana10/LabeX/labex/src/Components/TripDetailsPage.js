@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import axios from "axios"
 import {useHistory} from "react-router-dom"
+import {useParams} from "react-router-dom"
 import {goToAdmDetails} from '../Routes/Coordinator'
+import {goToCreate}from '../Routes/Coordinator'
 import AdmDetails from './AdmDetails'
-
 
 const MainGrid = styled.div`
 display: grid;
@@ -55,9 +56,9 @@ padding-left: 75px;
 const Trips = styled.div`
 font-size: 20px;
 color: white;
-overflow: scroll;
-height: 60vh;
-overflow-x:hidden;
+/* overflow: scroll; */
+/* height: 60vh; */
+/* overflow-x:hidden; */
 `
 const ButtonTripDetails = styled.button`
 font-family: monospace;
@@ -72,25 +73,14 @@ background-color: white;
 function TripDetails() {
 
   const [trips, setTrips] = useState([])
-  const [candidates, setCandidates] = useState()
-  const [showPage, setShowPage] = useState(false)
-  const [tripId, setTripId] = useState([])    
- 
-  const historian = useHistory()
-  const goToCreate = () =>{
-   history.push("/trips/create")
-  }
   const history = useHistory() 
-  
-  const showAdmDetails = () =>{
-    if (showPage===true){      
-      return(<AdmDetails  viagens={tripId} candidatos={candidates} />)      
-    }    
-  }
+ 
+  const pathParams = useParams()
 
   useEffect (() => {
     axios.get ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trips')
     .then((response) =>{
+      // goToAdmDetails()
       setTrips(response.data.trips)
       console.log(response.data.trips)
     })
@@ -100,62 +90,38 @@ function TripDetails() {
         })
 
   }, [])
-  const getTripDetails = (id) =>{
 
-    axios.get (`https://us-central1-labenu-apis.cloudfunctions.net/labeX/marivone-araujo-epps/trip/${id}`, {
-      headers:{
-        auth: localStorage.getItem("token")      }
-    })
-    .then((res) =>{
-        
-        setTripId(res.data.trip)
-        setCandidates(res.data.trip.candidates) 
+  
 
-      console.log(res.data.trip)
-      console.log(res.data.trip.candidates)      
-    })
-    .catch((err) =>{
-        console.log(err)
-    })
+  const goToAdmDetails = (history, trip) => {
+    history.push (`/trips/AdmDetails/${trip}`)
   }
 
   return (
 
-
     <MainGrid>
 
-    <div><ButtonCreate onClick={goToCreate}>Criar Viagem</ButtonCreate></div>
-
+    <div><ButtonCreate onClick={()=>goToCreate(history)}>Criar Viagem</ButtonCreate></div>
     
     <div>
-    <Titulo><strong>Lista de Viagens</strong></Titulo>
-
+    <Titulo><strong> Lista de Viagens </strong></Titulo>
       <Trips >
-
    {trips.map((trip) => {
             return (
-            <CardGrid>
-              <p>{trip.name}</p>
-
-              <ButtonTripDetails 
-
-              onClick={() => getTripDetails(trip.id) ||setShowPage(!showPage)} >
-                
-                TripDetails
+            <div>
+              <CardGrid onClick={()=>goToAdmDetails(history, trip.id)}>{trip.name}
+              <p></p>              
+              +Clique para detalhes
+              </CardGrid>
               
-              </ButtonTripDetails>
-              
-            </CardGrid>              
-        )})}
-      
+            </div>              
+        )})}     
       
        </Trips>
       </div>
 
-      {showAdmDetails()}
 
     </MainGrid>
-
 
 
   );
