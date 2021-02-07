@@ -35,7 +35,7 @@ function AdmDetails( viagens) {
        <div>  
       <p></p>
     
-       <div><strong><i>Candidatos:</i></strong></div>
+       <div><strong><i>Candidato:</i></strong></div>
        <p></p>        
         <div><i>Nome:</i> {trip.name}</div>
         <div><i>Idade:</i> {trip.age}</div>
