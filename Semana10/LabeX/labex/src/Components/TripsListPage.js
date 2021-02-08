@@ -19,8 +19,6 @@ font-size: 15px;
 font-family: monospace;
 width: 315px;
 height: 350px;
-/* margin: 30px; */
-/* margin-left: 430px; */
 margin-top: 50px; 
 
 padding: 30px;
@@ -68,7 +66,7 @@ function TripsListPage() {
     <Central>
    {trips.map((trip) => {
             return (
-            <CardGrid>
+            <CardGrid onClick={() => goToApplication(history)}>
             <p>{trip.img}</p>
             <p><strong>Experiência: {trip.name}</strong></p>
             <p>Planeta: {trip.planet}</p>

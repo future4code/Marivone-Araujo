@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import useForm from '../hooks/useForm'
 import axios from 'axios';
 
-
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -475,7 +474,7 @@ function Application() {
             </DialogContent>
             <DialogActions>
             <Button onClick={handleClose} color="primary">
-            Ai, não!
+            Voltar!
             </Button>
             <Button  onClick = {onClickButton} onClick={handleClose} color="primary" autoFocus>
             Ok!

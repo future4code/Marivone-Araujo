@@ -61,7 +61,6 @@ function LoginPage() {
   const history = useHistory()
   useProtectedPage()
   
-  
 
   const onClickButton = (event) => {
     event.preventDefault();
@@ -97,6 +96,7 @@ function LoginPage() {
           /></p>
           <label for="password">Senha:</label>      
           <p><input 
+          type = "password"
           id="password"
           name="password"
           value={form.password} 

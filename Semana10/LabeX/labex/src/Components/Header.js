@@ -79,7 +79,7 @@ border: none;
 
         <div><MenuButton onClick={() => goToLogin(history)}>login</MenuButton></div>
 
-        <div><MenuButton onClick={() => logout()}>Logout</MenuButton></div>
+        <div><MenuButton onClick={() => logout()}>logout</MenuButton></div>
 
              
       </Menu>

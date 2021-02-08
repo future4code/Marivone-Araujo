@@ -13,7 +13,7 @@ function AdmTripCandits(props) {
         <p></p>
         <h2><i><strong>{name}</strong></i></h2>
         <div><i><strong>Planeta:</strong> {planet}</i></div>
-        <div><i><strong>Duração:</strong> {durationInDays}</i></div>
+        <div><i><strong>Duração:</strong> {durationInDays} dias</i></div>
         <div><i><strong>Data:</strong> {date}</i></div>  
         <div><i><strong>Descrição:</strong> {description}</i> </div>
         

@@ -114,11 +114,11 @@ function HomePage() {
       <SearchTrip type="text" placeholder= "Qual planeta você sonha conhecer?" onChange={handleTextInput} value={textInput}/>
       <Contador><i>Temos <strong>{filteredTrips.length}</strong> experiências inesquecíveis esperando por você!</i></Contador>
 
-      <GridTrips>
+     <GridTrips>
           
         {filteredTrips.map((trip) => {
             return (
-            <CardGrid>
+            <CardGrid  onClick={() => goToTripsList(history)}>
             <p>{trip.img}</p>
             <p><strong>{trip.name}</strong></p>
             <p>Planeta:{trip.planet}</p>
