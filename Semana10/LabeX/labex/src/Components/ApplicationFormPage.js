@@ -48,6 +48,7 @@ margin-bottom: 10px;
 function Application() {
   
   const [open, setOpen] = useState(false);
+  
   const handleClickOpen = () => {
     setOpen(true);
   };

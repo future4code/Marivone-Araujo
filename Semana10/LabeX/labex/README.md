@@ -8,7 +8,7 @@ Acesso também:
 login: marivone@gmail.com.br
 senha: 666666
 
-### 🔗 Link do Surge:http://trite-furniture.surge.sh/
+### 🔗 Link do Surge: http://labored-knee.surge.sh/
 
 <h4 align='center'>
 👉 Status: Em construção... 
