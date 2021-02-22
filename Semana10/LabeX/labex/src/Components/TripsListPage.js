@@ -13,6 +13,18 @@ color: white;
 padding: 10px;
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
+
+@media (min-width:500px) and (max-width: 800px) {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  padding: 5px;
+  };
+@media (max-width: 499px) {
+  display: grid;
+  grid-template-columns: 1fr ;
+  padding: 5px;
+}
+
 `
 const CardGrid = styled.div`
 font-size: 15px;
@@ -33,6 +45,8 @@ box-shadow: 0px 0.5px 15px gray;
   color: blue;
   transform: scale(1.1);
 } 
+
+
 
 `
 const ButtonDits = styled.button`
