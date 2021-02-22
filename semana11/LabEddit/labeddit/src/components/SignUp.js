@@ -13,7 +13,14 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-function Copyright() {
+import axios from 'axios'
+import {useHistory} from "react-router-dom"
+import useForm from '../hooks/useForm'
+import { useProtectedPage } from '../hooks/useProtectedPage';
+
+
+function Copyright() { 
+ 
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -48,7 +55,29 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [form, onChange, clearFields] = useForm({
+    username: "",
+    email: "",
+    password: "",    
+  });
 
+  const history = useHistory()
+  useProtectedPage()
+  
+  const onClickButton = (event) => {
+    event.preventDefault();
+    console.log(form);
+    clearFields();    
+    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labEddit/signup", form)
+      .then((res) =>{
+        localStorage.setItem("token", res.data.token)
+        history.push('/')
+        alert("Cadastrado com sucesso")
+      }).catch((err) =>{
+        console.log(err.message)
+        alert (err.message)
+      })
+}
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -59,32 +88,26 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
         Cadastre-se
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={onClickButton} className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              
+            <Grid item xs={12} sm={6}>              
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="username"
                 variant="outlined"
                 required
                 fullWidth
                 id="firstName"
                 label="Nome"
                 autoFocus
+
+                value={form.username} 
+                onChange={onChange}
+                required
+
               />
             </Grid>
-            {/* <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-              />
-            </Grid> */}
+           
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -94,6 +117,10 @@ export default function SignUp() {
                 label="Email"
                 name="email"
                 autoComplete="email"
+
+                value={form.email} 
+                onChange={onChange}
+                required 
               />
             </Grid>
             <Grid item xs={12}>
@@ -106,13 +133,16 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+
+                value={form.password} 
+                onChange={onChange}
+                title={"A senha deve ter no mínimo 3 caracteres"}
+                pattern={"^.{3,}"}
+                required
               />
             </Grid>
             <Grid item xs={12}>
-              {/* <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              /> */}
+             
             </Grid>
           </Grid>
           <Button

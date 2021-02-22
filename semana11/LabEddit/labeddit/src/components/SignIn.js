@@ -12,6 +12,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import axios from 'axios'
+import {useHistory} from "react-router-dom"
+import useForm from '../hooks/useForm'
+import { useProtectedPage } from '../hooks/useProtectedPage';
+
 
 function Copyright() {
   return (
@@ -25,7 +30,6 @@ function Copyright() {
     </Typography>
   );
 }
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -47,15 +51,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 export default function SignIn() {
-  const classes = useStyles();
+  const classes = useStyles();  
 
+  const [form, onChange, clearFields] = useForm({
+    email: "",
+    password: "",    
+  });
+  const history = useHistory()
+  useProtectedPage()
   
-
-
-
-
+  const onClickButton = (event) => {
+    event.preventDefault();
+    console.log(form);
+    clearFields();    
+    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labEddit/login", form)
+      .then((res) =>{
+        localStorage.setItem("token", res.data.token)
+        history.push('/feed')
+      }).catch((err) =>{
+        console.log(err.message)
+        alert (err.message)
+      })
+}
 
   return (
     <Container component="main" maxWidth="xs">
@@ -68,7 +86,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Login
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={onClickButton} className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -79,6 +97,12 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+
+            value={form.email} 
+            onChange={onChange}
+            required 
+
+
           />
 
           <TextField
@@ -91,11 +115,14 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+
+            value={form.password} 
+            onChange={onChange}
+            title={"A senha deve ter no mínimo 3 caracteres"}
+            pattern={"^.{3,}"}
+            required
           />
-          {/* <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          /> */}
+          
           <Button
             type="submit"
             fullWidth
@@ -105,18 +132,7 @@ export default function SignIn() {
           >
             Login
           </Button>
-          {/* <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid> */}
+          
         </form>
       </div>
       <Box mt={8}>
