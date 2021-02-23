@@ -1,7 +1,7 @@
 import React from "react";
 import { useProtectedPage } from "../hooks/useProtectedPage";
 import WritePostCard from "../components/WritePostCard"
-import ComentCard from "../components/ComentCard";
+import PostFeedCard from "../components/PostFeedCard";
 
 
 
@@ -14,7 +14,7 @@ function FeedPage() {
     <div>
 
       <WritePostCard/>
-      <ComentCard />
+      <PostFeedCard />
 
     </div>
   );

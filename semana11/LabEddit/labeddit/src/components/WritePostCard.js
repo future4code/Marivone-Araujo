@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components"
+import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import useForm from '../hooks/useForm'
-
+import { postOnFeed } from "../services/posts";
 
 const BoxWrite = styled.div`
 border: 1px solid lightgray;
@@ -15,55 +15,48 @@ padding: 10px;
 ` 
 
 function WritePost() {
-
     
   const [form, onChange, clearFields] = useForm({
     text: "",
     title: "",        
   });
 
-
-
-  const onClick = (event) => {
+  const onClickButton = (event) => {
     event.preventDefault();
-    // post(form, clearFields)   
-  }  
-
-
-
-
-
-
-
-
-
-  return (
-    
+    console.log(form);
+    postOnFeed(form, clearFields)
+  }
+   
+  return (    
       <BoxWrite>          
-        <form onSubmit={onClick}>
+        <form onSubmit={onClickButton}>
             <TextField
-                 margin="normal"
-                label="Título do post"          
-                //   value={value}
-                //   onChange={handleChange}        
+                margin="normal"
+                label="Título do post" 
+                name="title"
+                value={form.title}
+                onChange={onChange}    
             />    
         
             <TextField      
-                 margin="normal"
-                 id="outlined-multiline-static"
+                margin="normal"
+                id="outlined-multiline-static"
                 label="Escreva seu post"
                 multiline
                 rows={6}
-                variant="outlined"
+                variant="outlined"              
+                name="text"
+                value={form.text}
+                onChange={onChange}                
             />
-            <br/>
-            <Button
-                variant="contained"
-                color="primary"
-                // onClick={() => goToRegisterPage(history)}
-            >
-                Postar
-            </Button>
+            <br/>            
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            >            
+            Postar
+          </Button>          
         </form>
       </BoxWrite>
 
