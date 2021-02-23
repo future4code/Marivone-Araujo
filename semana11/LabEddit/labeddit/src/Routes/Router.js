@@ -1,37 +1,37 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import LoginPage from "../pages/loginPage";
-import PostPage from "../pages/postPage";
-import RegisterPage from "../pages/registerPage";
-import FeedPage from "../pages/feedPage"
-import Header from "../components/Header"
+import { Switch, Route } from "react-router-dom";
+import LoginPage from "../pages/LoginPage";
+import PostPage from "../pages/PostPage";
+import RegisterPage from "../pages/RegisterPage";
+import FeedPage from "../pages/FeedPage"
+import ErrorPage from "../pages/ErrorPage"
 
-const Router = () => {
+const Router = ({setRightButton}) => {
   return (
-    <BrowserRouter>
-
-    <Header />
-    
       <Switch>
+        <Route exact path="/login">
+          <LoginPage setRightButton={ setRightButton} />
+        </Route>
+
+        <Route exact path="/cadastrar">
+          <RegisterPage setRightButton={ setRightButton}/>
+        </Route>
+
+
         <Route exact path="/">
-          <LoginPage />
-        </Route>
-
-        <Route exact path="/register">
-          <RegisterPage />
-        </Route>
-
-
-        <Route exact path="/feed">
           <FeedPage />
         </Route>
 
-        <Route exact path="/post">
+        <Route exact path="/post/:id">
           <PostPage />
         </Route>
 
+        <Route exact path="/errorpage">
+          <ErrorPage />
+        </Route>
+
       </Switch>
-    </BrowserRouter>
+    
   );
 };
 

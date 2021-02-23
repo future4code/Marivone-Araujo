@@ -1,55 +1,47 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
 import {useHistory} from "react-router-dom";
-import {goToLoginPage, goToRegisterPage} from "../Routes/Coordinator"
+import {goToLoginPage, goToFeedPage} from "../Routes/Coordinator";
 
-const HeaderTop = styled.div`
-display: grid;
-grid-template-columns: 7fr 3fr;
-column-gap: 500px;
-`
-const Title = styled.div`
-color: black;
-height: 20vh;
-text-align: center;
-font-size: 100px;
-font-family: 'Open Sans', sans-serif;
-font-family: 'Open Sans Condensed', sans-serif;
-text-shadow: 1px 1px 1px gray;
-:hover{
-  cursor: pointer;
-}
-`
-const ButtonRegister = styled.button`
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-text-shadow: 1px 1px 1px gray; 
-width: 100px;
-height: 30px;
-margin-top: 70px;
-border: none;
-background-color: #b19cd9;
-color: white;
-border-radius: 3px;
-box-shadow: 1px 1px 1px gray;
-:hover{
-  cursor: pointer;
-  background-color: #6A0DAD;
-  transform: scale(1.1);  
-}
+const StyledToolbar = styled(Toolbar)`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 `
 
 
-function Header() {
-
+const Header = ({rightButton, setRightButton}) => {  
+  const token = localStorage.getItem("token")
   const history = useHistory()
+ 
+  
+  const logout = () =>{
+    localStorage.removeItem("token")
+  }
+  const rightButtonChange = () =>{
+    if (token){
+      logout()
+      setRightButton("Login")
+      goToLoginPage(history)
+    } else{
+      goToLoginPage(history)
+    }
+  }
 
   return (
-    <HeaderTop>
-      <Title onClick={() => goToLoginPage(history)}>LabEddit</Title>
+      <AppBar position="static">
+        <StyledToolbar>
+          <Button color="inherit" onClick={() => goToFeedPage(history)}>LabEddit</Button>
 
-      <ButtonRegister onClick={() => goToRegisterPage(history)}>Cadastre-se</ButtonRegister>
-    </HeaderTop>
+          <Button color="inherit" onClick={ rightButtonChange}>{rightButton}</Button>
+
+        </StyledToolbar>
+      </AppBar>
+    
   );
 }
 
-export default Header;
+export default Header 

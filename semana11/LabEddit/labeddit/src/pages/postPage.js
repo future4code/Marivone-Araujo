@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
-import react from "react";
+import React from "react";
 import styled from "styled-components"
+import { useProtectedPage } from "../hooks/useProtectedPage";
 
 const BoxPostPage = styled.div`
 border: 1px solid black;
@@ -19,6 +20,8 @@ text-align: center;
 ` 
 
 function PostPage() {
+  useProtectedPage()
+
   return (
     <div>
 

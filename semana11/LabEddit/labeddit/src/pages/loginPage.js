@@ -1,12 +1,12 @@
 import React from "react";
 import SignIn from "../components/SignIn";
 
-function LoginPage() {
+function LoginPage({setRightButton}) {
   
 
   return (
     <div>
-      <SignIn />
+      <SignIn setRightButton={ setRightButton}/>
     </div>
   );
 }

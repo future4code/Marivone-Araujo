@@ -1,10 +1,10 @@
 import React from "react";
 import SignUp from "../components/SignUp"
 
-function RegisterPage() {
+function RegisterPage({setRightButton}) {
   return (
     <div>
-      <SignUp />
+      <SignUp setRightButton={setRightButton} />
 
     </div>
   );

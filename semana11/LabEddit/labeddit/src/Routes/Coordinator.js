@@ -1,17 +1,17 @@
 export const goToLoginPage = (history) => {
-    history.push("/");
+    history.push("/login");
   };
   
   export const goToRegisterPage = (history) => {
-    history.push("/register");
+    history.push("/cadastrar");
   };
  
-  export const goFeedPage = (history) => {
-    history.push("/feed");
+  export const goToFeedPage = (history) => {
+    history.push("/");
   };
   
-  export const goToPostPage = (history) => {
-    history.push("/post");
+  export const goToPostPage = (history, id) => {
+    history.push(`/post/${id}`);
   };
   
   
