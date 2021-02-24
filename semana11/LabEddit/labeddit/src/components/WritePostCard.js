@@ -8,8 +8,8 @@ import { postOnFeed } from "../services/posts";
 const BoxWrite = styled.div`
 border: 1px solid lightgray;
 margin-left: 40vw;
-margin-top: 10px;
-width: 300px;
+margin-top: 5vw;
+width: 50vh;
 text-align: center;
 padding: 10px;
 ` 
