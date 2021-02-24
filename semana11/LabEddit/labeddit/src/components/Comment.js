@@ -9,12 +9,12 @@ import Typography from '@material-ui/core/Typography';
 import styled from "styled-components"
 
 const FeedCardContainer = styled.div`
-margin: 10vh 0 10vh 65vh ;
+margin: 10vh 0 10vh 90vh ;
 `
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 500,
+    maxWidth: 300,
   },
   media: {
     height: 140,
@@ -24,33 +24,35 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
   const classes = useStyles();
 
+  console.log(props)
+
   return (
     <FeedCardContainer>
     <Card className={classes.root}    
     onClick={props.onClick}
     
     >
-      <CardActionArea>                          
-        <CardContent>        
+      <CardActionArea>       
+
+        <CardContent>
           <Typography gutterBottom variant="h5" component="h2">            
-            {props.username}
+          {props.username}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
           {props.text}
           </Typography>
         </CardContent>
+      
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
         VotarUp
-        </Button>
-        <div>{props.votesCount} </div>        
+        </Button>        
+        <div>{props.votesCount}</div>
         <Button size="small" color="primary">
-        VotarDown
-        </Button>
-        <Button size="small" color="primary">
-        {props.commentsCount} Comentários
+        VotarDown 
         </Button>      
+        
       </CardActions>
     </Card>
     </FeedCardContainer>

@@ -22,7 +22,7 @@ const Router = ({setRightButton}) => {
           <FeedPage />
         </Route>
 
-        <Route exact path="/post/:id">
+        <Route exact path="/post/:postId">
           <PostPage />
         </Route>
 

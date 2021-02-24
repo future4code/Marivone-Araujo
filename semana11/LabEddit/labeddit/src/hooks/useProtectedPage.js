@@ -13,3 +13,5 @@ export const useProtectedPage = () => {
       }
     }, [history]);
   };
+
+  export default useProtectedPage

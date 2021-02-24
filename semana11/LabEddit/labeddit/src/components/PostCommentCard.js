@@ -3,48 +3,35 @@ import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import useForm from '../hooks/useForm'
-import { postOnFeed } from "../services/posts";
+import { commentOnFeed } from "../services/posts";
 
 const BoxWrite = styled.div`
-border: 1px solid lightgray;
-margin-left: 37vw;
-margin-top: 5vw;
+margin-left: 40vw;
 width: 50vh;
 text-align: center;
-padding: 10px;
 ` 
 
-function WritePost() {
+function CommentOnFeed(props) {
     
   const [form, onChange, clearFields] = useForm({
     text: "",
-    title: "",        
-  });
+});
 
   const onClickButton = (event) => {
     event.preventDefault();
     console.log(form);
-    postOnFeed(form, clearFields)
+    commentOnFeed(form, clearFields, props.id)
   }
    
   return (    
-      <BoxWrite>          
-        <form onSubmit={onClickButton}>
-            <TextField
-                margin="normal"
-                label="Título do post" 
-                name="title"
-                value={form.title}
-                onChange={onChange}    
-            />    
-        
+      <BoxWrite onSubmit={onClickButton}>          
+        <form>
             <TextField      
                 margin="normal"
                 id="outlined-multiline-static"
-                label="Escreva seu post"
+                label="Escreva seu comentário"
                 multiline
-                rows={6}
-                variant="outlined"              
+                rows={6}        
                 name="text"
                 value={form.text}
                 onChange={onChange}                
@@ -55,7 +42,7 @@ function WritePost() {
             variant="contained"
             color="primary"
             >            
-            Postar
+            Comentar
           </Button>          
         </form>
       </BoxWrite>
@@ -63,4 +50,4 @@ function WritePost() {
   );
 }
 
-export default WritePost;
+export default CommentOnFeed;

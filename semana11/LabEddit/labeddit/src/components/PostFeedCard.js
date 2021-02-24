@@ -1,52 +1,43 @@
-import React, { useState, useEffect } from 'react'
-import axios from "axios"
-import { SECOND_BASE_URL } from "../constants/urls";
+import React from "react"
+import { BASE_URL} from "../constants/urls";
 import AllFeedCard from "../components/AllFeedCard";
+import useProtectedPage from "../hooks/useProtectedPage";
+import useRequestData from "../hooks/useRequestData";
+import {useHistory} from "react-router-dom"
+import { goToPostPage } from "../Routes/Coordinator";
  
 
-function PostFeedCard() {
-  const [posts, setPosts] = useState([])
+function PostFeedCard(props) {
+  useProtectedPage()
+  const history = useHistory()
+  const posts = useRequestData([], `${BASE_URL}/posts`)
 
+  const onClickCard = (id) =>{
+    goToPostPage(history, id)
+  }
+  
 
-    useEffect (() => {
-    axios.get (`${SECOND_BASE_URL}`, {
-      headers:{
-      Authorization: localStorage.getItem("token")
-      }
-    })
-    .then((res) =>{
-      setPosts(res.data.posts)
-      console.log(res.data.posts)
-    })
-    .catch((err) =>{
-          console.log(err)
-          alert ("Aconteceu um probleminha..." + err)
-        })
-  }, [])
+  const postsCards = posts.posts && posts.posts.map((post) =>{
+    return(
+    <div>
+      <AllFeedCard        
+        key = {post.id}       
+        username = {post.username} 
+        text = {post.text}
+        votesCount = {post.votesCount}
+        commentsCount = {post.commentsCount}
 
-  return (
-      
-      <div>
-
-        {posts && posts.map((post) =>{
-          return(
-          <div>
-            <AllFeedCard               
-              username = {post.username} 
-              text = {post.text}
-              votesCount = {post.votesCount}
-              commentsCount = {post.commentsCount}
-
-              onClick={() => null}
-    
-
-              />
-          </div>
-   
-          )
-        })}
-   
+        onClick={()=>onClickCard(post.id)}
+        />
+    </div>
+    )
+  })
+  
+  return (      
+      <div>        
+        {postsCards}
       </div>
+   
   );
 }
 

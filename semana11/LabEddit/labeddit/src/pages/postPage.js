@@ -1,58 +1,70 @@
-import { Button } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components"
+import Typography from '@material-ui/core/Typography';
 import { useProtectedPage } from "../hooks/useProtectedPage";
+import AllFeedCard from "../components/AllFeedCard"
+import { useParams } from "react-router-dom";
+import useRequestData from "../hooks/useRequestData";
+import { BASE_URL } from "../constants/urls";
+import Comment from "../components/Comment";
+import PostCommentCard from "../components/PostCommentCard"
 
-const BoxPostPage = styled.div`
-border: 1px solid black;
-margin: 20px;
-width: 300px;
-height: 150px;
+const TitlePostPage = styled.div`
+margin: 30px;
+box-shadow: 5px 5px 5px gray;
 text-align: center;
-` 
+background-color: beige;
+padding: 5px;
+`
 
-const BoxWritePost = styled.div`
-border: 1px solid black;
-margin: 20px;
-width: 300px;
-height: 200px;
-text-align: center;
-` 
 
-function PostPage() {
+function PostPage(id) {
   useProtectedPage()
+
+  const params = useParams()
+  const post = useRequestData({},`${BASE_URL}/posts/${params.postId}`) 
+  const dialog = useRequestData([],`${BASE_URL}/posts/${params.postId}`) 
+  
+
+  const postComments = dialog && dialog.post && dialog.post.comments.map((comment) =>{
+    return(
+    <div>
+      <Comment           
+        key = {comment.id}       
+        username = {comment.username} 
+        text = {comment.text}
+        votesCount = {comment.votesCount}               
+
+        />
+    </div>
+    )
+  })
+  
+
 
   return (
     <div>
+      <TitlePostPage> 
+      <Typography 
+       variant="h5" component="h2">            
+       Detalhes do Post
+      </Typography>
+      </TitlePostPage>
 
-      <BoxPostPage>
 
-        <div>Nome do Usuário</div>
-        <hr/>
-        <div>Texto do post</div>
-        <hr/>        
-          <div>
-          <button>0</button><button> Comentários</button>
-          </div>
+      <AllFeedCard 
+      key = {post.id}       
+      username = {post && post.post && post.post.username} 
+      title = {post && post.post && post.post.title}
+      text = {post && post.post && post.post.text}
+      votesCount = {post && post.post && post.post.votesCount}
+      commentsCount = {post && post.post && post.post.commentsCount}
+      />
 
-      </BoxPostPage>
+      <PostCommentCard id = {post && post.post && post.post.id}/>
 
-      
-      < BoxWritePost>     
-          <p><textarea id ="post" rows="4" cols="30" placeholder="Escreva seu comentário"/>
-          <button>Comentar</button></p>
-      </BoxWritePost>
-
-      <BoxPostPage>
-        <div>Nome do Usuário</div>
-        <hr/>
-          <div>Texto do Comentário</div>
-        <hr/>        
-          <button>0</button>
-
-      </BoxPostPage>
-      
-    
+      {postComments}
+         
     </div>
   );
 }
