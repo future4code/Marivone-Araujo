@@ -14,10 +14,10 @@ const useRequestData = (initialData, url) => {
     })
     .then((res) =>{
       setPosts(res.data)
-      console.log(res.data)
+      // console.log(res.data)
     })
     .catch((err) =>{
-          console.log(err)
+          // console.log(err)
           alert ("Aconteceu um probleminha..." + err)
         })
   }, [url])

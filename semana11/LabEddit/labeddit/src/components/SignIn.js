@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/logo.jpeg';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
@@ -13,6 +13,7 @@ import useForm from '../hooks/useForm'
 import {goToRegisterPage} from "../Routes/Coordinator"
 import { login } from "../services/labEddit";
 import { useUnprotectedPage } from '../hooks/useUnprotectedPage';
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const LogoImg = styled.img`
 width: 70vh;
@@ -53,7 +54,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function SignIn({setRightButton}) {
-  const classes = useStyles();  
+  const classes = useStyles();
+  const [isLoading, setIsLoading] = useState (false)
 
   const [form, onChange, clearFields] = useForm({
     email: "",
@@ -65,7 +67,7 @@ export default function SignIn({setRightButton}) {
   const onClickButton = (event) => {
     event.preventDefault();
     clearFields();    
-    login (form, clearFields, history, setRightButton)
+    login (form, clearFields, history, setRightButton, setIsLoading)
   }
 
   return (
@@ -85,11 +87,9 @@ export default function SignIn({setRightButton}) {
             name="email"
             autoComplete="email"
             autoFocus
-
             value={form.email} 
             onChange={onChange}
             required 
-
 
           />
 
@@ -118,7 +118,11 @@ export default function SignIn({setRightButton}) {
             color="primary"
             className={classes.submit}
           >
-            Login
+           {isLoading?
+           
+           <CircularProgress size={24}/>
+           
+           : <>Login</>}
           </Button>
           
         </form>

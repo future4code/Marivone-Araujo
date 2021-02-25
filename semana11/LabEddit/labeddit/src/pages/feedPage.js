@@ -5,7 +5,9 @@ import { useProtectedPage } from "../hooks/useProtectedPage";
 import WritePostCard from "../components/WritePostCard"
 import PostFeedCard from "../components/PostFeedCard";
 
-
+const ContainerFeed = styled.div`
+margin-top: 30px;
+`
 const TitleFeedPage = styled.div`
 margin: 40px;
 box-shadow: 5px 5px 5px gray;
@@ -18,17 +20,20 @@ function FeedPage() {
   useProtectedPage()
 
   return (
-    <div>    
+<div>
       <TitleFeedPage> 
         <Typography 
           variant="h5" component="h2">            
           Popular posts
-        </Typography>
-        
+        </Typography>        
       </TitleFeedPage>
+      
       <WritePostCard/>
-      <PostFeedCard/>
-    </div>
+      
+      <ContainerFeed>
+        <PostFeedCard/>
+      </ContainerFeed>
+</div>
   );
 }
 

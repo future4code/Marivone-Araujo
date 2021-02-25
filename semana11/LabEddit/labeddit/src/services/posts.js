@@ -21,6 +21,7 @@ export const postOnFeed = (body, clearFields) => {
     })
   };
 
+
   
 export const commentOnFeed = (body, clearFields, id) => {
 
@@ -33,10 +34,26 @@ export const commentOnFeed = (body, clearFields, id) => {
     console.log(res.data)
     alert ("Post cadastrado")
     clearFields();
-
   })
   .catch((err) =>{
       console.log(err)
       alert (err.message)
   })
 };
+
+
+// export const putVote = (id) =>{
+//   axios.put(`${SECOND_BASE_URL}/${id}/vote`,{
+//     headers:{
+//     Authorization: localStorage.getItem("token")
+//   }
+// })
+// .then((res) =>{
+//   console.log(res.data)
+//   alert ("Voto cadastrado")
+// })
+// .catch((err) =>{
+//     console.log(err)
+//     alert (err.message)
+// })
+// };

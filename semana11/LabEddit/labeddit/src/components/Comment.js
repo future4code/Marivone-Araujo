@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import styled from "styled-components"
 
 const FeedCardContainer = styled.div`
-margin: 10vh 0 10vh 90vh ;
+margin: 10vh;
 `
 
 const useStyles = makeStyles({

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from '../assets/logo.jpeg';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
@@ -10,10 +10,11 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {useHistory} from "react-router-dom"
-import useForm from '../hooks/useForm'
-import { useUnprotectedPage } from '../hooks/useUnprotectedPage';
+import {useHistory} from "react-router-dom";
+import useForm from '../hooks/useForm';
+import { useUnprotectedPage } from '../hooks/useUnprotectedPage'
 import { signUp } from "../services/labEddit";
+import CircularProgress from "@material-ui/core/CircularProgress"
 
 const LogoSignUp = styled.img`
 width: 70vh;
@@ -56,6 +57,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp({setRightButton}) {
   const classes = useStyles();
+
+  const [isLoading, setIsLoading] = useState(false)
   const [form, onChange, clearFields] = useForm({
     username: "",
     email: "",
@@ -67,7 +70,7 @@ export default function SignUp({setRightButton}) {
   
   const onClickButton = (event) => {
     event.preventDefault();
-    signUp(form, clearFields, history, setRightButton)   
+    signUp(form, clearFields, history, setRightButton, setIsLoading)   
   }  
 
   return (
@@ -143,7 +146,10 @@ export default function SignUp({setRightButton}) {
             color="primary"
             className={classes.submit}
           >
-            Cadastre-se
+          {isLoading?
+          <CircularProgress size={24}/>
+          : <>Cadastre-se</>}
+  
           </Button>
           <Grid container justify="flex-end">
             <Grid item>

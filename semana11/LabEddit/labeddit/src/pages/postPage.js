@@ -16,7 +16,11 @@ text-align: center;
 background-color: beige;
 padding: 5px;
 `
-
+const ContainerPostComments = styled.div`
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr 1fr;
+`
 
 function PostPage(id) {
   useProtectedPage()
@@ -34,13 +38,10 @@ function PostPage(id) {
         username = {comment.username} 
         text = {comment.text}
         votesCount = {comment.votesCount}               
-
         />
     </div>
     )
   })
-  
-
 
   return (
     <div>
@@ -57,14 +58,16 @@ function PostPage(id) {
       username = {post && post.post && post.post.username} 
       title = {post && post.post && post.post.title}
       text = {post && post.post && post.post.text}
-      votesCount = {post && post.post && post.post.votesCount}
+      userVoteDirection =  {post && post.post && post.post.userVoteDirection}
+          // votesCount = {post && post.post && post.post.votesCount}
       commentsCount = {post && post.post && post.post.commentsCount}
       />
-
       <PostCommentCard id = {post && post.post && post.post.id}/>
-
+      
+      <ContainerPostComments>
       {postComments}
-         
+      </ContainerPostComments>
+
     </div>
   );
 }
