@@ -11,8 +11,7 @@ width: 50vh;
 text-align: center;
 ` 
 
-function CommentOnFeed(props) {
-    
+function CommentOnFeed(props) {    
   const [form, onChange, clearFields] = useForm({
     text: "",
 });

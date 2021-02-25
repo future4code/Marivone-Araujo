@@ -8,32 +8,21 @@ import PostFeedCard from "../components/PostFeedCard";
 const ContainerFeed = styled.div`
 margin-top: 30px;
 `
-const TitleFeedPage = styled.div`
-margin: 40px;
-box-shadow: 5px 5px 5px gray;
-text-align: center;
-background-color: beige;
-padding: 5px;
-`
 
 function FeedPage() {
   useProtectedPage()
 
   return (
-<div>
-      <TitleFeedPage> 
+    <div>
         <Typography 
           variant="h5" component="h2">            
-          Popular posts
-        </Typography>        
-      </TitleFeedPage>
-      
+        </Typography>              
       <WritePostCard/>
       
       <ContainerFeed>
         <PostFeedCard/>
       </ContainerFeed>
-</div>
+    </div>
   );
 }
 

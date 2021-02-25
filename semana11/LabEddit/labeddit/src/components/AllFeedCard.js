@@ -21,20 +21,24 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard(props) {
+export default function AllFeedCard(props) {
+  // const [cardInPage, setcardInPage] = useState (false)
   const classes = useStyles();
 
   return (
-
-
     <FeedCardContainer>
     <Card 
     className={classes.root}    
-    onClick={props.onClick}
     
     >
       <CardActionArea>                          
-        <CardContent>        
+        <CardContent
+    
+// {cardInPage? onClick = {()=>props.goToPostDetail(props.id)} : }
+        
+        onClick = {()=>props.goToPostDetail(props.id)}
+        >        
+
           <Typography gutterBottom variant="h5" component="h2">            
             {props.username}
           </Typography>
@@ -45,33 +49,21 @@ export default function MediaCard(props) {
       </CardActionArea>
       
       <CardActions>        
- 
-        <Button 
+         <Button 
         size="small" 
         color="primary"
-
-        // onClick={()=>props.voteUp(props.id)}
         onClick={()=>props.putVote(props.id, 1)}
-
         >
         VotarUp
         </Button>
-
-        <div>{props.userVoteDirection}</div>        
-
-
+        <div>{props.userVoteDirection}</div>      
         <Button 
         size="small" 
-        color="primary"
-        
-        // onClick={()=>props.voteDown(props.id)}
-        
+        color="primary"        
         onClick={()=>props.putVote(props.id, -1)}
         >
         VotarDown
         </Button>
-
-        {/* <div>{props.votesCount} Votos </div> */}
         <Button size="small" color="primary">
         {props.commentsCount} Comentários
         </Button>      

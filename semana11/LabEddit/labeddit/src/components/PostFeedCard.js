@@ -20,16 +20,13 @@ function PostFeedCard(props) {
   useProtectedPage()
   const history = useHistory()
   const posts = useRequestData([],`${BASE_URL}/posts`)
-  const [vote, setVote] = useState(0) 
+  
   
   const onClickCard = (id) =>{
     goToPostPage(history, id)
   }   
 
-  const onClickVote = (id) =>{
-    putVote(id, 1)
-  }
-
+  
   const putVote = (id, dir) =>{
       const body = {
         direction: dir
@@ -39,9 +36,9 @@ function PostFeedCard(props) {
         Authorization: localStorage.getItem("token")
       }
     })
-    .then((res) =>{console.log(res.data)
+    .then((res) =>{
+      console.log(res)
       alert ("Voto cadastrado")
-      setVote(res.data)
     })
     .catch((err) =>{console.log(err)
       alert (err.message)
@@ -50,6 +47,7 @@ function PostFeedCard(props) {
 
     const postsCards = posts.posts && posts.posts.map((post) =>{
     return(
+
       <AllFeedCard        
         key = {post.id}       
         username = {post.username} 
@@ -58,10 +56,10 @@ function PostFeedCard(props) {
         commentsCount = {post.commentsCount}
         userVoteDirection = {post.userVoteDirection}
 
-        onClick={()=>onClickCard(post.id)}
+        goToPostDetail = {onClickCard}
 
         id={post.id}
-        putVote = {onClickVote}
+        putVote = {putVote}
        
         />
     )

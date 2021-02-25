@@ -6,6 +6,7 @@ const useRequestData = (initialData, url) => {
 
     const [posts, setPosts] = useState(initialData)
 
+
     useEffect (() => {
     axios.get (url, {
       headers:{

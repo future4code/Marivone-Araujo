@@ -1,4 +1,6 @@
 import React from 'react';
+import { axios } from "axios";
+import {SECOND_BASE_URL} from "../constants/urls"
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -24,13 +26,29 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
   const classes = useStyles();
 
-  console.log(props)
+  
+  const putVote = (id, commentId, dir) =>{
+    const body = {
+      direction: dir
+    }
+    axios.put(`${SECOND_BASE_URL}/${id}/comment/${commentId}/vote`, body,{
+      headers:{
+      Authorization: localStorage.getItem("token")
+    }
+  })
+  .then((res) =>{console.log(res)
+    alert ("Voto cadastrado")
+  })
+  .catch((err) =>{console.log(err)
+    alert (err.message)
+  })
+  };
+
 
   return (
     <FeedCardContainer>
     <Card className={classes.root}    
-    onClick={props.onClick}
-    
+    onClick={props.onClick}    
     >
       <CardActionArea>       
 
@@ -45,11 +63,24 @@ export default function MediaCard(props) {
       
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+
+        <Button 
+        size="small" 
+        color="primary"
+
+        onClick={()=>putVote(props.id, props.commentId, 1)}
+
+        >
         VotarUp
         </Button>        
+
         <div>{props.votesCount}</div>
-        <Button size="small" color="primary">
+
+        <Button 
+        size="small" 
+        color="primary"
+        onClick={()=>putVote(props.id, props.commentId, -1)}
+        >
         VotarDown 
         </Button>      
         

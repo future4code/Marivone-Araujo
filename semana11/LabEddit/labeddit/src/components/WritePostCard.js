@@ -23,7 +23,7 @@ function WritePost() {
 
   const onClickButton = (event) => {
     event.preventDefault();
-    console.log(form);
+    // console.log(form);
     postOnFeed(form, clearFields)
   }
    

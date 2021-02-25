@@ -10,13 +10,7 @@ import Comment from "../components/Comment";
 import PostCommentCard from "../components/PostCommentCard";
 import Loading from "../components/Loading";
 
-const TitlePostPage = styled.div`
-margin: 30px;
-box-shadow: 5px 5px 5px gray;
-text-align: center;
-background-color: beige;
-padding: 5px;
-`
+
 const ContainerPostComments = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
@@ -25,20 +19,24 @@ grid-template-rows: 1fr 1fr 1fr;
 
 function PostPage(id) {
   useProtectedPage()
-
   const params = useParams()
   const post = useRequestData({},`${BASE_URL}/posts/${params.postId}`) 
-  const dialog = useRequestData([],`${BASE_URL}/posts/${params.postId}`) 
   
+  console.log(post)
+  console.log(post.post.id)
+  console.log(post.post.comments[0].id)
 
-  const postComments = dialog && dialog.post && dialog.post.comments.map((comment) =>{
+  const postComments = post && post.post && post.post.comments.map((comment) =>{
     return(
     <div>
       <Comment           
         key = {comment.id}       
         username = {comment.username} 
         text = {comment.text}
-        votesCount = {comment.votesCount}               
+        votesCount = {comment.votesCount}           
+        commentId = {comment.id}  
+        postId = {comment.id} 
+        
         />
     </div>
     )
@@ -46,13 +44,10 @@ function PostPage(id) {
 
   return (
     <div>
-      <TitlePostPage> 
+       
       <Typography 
        variant="h5" component="h2">            
-       Detalhes do Post
-      </Typography>
-      </TitlePostPage>
-
+      </Typography>      
 
       <AllFeedCard 
       key = {post.id}       
@@ -60,15 +55,13 @@ function PostPage(id) {
       title = {post && post.post && post.post.title}
       text = {post && post.post && post.post.text}
       userVoteDirection =  {post && post.post && post.post.userVoteDirection}
-          // votesCount = {post && post.post && post.post.votesCount}
       commentsCount = {post && post.post && post.post.commentsCount}
       />
+
       <PostCommentCard id = {post && post.post && post.post.id}/>
       
       <ContainerPostComments>
-
       {postComments && postComments.length > 0 ? postComments : <Loading /> }  
-
       </ContainerPostComments>
 
     </div>
