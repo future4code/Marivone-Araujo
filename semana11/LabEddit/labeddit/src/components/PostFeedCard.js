@@ -8,6 +8,7 @@ import useProtectedPage from "../hooks/useProtectedPage";
 import useRequestData from "../hooks/useRequestData";
 import {useHistory} from "react-router-dom";
 import { goToPostPage } from "../Routes/Coordinator";
+import Loading from "../components/Loading";
 
 const PostsCardsContainer = styled.div`
 display: grid;
@@ -25,50 +26,27 @@ function PostFeedCard(props) {
     goToPostPage(history, id)
   }   
 
-  const onClickVoteUp = (id) =>{
-    putVoteUp(id)
+  const onClickVote = (id) =>{
+    putVote(id, 1)
   }
 
-  const onClickVoteDown = (id) =>{
-    putVoteDown(id)
-  }
-  
-  const putVoteUp = (id) =>{
+  const putVote = (id, dir) =>{
       const body = {
-        direction: 1
+        direction: dir
       }
       axios.put(`${SECOND_BASE_URL}/${id}/vote`, body,{
         headers:{
         Authorization: localStorage.getItem("token")
       }
     })
-    .then((res) =>{console.log(res.data.sucess)
+    .then((res) =>{console.log(res.data)
       alert ("Voto cadastrado")
-      setVote(res.data.sucess)
+      setVote(res.data)
     })
     .catch((err) =>{console.log(err)
       alert (err.message)
     })
     };
-
-    const putVoteDown = (id) =>{
-      const body = {
-        direction: -1
-      }
-      axios.put(`${SECOND_BASE_URL}/${id}/vote`, body,{
-        headers:{
-        Authorization: localStorage.getItem("token")
-      }
-    })
-    .then((res) =>{console.log(res.data.sucess)
-      alert ("Voto cadastrado")
-      setVote(res.data.sucess)
-    })
-    .catch((err) =>{console.log(err)
-      alert (err.message)
-    })
-    };
-
 
     const postsCards = posts.posts && posts.posts.map((post) =>{
     return(
@@ -82,15 +60,15 @@ function PostFeedCard(props) {
 
         onClick={()=>onClickCard(post.id)}
 
-        onClick={()=>onClickVoteUp(post.id)}
-        onClick={()=>onClickVoteDown(post.id)}
+        id={post.id}
+        putVote = {onClickVote}
        
         />
     )
   })  
   return (      
-      <PostsCardsContainer>        
-        {postsCards}
+      <PostsCardsContainer>                
+        {postsCards && postsCards.length > 0 ? postsCards : <Loading /> }  
       </PostsCardsContainer>   
   );
 }

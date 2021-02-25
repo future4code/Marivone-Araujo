@@ -6,7 +6,7 @@ import useForm from '../hooks/useForm'
 import { commentOnFeed } from "../services/posts";
 
 const BoxWrite = styled.div`
-margin-left: 40vw;
+margin-left: 39vw;
 width: 50vh;
 text-align: center;
 ` 

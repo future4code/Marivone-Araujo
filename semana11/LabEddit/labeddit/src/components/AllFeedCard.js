@@ -25,6 +25,8 @@ export default function MediaCard(props) {
   const classes = useStyles();
 
   return (
+
+
     <FeedCardContainer>
     <Card 
     className={classes.root}    
@@ -42,14 +44,14 @@ export default function MediaCard(props) {
         </CardContent>
       </CardActionArea>
       
-      <CardActions>
-        
-        
+      <CardActions>        
+ 
         <Button 
         size="small" 
         color="primary"
 
-        // onCLick={}
+        // onClick={()=>props.voteUp(props.id)}
+        onClick={()=>props.putVote(props.id, 1)}
 
         >
         VotarUp
@@ -58,11 +60,16 @@ export default function MediaCard(props) {
         <div>{props.userVoteDirection}</div>        
 
 
-        <Button size="small" color="primary">
+        <Button 
+        size="small" 
+        color="primary"
+        
+        // onClick={()=>props.voteDown(props.id)}
+        
+        onClick={()=>props.putVote(props.id, -1)}
+        >
         VotarDown
         </Button>
-
-
 
         {/* <div>{props.votesCount} Votos </div> */}
         <Button size="small" color="primary">

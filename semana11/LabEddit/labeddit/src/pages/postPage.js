@@ -7,7 +7,8 @@ import { useParams } from "react-router-dom";
 import useRequestData from "../hooks/useRequestData";
 import { BASE_URL } from "../constants/urls";
 import Comment from "../components/Comment";
-import PostCommentCard from "../components/PostCommentCard"
+import PostCommentCard from "../components/PostCommentCard";
+import Loading from "../components/Loading";
 
 const TitlePostPage = styled.div`
 margin: 30px;
@@ -65,7 +66,9 @@ function PostPage(id) {
       <PostCommentCard id = {post && post.post && post.post.id}/>
       
       <ContainerPostComments>
-      {postComments}
+
+      {postComments && postComments.length > 0 ? postComments : <Loading /> }  
+
       </ContainerPostComments>
 
     </div>
