@@ -14,20 +14,20 @@ import Loading from "../components/Loading";
 const ContainerPostComments = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: 1fr 1fr 1fr;
 `
 
 function PostPage(id) {
   useProtectedPage()
   const params = useParams()
   const post = useRequestData({},`${BASE_URL}/posts/${params.postId}`) 
-  
+
   console.log(post)
-  console.log(post.post.id)
-  console.log(post.post.comments[0].id)
 
   const postComments = post && post.post && post.post.comments.map((comment) =>{
-    return(
+
+  console.log(comment)
+
+    return( 
     <div>
       <Comment           
         key = {comment.id}       
@@ -35,8 +35,7 @@ function PostPage(id) {
         text = {comment.text}
         votesCount = {comment.votesCount}           
         commentId = {comment.id}  
-        postId = {comment.id} 
-        
+        postId={post.post.id}
         />
     </div>
     )
@@ -50,16 +49,18 @@ function PostPage(id) {
       </Typography>      
 
       <AllFeedCard 
-      key = {post.id}       
+      key = {post && post.post && post.post.id}    
+      // postId = {post && post.post && post.post.id}       
       username = {post && post.post && post.post.username} 
       title = {post && post.post && post.post.title}
       text = {post && post.post && post.post.text}
       userVoteDirection =  {post && post.post && post.post.userVoteDirection}
       commentsCount = {post && post.post && post.post.commentsCount}
       />
-
-      <PostCommentCard id = {post && post.post && post.post.id}/>
-      
+      <PostCommentCard 
+      id = {post && post.post && post.post.id}
+      // postId = {post && post.post && post.post.id}            
+      />      
       <ContainerPostComments>
       {postComments && postComments.length > 0 ? postComments : <Loading /> }  
       </ContainerPostComments>

@@ -12,8 +12,7 @@ import Loading from "../components/Loading";
 
 const PostsCardsContainer = styled.div`
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: 1fr 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr ;
 `
 
 function PostFeedCard(props) {
@@ -21,11 +20,10 @@ function PostFeedCard(props) {
   const history = useHistory()
   const posts = useRequestData([],`${BASE_URL}/posts`)
   
-  
+
   const onClickCard = (id) =>{
     goToPostPage(history, id)
   }   
-
   
   const putVote = (id, dir) =>{
       const body = {

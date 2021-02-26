@@ -7,6 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import styled from "styled-components"
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
 const FeedCardContainer = styled.div`
 margin: 20px;
@@ -22,7 +24,6 @@ const useStyles = makeStyles({
 });
 
 export default function AllFeedCard(props) {
-  // const [cardInPage, setcardInPage] = useState (false)
   const classes = useStyles();
 
   return (
@@ -32,13 +33,7 @@ export default function AllFeedCard(props) {
     
     >
       <CardActionArea>                          
-        <CardContent
-    
-// {cardInPage? onClick = {()=>props.goToPostDetail(props.id)} : }
-        
-        onClick = {()=>props.goToPostDetail(props.id)}
-        >        
-
+        <CardContent>        
           <Typography gutterBottom variant="h5" component="h2">            
             {props.username}
           </Typography>
@@ -49,24 +44,27 @@ export default function AllFeedCard(props) {
       </CardActionArea>
       
       <CardActions>        
-         <Button 
-        size="small" 
-        color="primary"
-        onClick={()=>props.putVote(props.id, 1)}
-        >
-        VotarUp
-        </Button>
+        <ExpandLessIcon
+           size="small" 
+           color="primary"
+           onClick={()=>props.putVote(props.id, 1)}
+        />
         <div>{props.userVoteDirection}</div>      
-        <Button 
+
+        <ExpandMoreIcon 
         size="small" 
         color="primary"        
-        onClick={()=>props.putVote(props.id, -1)}
-        >
-        VotarDown
-        </Button>
-        <Button size="small" color="primary">
+        onClick={()=>props.putVote(props.id, -1)}        
+        />        
+
+
+        <Button size="small" 
+        color="primary"
+        onClick = {()=>props.goToPostDetail(props.id)}>
         {props.commentsCount} Comentários
         </Button>      
+      
+      
       </CardActions>
     </Card>
     </FeedCardContainer>

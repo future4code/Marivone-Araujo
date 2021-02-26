@@ -1,14 +1,15 @@
-import React from 'react';
-import { axios } from "axios";
+import React, { useEffect } from 'react';
+import  axios from "axios";
 import {SECOND_BASE_URL} from "../constants/urls"
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import styled from "styled-components"
+import styled from "styled-components";
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 const FeedCardContainer = styled.div`
 margin: 10vh;
@@ -23,27 +24,30 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard(props) {
+export default function Comment(props) {
   const classes = useStyles();
 
-  
-  const putVote = (id, commentId, dir) =>{
+  console.log(props)
+  // console.log(props.id)
+ 
+  const putVote = (dir) =>{
     const body = {
       direction: dir
     }
-    axios.put(`${SECOND_BASE_URL}/${id}/comment/${commentId}/vote`, body,{
+    axios.put(`${SECOND_BASE_URL}/${props.postId}/comment/${props.commentId}/vote`, body,{
       headers:{
       Authorization: localStorage.getItem("token")
     }
   })
-  .then((res) =>{console.log(res)
+  .then((res) =>{
+    console.log(res)
     alert ("Voto cadastrado")
   })
-  .catch((err) =>{console.log(err)
+  .catch((err) =>{
+    console.log(err)
     alert (err.message)
   })
   };
-
 
   return (
     <FeedCardContainer>
@@ -51,7 +55,6 @@ export default function MediaCard(props) {
     onClick={props.onClick}    
     >
       <CardActionArea>       
-
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">            
           {props.username}
@@ -59,31 +62,25 @@ export default function MediaCard(props) {
           <Typography variant="body2" color="textSecondary" component="p">
           {props.text}
           </Typography>
-        </CardContent>
-      
+        </CardContent>      
       </CardActionArea>
+
       <CardActions>
 
-        <Button 
-        size="small" 
+      <ArrowDropUpIcon 
+        fontSize="large" 
         color="primary"
 
-        onClick={()=>putVote(props.id, props.commentId, 1)}
-
-        >
-        VotarUp
-        </Button>        
-
+        onClick={()=>putVote(1)}
+      />
+        
         <div>{props.votesCount}</div>
 
-        <Button 
-        size="small" 
+        <ArrowDropDownIcon 
+        fontSize="large" 
         color="primary"
-        onClick={()=>putVote(props.id, props.commentId, -1)}
-        >
-        VotarDown 
-        </Button>      
-        
+        onClick={()=>putVote(-1)}
+        />      
       </CardActions>
     </Card>
     </FeedCardContainer>
