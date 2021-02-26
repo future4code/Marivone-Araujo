@@ -7,7 +7,7 @@ export const goToLoginPage = (history) => {
   };
  
   export const goToFeedPage = (history) => {
-    history.push("/");
+    history.push("/feed");
   };
   
   export const goToPostPage = (history, id) => {

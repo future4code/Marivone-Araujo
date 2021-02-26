@@ -15,7 +15,7 @@ const Router = ({setRightButton}) => {
         <Route exact path="/cadastrar">
           <RegisterPage setRightButton={ setRightButton}/>
         </Route>
-        <Route exact path="/">
+        <Route exact path="/feed">
           <FeedPage />
         </Route>
         <Route exact path="/post/:postId">
