@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components"
 import Typography from '@material-ui/core/Typography';
 import { useProtectedPage } from "../hooks/useProtectedPage";
 import AllFeedCard from "../components/AllFeedCard"
@@ -9,24 +8,15 @@ import { BASE_URL } from "../constants/urls";
 import Comment from "../components/Comment";
 import PostCommentCard from "../components/PostCommentCard";
 import Loading from "../components/Loading";
+import {ContainerPostComments} from "../styled/styled"
 
-
-const ContainerPostComments = styled.div`
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-`
 
 function PostPage(id) {
   useProtectedPage()
   const params = useParams()
   const post = useRequestData({},`${BASE_URL}/posts/${params.postId}`) 
 
-  console.log(post)
-
   const postComments = post && post.post && post.post.comments.map((comment) =>{
-
-  console.log(comment)
-
     return( 
     <div>
       <Comment           
@@ -43,14 +33,11 @@ function PostPage(id) {
 
   return (
     <div>
-       
       <Typography 
        variant="h5" component="h2">            
       </Typography>      
-
       <AllFeedCard 
-      key = {post && post.post && post.post.id}    
-      // postId = {post && post.post && post.post.id}       
+      key = {post && post.post && post.post.id}         
       username = {post && post.post && post.post.username} 
       title = {post && post.post && post.post.title}
       text = {post && post.post && post.post.text}
@@ -58,8 +45,7 @@ function PostPage(id) {
       commentsCount = {post && post.post && post.post.commentsCount}
       />
       <PostCommentCard 
-      id = {post && post.post && post.post.id}
-      // postId = {post && post.post && post.post.id}            
+      id = {post && post.post && post.post.id}          
       />      
       <ContainerPostComments>
       {postComments && postComments.length > 0 ? postComments : <Loading /> }  

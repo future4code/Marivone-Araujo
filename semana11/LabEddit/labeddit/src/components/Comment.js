@@ -13,6 +13,13 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 const FeedCardContainer = styled.div`
 margin: 10vh;
+@media (min-width:500px) and (max-width: 800px) {
+margin: 3vh;
+};
+@media (max-width: 499px) {
+margin-left: 37px;
+margin: 4vh;
+}
 `
 
 const useStyles = makeStyles({
@@ -27,9 +34,6 @@ const useStyles = makeStyles({
 export default function Comment(props) {
   const classes = useStyles();
 
-  console.log(props)
-  // console.log(props.id)
- 
   const putVote = (dir) =>{
     const body = {
       direction: dir
@@ -48,7 +52,6 @@ export default function Comment(props) {
     alert (err.message)
   })
   };
-
   return (
     <FeedCardContainer>
     <Card className={classes.root}    
@@ -64,18 +67,13 @@ export default function Comment(props) {
           </Typography>
         </CardContent>      
       </CardActionArea>
-
       <CardActions>
-
       <ArrowDropUpIcon 
         fontSize="large" 
         color="primary"
-
         onClick={()=>putVote(1)}
       />
-        
         <div>{props.votesCount}</div>
-
         <ArrowDropDownIcon 
         fontSize="large" 
         color="primary"

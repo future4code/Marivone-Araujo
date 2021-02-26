@@ -77,10 +77,7 @@ export default function SignUp({setRightButton}) {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        
         <LogoSignUp src={logo}/>
-    
-    
         <form onSubmit={onClickButton} className={classes.form} noValidate>
           <Grid container spacing={2}>
 
@@ -94,14 +91,11 @@ export default function SignUp({setRightButton}) {
                 id="firstName"
                 label="Nome"
                 autoFocus
-
                 value={form.username} 
                 onChange={onChange}
                 required
-
               />
             </Grid>
-           
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -111,7 +105,6 @@ export default function SignUp({setRightButton}) {
                 label="Email"
                 name="email"
                 autoComplete="email"
-
                 value={form.email} 
                 onChange={onChange}
                 required 
@@ -127,7 +120,6 @@ export default function SignUp({setRightButton}) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-
                 value={form.password} 
                 onChange={onChange}
                 title={"A senha deve ter no mínimo 3 caracteres"}
@@ -136,7 +128,6 @@ export default function SignUp({setRightButton}) {
               />
             </Grid>
             <Grid item xs={12}>
-             
             </Grid>
           </Grid>
           <Button
@@ -149,7 +140,6 @@ export default function SignUp({setRightButton}) {
           {isLoading?
           <CircularProgress size={24}/>
           : <>Cadastre-se</>}
-  
           </Button>
           <Grid container justify="flex-end">
             <Grid item>

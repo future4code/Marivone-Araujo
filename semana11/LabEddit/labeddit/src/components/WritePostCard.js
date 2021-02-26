@@ -1,18 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import useForm from '../hooks/useForm'
 import { postOnFeed } from "../services/posts";
-
-const BoxWrite = styled.div`
-border: 1px solid lightgray;
-margin-left: 37vw;
-margin-top: 5vw;
-width: 50vh;
-text-align: center;
-padding: 10px;
-` 
+import {BoxWritePost} from '../styled/styled'
 
 function WritePost() {
     
@@ -23,12 +14,11 @@ function WritePost() {
 
   const onClickButton = (event) => {
     event.preventDefault();
-    // console.log(form);
     postOnFeed(form, clearFields)
   }
    
   return (    
-      <BoxWrite>          
+      <BoxWritePost>          
         <form onSubmit={onClickButton}>
             <TextField
                 margin="normal"
@@ -43,8 +33,7 @@ function WritePost() {
                 id="outlined-multiline-static"
                 label="Escreva seu post"
                 multiline
-                rows={6}
-                variant="outlined"              
+                rows={10}      
                 name="text"
                 value={form.text}
                 onChange={onChange}                
@@ -58,7 +47,7 @@ function WritePost() {
             Postar
           </Button>          
         </form>
-      </BoxWrite>
+      </BoxWritePost>
 
   );
 }

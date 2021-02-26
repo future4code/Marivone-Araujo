@@ -6,13 +6,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import styled from "styled-components"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-
-const FeedCardContainer = styled.div`
-margin: 20px;
-`
+import {FeedCardContainer} from '../styled/styled'
 
 const useStyles = makeStyles({
   root: {
@@ -29,8 +25,7 @@ export default function AllFeedCard(props) {
   return (
     <FeedCardContainer>
     <Card 
-    className={classes.root}    
-    
+    className={classes.root}        
     >
       <CardActionArea>                          
         <CardContent>        
@@ -41,8 +36,7 @@ export default function AllFeedCard(props) {
           {props.text}
           </Typography>
         </CardContent>
-      </CardActionArea>
-      
+      </CardActionArea>      
       <CardActions>        
         <ExpandLessIcon
            size="small" 
@@ -50,21 +44,16 @@ export default function AllFeedCard(props) {
            onClick={()=>props.putVote(props.id, 1)}
         />
         <div>{props.userVoteDirection}</div>      
-
         <ExpandMoreIcon 
         size="small" 
         color="primary"        
         onClick={()=>props.putVote(props.id, -1)}        
         />        
-
-
         <Button size="small" 
         color="primary"
         onClick = {()=>props.goToPostDetail(props.id)}>
         {props.commentsCount} Comentários
-        </Button>      
-      
-      
+        </Button>           
       </CardActions>
     </Card>
     </FeedCardContainer>

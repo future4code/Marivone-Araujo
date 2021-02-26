@@ -1,23 +1,13 @@
 import React from 'react';
-import styled from 'styled-components'
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import {useHistory} from "react-router-dom";
 import {goToLoginPage, goToFeedPage} from "../Routes/Coordinator";
-
-const StyledToolbar = styled(Toolbar)`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-`
-
+import{StyledToolbar} from '../styled/styled'
 
 const Header = ({rightButton, setRightButton}) => {  
   const token = localStorage.getItem("token")
   const history = useHistory()
- 
-  
   const logout = () =>{
     localStorage.removeItem("token")
   }
@@ -30,7 +20,6 @@ const Header = ({rightButton, setRightButton}) => {
       goToLoginPage(history)
     }
   }
-
   return (
       <AppBar position="static">
         <StyledToolbar>
@@ -40,7 +29,6 @@ const Header = ({rightButton, setRightButton}) => {
 
         </StyledToolbar>
       </AppBar>
-    
   );
 }
 

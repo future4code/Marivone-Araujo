@@ -73,9 +73,7 @@ export default function SignIn({setRightButton}) {
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
-    
       <LogoImg src={logo}/>   
-    
         <form onSubmit={onClickButton} className={classes.form} noValidate>
           <TextField
             variant="outlined"
@@ -90,7 +88,6 @@ export default function SignIn({setRightButton}) {
             value={form.email} 
             onChange={onChange}
             required 
-
           />
 
           <TextField
@@ -103,7 +100,6 @@ export default function SignIn({setRightButton}) {
             type="password"
             id="password"
             autoComplete="current-password"
-
             value={form.password} 
             onChange={onChange}
             title={"A senha deve ter no mínimo 3 caracteres"}
@@ -119,21 +115,16 @@ export default function SignIn({setRightButton}) {
             className={classes.submit}
           >
            {isLoading?
-           
            <CircularProgress size={24}/>
-           
            : <>Login</>}
           </Button>
-          
         </form>
-
           <Button
             color="primary"
             onClick={() => goToRegisterPage(history)}
           >
             Não possui cadastro? Cadastre-se
           </Button>
-
 
       </div>
       <Box mt={8}>

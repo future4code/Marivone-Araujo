@@ -1,15 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import useForm from '../hooks/useForm'
 import { commentOnFeed } from "../services/posts";
+import {BoxWrite} from '../styled/styled'
 
-const BoxWrite = styled.div`
-margin-left: 39vw;
-width: 50vh;
-text-align: center;
-` 
 
 function CommentOnFeed(props) {    
   const [form, onChange, clearFields] = useForm({
@@ -18,10 +13,8 @@ function CommentOnFeed(props) {
 
   const onClickButton = (event) => {
     event.preventDefault();
-    console.log(form);
     commentOnFeed(form, clearFields, props.id)
   }
-   
   return (    
       <BoxWrite onSubmit={onClickButton}>          
         <form>
@@ -45,7 +38,6 @@ function CommentOnFeed(props) {
           </Button>          
         </form>
       </BoxWrite>
-
   );
 }
 

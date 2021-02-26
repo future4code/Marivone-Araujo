@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import styled from "styled-components"
 import axios from "axios"
 import { BASE_URL} from "../constants/urls";
 import { SECOND_BASE_URL} from "../constants/urls";
@@ -9,22 +8,16 @@ import useRequestData from "../hooks/useRequestData";
 import {useHistory} from "react-router-dom";
 import { goToPostPage } from "../Routes/Coordinator";
 import Loading from "../components/Loading";
+import {PostsCardsContainer} from '../styled/styled'
 
-const PostsCardsContainer = styled.div`
-display: grid;
-grid-template-columns: 1fr 1fr 1fr ;
-`
 
 function PostFeedCard(props) {
   useProtectedPage()
   const history = useHistory()
   const posts = useRequestData([],`${BASE_URL}/posts`)
-  
-
   const onClickCard = (id) =>{
     goToPostPage(history, id)
   }   
-  
   const putVote = (id, dir) =>{
       const body = {
         direction: dir
@@ -45,7 +38,6 @@ function PostFeedCard(props) {
 
     const postsCards = posts.posts && posts.posts.map((post) =>{
     return(
-
       <AllFeedCard        
         key = {post.id}       
         username = {post.username} 
@@ -53,12 +45,9 @@ function PostFeedCard(props) {
         votesCount = {post.votesCount}
         commentsCount = {post.commentsCount}
         userVoteDirection = {post.userVoteDirection}
-
         goToPostDetail = {onClickCard}
-
         id={post.id}
         putVote = {putVote}
-       
         />
     )
   })  
