@@ -9,23 +9,18 @@ import ErrorPage from "../pages/ErrorPage"
 const Router = ({setRightButton}) => {
   return (
       <Switch>
-        <Route exact path="/login">
+        <Route exact path="/">
           <LoginPage setRightButton={ setRightButton} />
         </Route>
-
         <Route exact path="/cadastrar">
           <RegisterPage setRightButton={ setRightButton}/>
         </Route>
-
-
         <Route exact path="/">
           <FeedPage />
         </Route>
-
         <Route exact path="/post/:postId">
           <PostPage />
         </Route>
-
         <Route exact path="/errorpage">
           <ErrorPage />
         </Route>
