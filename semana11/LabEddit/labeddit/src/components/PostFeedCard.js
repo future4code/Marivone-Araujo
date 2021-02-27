@@ -15,9 +15,11 @@ function PostFeedCard(props) {
   useProtectedPage()
   const history = useHistory()
   const posts = useRequestData([],`${BASE_URL}/posts`)
+  
   const onClickCard = (id) =>{
     goToPostPage(history, id)
   }   
+
   const putVote = (id, dir) =>{
       const body = {
         direction: dir
@@ -48,6 +50,8 @@ function PostFeedCard(props) {
         goToPostDetail = {onClickCard}
         id={post.id}
         putVote = {putVote}
+
+
         />
     )
   })  

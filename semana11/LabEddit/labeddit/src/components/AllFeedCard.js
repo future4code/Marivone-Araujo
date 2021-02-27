@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import {FeedCardContainer} from '../styled/styled'
+import CommentIcon from '@material-ui/icons/Comment'
 
 const useStyles = makeStyles({
   root: {
@@ -25,7 +26,7 @@ export default function AllFeedCard(props) {
   return (
     <FeedCardContainer>
     <Card 
-    className={classes.root}        
+    // className={classes.root}        
     >
       <CardActionArea>                          
         <CardContent>        
@@ -49,11 +50,15 @@ export default function AllFeedCard(props) {
         color="primary"        
         onClick={()=>props.putVote(props.id, -1)}        
         />        
+
+        {!props.hideComment && (
         <Button size="small" 
         color="primary"
+        startIcon = {<CommentIcon />}
         onClick = {()=>props.goToPostDetail(props.id)}>
-        {props.commentsCount} Comentários
-        </Button>           
+        {props.commentsCount} Comente 
+        </Button>)}
+
       </CardActions>
     </Card>
     </FeedCardContainer>

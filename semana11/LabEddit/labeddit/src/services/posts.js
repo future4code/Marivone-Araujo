@@ -21,10 +21,8 @@ export const postOnFeed = (body, clearFields) => {
     })
   };
 
-
   
 export const commentOnFeed = (body, clearFields, id) => {
-
   axios.post(`${SECOND_BASE_URL}/${id}/comment`, body,{
       headers:{
       Authorization: localStorage.getItem("token")
@@ -32,7 +30,7 @@ export const commentOnFeed = (body, clearFields, id) => {
   })
   .then((res) =>{
     console.log(res.data)
-    alert ("Post cadastrado")
+    alert ("Comentário cadastrado")
     clearFields();
   })
   .catch((err) =>{
@@ -40,3 +38,4 @@ export const commentOnFeed = (body, clearFields, id) => {
       alert (err.message)
   })
 };
+

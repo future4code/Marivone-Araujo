@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import useForm from '../hooks/useForm'
@@ -15,6 +15,8 @@ function CommentOnFeed(props) {
     event.preventDefault();
     commentOnFeed(form, clearFields, props.id)
   }
+  
+
   return (    
       <BoxWrite onSubmit={onClickButton}>          
         <form>

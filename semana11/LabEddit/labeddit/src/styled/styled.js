@@ -71,13 +71,13 @@ grid-template-columns: 1fr;
 // writePostCard
 export const BoxWritePost = styled.div`
 border: 1px solid lightgray;
-margin-left: 37vw;
+margin-left: 35vw;
 margin-top: 5vw;
 width: 360px;
 text-align: center;
 padding: 10px;
 @media (min-width:500px) and (max-width: 800px) {
-margin-left: 10vh;
+margin-left: 19vh;
 };
 @media (max-width: 499px) {
 margin-left: 20px;

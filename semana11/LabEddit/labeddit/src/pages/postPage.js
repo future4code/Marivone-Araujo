@@ -35,7 +35,7 @@ function PostPage(id) {
     <div>
       <Typography 
        variant="h5" component="h2">            
-      </Typography>      
+      </Typography>   
       <AllFeedCard 
       key = {post && post.post && post.post.id}         
       username = {post && post.post && post.post.username} 
@@ -43,10 +43,11 @@ function PostPage(id) {
       text = {post && post.post && post.post.text}
       userVoteDirection =  {post && post.post && post.post.userVoteDirection}
       commentsCount = {post && post.post && post.post.commentsCount}
+      hideComment 
       />
       <PostCommentCard 
       id = {post && post.post && post.post.id}          
-      />      
+      />            
       <ContainerPostComments>
       {postComments && postComments.length > 0 ? postComments : <Loading /> }  
       </ContainerPostComments>

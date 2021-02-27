@@ -33,6 +33,8 @@ const useStyles = makeStyles({
 
 export default function Comment(props) {
   const classes = useStyles();
+console.log (props)
+
 
   const putVote = (dir) =>{
     const body = {
@@ -52,6 +54,7 @@ export default function Comment(props) {
     alert (err.message)
   })
   };
+  
   return (
     <FeedCardContainer>
     <Card className={classes.root}    
