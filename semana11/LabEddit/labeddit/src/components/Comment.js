@@ -33,8 +33,6 @@ const useStyles = makeStyles({
 
 export default function Comment(props) {
   const classes = useStyles();
-console.log (props)
-
 
   const putVote = (dir) =>{
     const body = {
@@ -70,7 +68,7 @@ console.log (props)
           </Typography>
         </CardContent>      
       </CardActionArea>
-      <CardActions>
+      <CardActions>      
       <ArrowDropUpIcon 
         fontSize="large" 
         color="primary"

@@ -9,7 +9,7 @@ import Comment from "../components/Comment";
 import PostCommentCard from "../components/PostCommentCard";
 import Loading from "../components/Loading";
 import {ContainerPostComments} from "../styled/styled"
-
+import { Size } from "../styled/styled";
 
 function PostPage(id) {
   useProtectedPage()
@@ -36,15 +36,22 @@ function PostPage(id) {
       <Typography 
        variant="h5" component="h2">            
       </Typography>   
+
+      <Size>
       <AllFeedCard 
       key = {post && post.post && post.post.id}         
       username = {post && post.post && post.post.username} 
       title = {post && post.post && post.post.title}
       text = {post && post.post && post.post.text}
       userVoteDirection =  {post && post.post && post.post.userVoteDirection}
-      commentsCount = {post && post.post && post.post.commentsCount}
+      commentsCount = {post && post.post && post.post.commentsCount} 
       hideComment 
+      hideUpVote
+      hideDownVote
       />
+      </Size>
+
+
       <PostCommentCard 
       id = {post && post.post && post.post.id}          
       />            

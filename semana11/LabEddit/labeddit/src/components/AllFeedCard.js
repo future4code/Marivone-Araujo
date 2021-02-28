@@ -39,18 +39,20 @@ export default function AllFeedCard(props) {
         </CardContent>
       </CardActionArea>      
       <CardActions>        
+
+        {!props.hideUpVote && (
         <ExpandLessIcon
            size="small" 
            color="primary"
            onClick={()=>props.putVote(props.id, 1)}
-        />
-        <div>{props.userVoteDirection}</div>      
+        />)}
+        {props.userVoteDirection} 
+        {!props.hideDownVote && (
         <ExpandMoreIcon 
         size="small" 
         color="primary"        
         onClick={()=>props.putVote(props.id, -1)}        
-        />        
-
+        />)}        
         {!props.hideComment && (
         <Button size="small" 
         color="primary"

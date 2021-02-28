@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import useForm from '../hooks/useForm'
@@ -17,6 +17,7 @@ function WritePost() {
     postOnFeed(form, clearFields)
   }
    
+  
   return (    
       <BoxWritePost>          
         <form onSubmit={onClickButton}>

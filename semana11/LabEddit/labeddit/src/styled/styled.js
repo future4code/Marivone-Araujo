@@ -20,6 +20,12 @@ display: grid;
 grid-template-columns: 1fr;
 }
 `
+// PostPage
+
+export const Size = styled.div`
+width: 600px;
+margin: 20px;
+`
 
 // ErrorPage
 export const ErrorPageBox = styled.div`

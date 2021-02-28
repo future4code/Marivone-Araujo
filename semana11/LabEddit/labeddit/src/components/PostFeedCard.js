@@ -50,8 +50,6 @@ function PostFeedCard(props) {
         goToPostDetail = {onClickCard}
         id={post.id}
         putVote = {putVote}
-
-
         />
     )
   })  
