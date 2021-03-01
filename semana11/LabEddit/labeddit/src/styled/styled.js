@@ -25,6 +25,11 @@ grid-template-columns: 1fr;
 export const Size = styled.div`
 width: 600px;
 margin: 20px;
+
+@media (max-width: 499px) {
+width: 395px;
+margin: 10px;
+
 `
 
 // ErrorPage
