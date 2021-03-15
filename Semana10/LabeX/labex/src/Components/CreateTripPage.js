@@ -22,6 +22,21 @@ background-color: white;
   color: blue;
 }
 
+
+@media (min-width:500px) and (max-width: 800px) {
+  margin-top: 150px;
+
+}
+
+@media (max-width: 499px) {
+  font-size: 15px;
+  width: 100px;
+  margin: 10px;
+  margin-top: 150px;
+
+}
+
+
 `
 
 const CreateTripForm = styled.div`
@@ -40,6 +55,8 @@ margin-left: 27px;
   color: blue;
   transform: scale(1.2);
 }
+
+
 `
 
 function CreateTripPage() {

@@ -20,11 +20,29 @@ object-fit: cover;
 :hover{
   cursor: pointer;
  }
+
+@media (max-width: 499px) {
+  width: 80px;
+}
+
 `
 
 const Menu = styled.div`
 display: grid;
 grid-template-columns: 0.3fr 0.5fr 0.7fr 1fr 1fr 1fr 0.5fr 0.5fr;
+
+
+@media (min-width:500px) and (max-width: 800px) {
+
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+};
+
+@media (max-width: 499px) {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
 `
 
 const MenuButton = styled.button`

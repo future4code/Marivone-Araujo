@@ -23,6 +23,27 @@ background-color: white;
 :hover{
   cursor: pointer;
   color: blue;
+}
+
+@media (min-width:500px) and (max-width: 800px) {
+  font-size: 15px;
+  width: 100px;
+  margin: 60px;
+  margin-top: 150px;
+
+}
+
+@media (max-width: 499px) {
+  font-size: 15px;
+  width: 100px;
+  margin: 10px;
+  margin-top: 150px;
+
+}
+
+
+
+
 `
 
 const CentralDetail = styled.div`

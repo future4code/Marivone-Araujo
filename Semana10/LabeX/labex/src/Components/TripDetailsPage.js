@@ -56,9 +56,6 @@ padding-left: 75px;
 const Trips = styled.div`
 font-size: 20px;
 color: white;
-/* overflow: scroll; */
-/* height: 60vh; */
-/* overflow-x:hidden; */
 `
 const ButtonTripDetails = styled.button`
 font-family: monospace;
