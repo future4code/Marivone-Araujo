@@ -1,0 +1,17 @@
+{
+  "name": "node-package3",
+  "version": "1.0.0",
+  "description": "atividade3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clear": "clear && node index.js",
+    "start":"node ./index.js"
+  },
+  "keywords": [
+    "npm",
+    "epps"
+  ],
+  "author": "Marivone Araújo",
+  "license": "ISC"
+}
