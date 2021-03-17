@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import { countries } from "./countries";
+import { countries, country } from "./countries";
 
 const app = express();
 
@@ -9,7 +9,6 @@ app.use(cors());
 
 // Endpoint 1
 app.get("/countries/all", (req: Request, res: Response) => {
-  // res.status(200).send(countries)
   const result = countries.map((country) => ({
     id: country.id,
     name: country.name,
@@ -18,36 +17,56 @@ app.get("/countries/all", (req: Request, res: Response) => {
   res.status(200).send(result);
 });
 
-// Endpoint 2
-app.get("/countries/:id", (req: Request, res: Response) => {
-    
-    const id: number = Number (req.params.id)
-
-    const result = countries.find((ct) =>{
-        return ct.id === id
-    })
-
-    if (result) {
-        res.status(200).send(result);
-    } else{
-        res.status(404).send("Not found");
-    }    
-});
-
 // Endpoint 3
 app.get("/countries/search", (req: Request, res: Response) => {
+  const name: string = req.query.name as string;
+  const capital: string = req.query.capital as string;
+  const continent: string = req.query.continent as string;
 
-    const name: string = req.query.name as string 
-    const myCountries = countries;
+  let myCountries = countries;
 
-    const filteredCountries = myCountries.filter((ct) =>{
-        return ct.name.includes(name)
-    })
+  let result: country[] = [];
 
-    res.status(200).send(filteredCountries);
+  if (name) {
+    result = myCountries.filter((ct) => {
+      return ct.name.includes(name);
+    });
+  }
+  if (capital) {
+    result = myCountries.filter((ct) => {
+      return ct.capital.includes(capital);
+    });
+  }
+
+  if (continent) {
+    result = myCountries.filter((ct) => {
+      return ct.continent.includes(continent);
+    });
+  }
+  if (result.length) {
+    res.status(201).send(result);
+  } else {
+    res.status(404).send("Not found");
+  }
 });
 
+// Endpoint 2
+app.get("/countries/:id", (req: Request, res: Response) => {
+  const id: number = Number(req.params.id);
 
+  const result = countries.find((ct) => {
+    return ct.id === id;
+  });
+
+  if (result) {
+    res.status(200).send(result);
+  } else {
+    res.status(404).send("Not found");
+  }
+});
+
+//endpoint 4
+// Não consegui fazer
 
 app.listen(3003, () => {
   console.log("Server is running in http://localhost:3003");
