@@ -104,6 +104,129 @@ SELECT SUM(salary) FROM Actor;
 
 ## Exercício 5
 ##### a)
+```sql  
+SELECT COUNT(*), gender
+FROM Actor
+GROUP BY gender
+```
+-- Essa query agrupa por gênero, ou seja, agrupa em relação à coluna "gender" da tabela. Assim, o resultado foram duas linhas: uma para male e outra para female.
+
 ##### b)
+```sql  
+SELECT id, name FROM Actor
+ORDER BY name DESC;
+```
 ##### c)
+```sql  
+SELECT * FROM Actor
+ORDER BY salary;
+```
 ##### d)
+```sql  
+SELECT * FROM Actor
+ORDER BY salary DESC
+LIMIT 3;
+```
+
+##### e)
+```sql  
+SELECT AVG(salary), gender FROM Actor
+GROUP BY gender;
+```
+
+## Exercício 6
+##### a)
+```sql  
+ALTER TABLE Movie ADD playing_limit_date DATE;
+```
+##### b)
+```sql  
+ALTER TABLE Movie CHANGE rating rating FLOAT;
+```
+##### c)
+```sql  
+UPDATE Movie
+SET	playing_limit_date = "2021-03-23"
+WHERE id = "004"
+```
+```sql  
+UPDATE Movie
+SET	playing_limit_date = "2012-03-23"
+WHERE id = "001"
+```
+##### d)
+```sql  
+DELETE FROM Movie WHERE id = "004"
+```
+```sql  
+UPDATE Movie
+SET	synopsis = "Um dos melhores filmes brasileiros!"
+WHERE id = "004"
+```
+-- 20:28:33	UPDATE Movie SET synopsis = "Um dos melhores filmes brasileiros!" WHERE id = "004"	0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0	0.172 sec
+Ele retorna um status positivo, mas não faz qualquer alteração. 
+
+
+## Exercício 7
+##### a)Quantos filmes em cartaz possuem avaliações maiores do que 7.5?
+```sql
+SELECT COUNT(*) FROM Movie WHERE rating > 7.5;
+```
+-- RESPOSTA: dois filmes 
+
+##### b)  Qual a média das avaliações dos filmes?
+```sql
+SELECT AVG(rating) FROM Movie;
+```
+-- RESPOSTA:'8.333333333333334'
+
+##### c) Qual a quantidade de filmes em cartaz?
+```sql
+SELECT COUNT(*) FROM Movie WHERE playing_limit_date;
+```
+-- RESPOSTA: 1
+
+##### d) Qual a quantidade de filmes que ainda irão lançar?
+```sql
+SELECT COUNT(*) FROM Movie WHERE playing_limit_date > CURDATE();
+```
+-- RESPOSTA: 0
+##### e) Qual a maior nota dos filmes?
+```sql
+SELECT MAX(rating) FROM Movie;
+```
+-- RESPOSTA: 10
+
+##### f) Qual a menor nota dos filmes?
+```sql
+SELECT MIN(rating) FROM Movie;
+```
+-- RESPOSTA: 7
+
+
+## EXERCICIO 8
+
+##### a) Retorne todos os filmes em ordem alfabética
+```sql
+SELECT * FROM Movie
+ORDER BY title ASC;
+```
+##### b) Retorne os 5 primerios filmes em ordem descrente alfabética
+```sql
+SELECT * FROM Movie
+ORDER BY title DESC
+LIMIT 5;
+```
+##### c) Retorne os 3 filmes mais recentes em cartaz
+```sql
+SELECT * FROM Movie
+ORDER BY release_Date DESC
+LIMIT 3;
+```
+
+##### d) Retorne os 3 filmes melhor avalidos
+```sql
+SELECT * FROM Movie
+ORDER BY rating DESC
+LIMIT 3;
+```
