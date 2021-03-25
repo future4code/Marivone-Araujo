@@ -26,10 +26,12 @@ Content-Type: application/json
 
 GET http://localhost:3003/actor/001
 
-###
-
-GET http://localhost:3003/actor/Tony Ramos 
 
 ###
 
 GET http://localhost:3003/actor/gender 
+
+
+###
+
+GET http://localhost:3003/actor/search?name=Tony Ramos

@@ -10,10 +10,11 @@ app.post("/actor", CreateActor)
 
 app.get("/actor", GetAllActors)
 
+app.get("/actor/gender", getActorByGender)
+
+app.get("/actor/search", getActorByName)
+
 app.put("/actor/:id", UpdateActor)
 
 app.get("/actor/:id", getActorById)
 
-app.get("/actor/:name", getActorByName)
-
-app.get("/actor/gender", getActorByGender)
