@@ -1,0 +1,35 @@
+POST http://localhost:3003/actor
+Content-Type: application/json
+
+{
+    "name":"Keanu Reeves",
+    "gender":"male",
+    "birthDate": "1964-09-02",
+    "salary":1000000
+}
+
+###
+
+GET http://localhost:3003/actor
+
+###
+
+PUT http://localhost:3003/actor/001
+Content-Type: application/json
+
+{
+    "gender":"male",
+    "salary":"700000"
+}
+
+###
+
+GET http://localhost:3003/actor/001
+
+###
+
+GET http://localhost:3003/actor/Tony Ramos 
+
+###
+
+GET http://localhost:3003/actor/gender 
