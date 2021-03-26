@@ -1,0 +1,16 @@
+{
+  "name": "node-package",
+  "version": "1.0.0",
+  "description": "atividades da aula40",
+  "main": "index.js",
+  "scripts": {
+    "clear": "clear && node index.js",
+    "start": "node ./index.js"
+  },
+  "keywords": [
+    "npm",
+    "epps"
+  ],
+  "author": "Marivone Araújo",
+  "license": "ISC"
+}

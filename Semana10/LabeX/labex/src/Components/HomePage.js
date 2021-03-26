@@ -31,16 +31,50 @@ border-right: none;
 :hover{
   cursor: pointer;
 }
+
+@media (min-width:500px) and (max-width: 800px) {
+  width: 400px;
+  margin-left: 50px;
+
+  };
+@media (max-width: 499px) {
+  width: 100px;
+}
+
+};
+
 `
 const Contador = styled.div`
 margin-left: 320px;
 font-size: 20px;
 font-family: monospace;
+
+@media (min-width:500px) and (max-width: 800px) {
+  margin-left: 10px;
+
+  };
+@media (max-width: 499px) {
+  margin-left: 10px;
+  text-align: center;
+}
+
 `
 const GridTrips = styled.div`
-/* background-color: yellow; */
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
+
+@media (min-width:500px) and (max-width: 800px) {
+display: grid;
+grid-template-columns: 1fr ;
+margin-left: -60px;
+
+  };
+@media (max-width: 499px) {
+display: grid;
+grid-template-columns: 1fr ;
+
+};
+
 `
 const CardGrid = styled.div`
 font-family: monospace;
@@ -63,6 +97,15 @@ box-shadow: 0px 0.5px 15px gray;
   color: blue;
   transform: scale(1.1);
 } 
+
+
+@media (min-width:500px) and (max-width: 800px) {
+  margin-left: 150px;
+
+  };
+@media (max-width: 499px) {
+  margin-right: 10px;
+}
 
 `
 const ButtonDetails = styled.button`
@@ -98,10 +141,7 @@ function HomePage() {
 
   }, [])
 
-  // const goToTripsList = () =>{
-  //  history.push("/trips/list")
-  // }
-
+  
 
   const filteredTrips = trips.filter(trip => trip.name.includes(textInput))
 

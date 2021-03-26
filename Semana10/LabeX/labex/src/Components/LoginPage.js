@@ -7,11 +7,27 @@ import { useProtectedPage } from '../hooks/useProtectedPage';
 
 const Central = styled.div` 
 width: 100%;
-height: 700px;;
+height: 700px;
 background-image: url('https://arquitetoexpert.com/wp-content/uploads/2019/01/rocket.jpg');
 background-repeat: no-repeat;
 background-size:100%;
 color: white;
+
+
+@media (min-width:500px) and (max-width: 800px) {
+
+background-image: url('https://i.ytimg.com/vi/NtOwzU5Rpp8/maxresdefault.jpg');
+background-repeat: repeat;
+background-size:100%  
+}
+
+@media (max-width: 499px) {
+background-image: url('https://i.ytimg.com/vi/NtOwzU5Rpp8/maxresdefault.jpg');
+background-repeat: repeat;
+background-size:100% 
+
+}
+
 `
 const Form = styled.div`
 display: grid;
@@ -43,6 +59,23 @@ box-shadow: 0px 0.5px 15px gray;
   color: blue;
 
 } 
+
+
+@media (min-width:500px) and (max-width: 800px) {
+
+  margin-left: -400px;
+  margin-top: -40px;
+
+}
+
+@media (max-width: 499px) {
+
+  margin-left: -330px;
+  margin-top: -50px;
+
+}
+
+
 `
 const ButtonDits = styled.button`
 font-family: monospace;

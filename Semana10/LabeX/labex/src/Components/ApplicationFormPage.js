@@ -21,6 +21,23 @@ background-image: url('https://www.nationalgeographic.com/interactive-assets/ngg
 background-repeat: no-repeat;
 background-size:100%;
 color: white;
+
+
+
+@media (min-width:500px) and (max-width: 800px) {
+
+background-image: url('https://i.ytimg.com/vi/NtOwzU5Rpp8/maxresdefault.jpg');
+background-repeat: repeat;
+background-size:100%  
+  
+@media (max-width: 499px) {
+  
+background-image: url('https://i.ytimg.com/vi/NtOwzU5Rpp8/maxresdefault.jpg');
+background-repeat: repeat;
+background-size:100% 
+
+}
+
 `
 const InputsForm = styled.div`
 padding-top: 5px;
