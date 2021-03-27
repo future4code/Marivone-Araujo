@@ -3,7 +3,6 @@ GET http://localhost:3003/user/all
 
 ###
 
-
 PUT http://localhost:3003/user
 Content-Type: application/json
 
@@ -16,6 +15,18 @@ Content-Type: application/json
 
 ### 
 
+# PUT http://localhost:3003/task
+
+# {
+# 	"id": 1,
+# 	"title": "Criar banco dos alunos",
+# 	"description": "Devemos criar o banco dos alunos para o módulo do backend",
+# 	"deadline": "02/04/2021",
+# 	"author_id": 1
+# }
+
+###
+
 GET http://localhost:3003/user/3
 
 ###
@@ -24,8 +35,10 @@ POST http://localhost:3003/user/edit/1
 Content-Type: application/json
 
 {
-    "name": "Marivone",
-	"nickname": "Marz",
+	"id": 1,
+    "name": "Neo",
+	"nickname": "Rabbit",
+	"email": "theone@dev.com"
 }
 
 

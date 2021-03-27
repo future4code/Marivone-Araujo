@@ -4,7 +4,7 @@ import connection from "../connections";
 const editUser = async (req: Request, res: Response) => {
   let errorCode: number = 400;
   try {
-    const result = await connection("User")
+    await connection("User")
       .update({
         id: req.body.id,
         name: req.body.name,
@@ -12,18 +12,27 @@ const editUser = async (req: Request, res: Response) => {
         email: req.body.email,
       })
       .where({
-        id: req.params.id,
+        id: req.params.id
       });
+
     if (
-      !req.body.id ||
-      !req.body.name ||
-      !req.body.nickname ||
-      !req.body.email
+      req.body.id === '' ||
+      req.body.name === '' ||
+      req.body.nickname === '' ||
+      req.body.email === ''
     ) {
-      errorCode = 422;
-      throw new Error("Please check the fields.");
+      errorCode = 400;
+      throw new Error(`Nenhum dos campos pode estar em branco`);
     }
-    res.send(result);
+
+    if(!req.body.name && !req.body.name  && !req.body.nickname  && !req.body.email){
+      res.status(400).send({
+        message: "Escolha ao menos um valor para alterar"
+      })
+    }
+
+    res.status(200).send({ message: "Usuário atualizado com sucesso!" });
+
   } catch (error) {
     res.status(errorCode).send({ message: error.message });
   }

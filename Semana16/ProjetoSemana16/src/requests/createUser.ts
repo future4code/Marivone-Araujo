@@ -20,10 +20,10 @@ const createUser = async (req: Request, res: Response) => {
       !req.body.email
     ) {
       errorCode = 422;
-      throw new Error("Please check the fields.");
+      throw new Error(`Preencha os campos "id", "nome", "nickname" e "email"`);
     }
 
-    res.status(201).send({ message: "User created successfully!" });
+    res.status(201).send({ message: "Usuário criado com sucesso!" });
   } catch (error) {
     console.log(error.message);
     res.status(errorCode).send({ message: error.message });
