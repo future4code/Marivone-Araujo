@@ -97,7 +97,6 @@ ___
 
 - **4. Criar tarefa**
 
-#### Incompleta
 
     **Método:** PUT
     **Path:** `/task`
