@@ -1,0 +1,53 @@
+
+GET http://localhost:3003/user/all
+
+###
+
+PUT http://localhost:3003/user
+Content-Type: application/json
+
+{
+	"id": 3,
+    "name": "Alan",
+	"nickname": "Al",
+	"email": "al@dev.com"
+}
+
+### 
+
+PUT http://localhost:3003/task
+Content-Type: application/json
+
+{
+	"id": 3,
+	"title": "Enviar testes",
+	"description": "Formular avaliações",
+	"deadline": "02/02/2030",
+	"author_id": 3
+}
+
+###
+
+GET http://localhost:3003/user/3
+
+###
+
+POST http://localhost:3003/user/edit/1
+Content-Type: application/json
+
+{
+	"id": 1,
+    "name": "Neo",
+	"nickname": "Rabbit",
+	"email": "theone@dev.com"
+}
+
+
+
+
+
+
+
+
+
+

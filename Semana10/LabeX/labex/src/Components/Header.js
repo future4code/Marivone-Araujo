@@ -60,8 +60,7 @@ border: none;
 `
 
   const Header = () => {
-    const history = useHistory()
-  
+    const history = useHistory() 
 
   function logout() {
       localStorage.removeItem('token')
@@ -70,38 +69,23 @@ border: none;
     }  
 
   return (
-
-
     
-    <HeaderLayout>
-      
-      <Logo src="https://i.imgur.com/z6an6rd.jpg" alt = "Logo" onClick={() => goToHome(history)}/>
-       
+    <HeaderLayout>      
+      <Logo src="https://i.imgur.com/z6an6rd.jpg" alt = "Logo" onClick={() => goToHome(history)}/>       
       <div>
 
       <Menu>  
-        
-    
-
         <div><MenuButton onClick={() => goToHome(history)}>home</MenuButton></div>
-
         <div><MenuButton onClick={() => goToTripsList(history)}>destinos</MenuButton></div>
-
         <div><MenuButton onClick={() => goToApplication(history)}>candidate-se</MenuButton></div>
-
         <div><MenuButton onClick={() => goToAbout(history)}>sobre</MenuButton></div>
-
-        
+       
         <div></div>
         <div></div>
 
         <div><MenuButton onClick={() => goToLogin(history)}>login</MenuButton></div>
-
-        <div><MenuButton onClick={() => logout()}>logout</MenuButton></div>
-
-             
-      </Menu>
-      
+        <div><MenuButton onClick={() => logout()}>logout</MenuButton></div>            
+      </Menu>      
       </div>
     </HeaderLayout>
   );
