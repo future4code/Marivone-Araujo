@@ -12,10 +12,20 @@ export default async function createUser(
 
       const { name, nickname, email, password } = req.body
 
-      if (!name || !nickname || !email || !password) {
+      // if (!name || !nickname || !email || !password) {
+      //    res.statusCode = 422
+      //    throw new Error("Preencha os campos 'name','nickname', 'password' e 'email'")
+      // }
+
+      if (!email || email.indexOf("@") === -1 || email === "") {
          res.statusCode = 422
-         throw new Error("Preencha os campos 'name','nickname', 'password' e 'email'")
-      }
+         throw new Error("Email inválido: preencha o campo indicado ou inclua um @");
+       }
+   
+       if (!password || password.length < 6) {
+         res.statusCode = 422
+         throw new Error("Senha inválida");
+       }
 
       const [user] = await connection('to_do_list_users')
          .where({ email })
@@ -34,7 +44,8 @@ export default async function createUser(
 
       const token: string = generateToken({id})
 
-      res.status(201).send({ newUser, token })
+      // res.status(201).send({ newUser, token })
+      res.status(201).send("Token gerado por jwt")
 
    } catch (error) {
 
