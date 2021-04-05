@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import connection from "../connection";
 import { generateToken } from "../services/authenticator";
-import { userPersonalInfo } from "../types";
+import { user, userPersonalInfo } from "../types";
 
 export default async function login(
   req: Request,
@@ -9,7 +9,7 @@ export default async function login(
 ): Promise<void> {
   try {
 
-    const {email, password}: userPersonalInfo = req.body
+    const {email, password}: user = req.body
 
     if (!email || !password){
         res.statusCode = 422

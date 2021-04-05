@@ -24,6 +24,13 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:3003/user/da5ed2d6-9172-4f8b-a1df-71a1c0650f3c
+
+
+###
+
+###
+
 GET http://localhost:3003/user/king@writer.com
 
 ###
