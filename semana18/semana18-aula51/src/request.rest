@@ -4,10 +4,10 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-   "name": "Timothy Hunter", 
-   "nickname": "sorcerer", 
-   "email": "boy@booksofmagic.com" ,
-   "password": "1990101"
+   "name": "Philip K. Dick", 
+   "nickname": "PKD", 
+   "email": "thefuture@lunatic.com" ,
+   "password": "lagarto"
 }
 
 ###
@@ -18,18 +18,28 @@ Content-Type: application/json
 
 {
  
-   "email": "littlesister@writer.com" ,
-   "password": "342131"
+   "email": "thefuture@lunatic.com" ,
+   "password": "lagarto"
+}
+###
+@token = {{login.response.body.token}}
+GET http://localhost:3003/user/profile
+
+###
+
+###
+
+@token = {{login.response.body.token}}
+
+PUT http://localhost:3003/user/edit
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "name": "Timothy Hunter" 
 }
 
-###
 
-GET http://localhost:3003/user/da5ed2d6-9172-4f8b-a1df-71a1c0650f3c
-
-
-###
-
-###
 
 GET http://localhost:3003/user/king@writer.com
 
