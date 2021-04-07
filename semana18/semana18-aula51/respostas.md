@@ -17,19 +17,21 @@
 ##### d. Não consegui implementar esse endpoint `user/profile`. 
 
 ### Exercício 3
-##### a. 
-##### b. 
+##### a. ok
+##### b. ok
+##### C. ok
+##### d. ok
 
 ### Exercício 4
 
-##### a. 
+##### a. ok
 
-##### b. 
+##### b. ok
 
 ### Exercício 5
 
-##### a. 
+##### a. ok
 
 ### Exercício 6
 
-##### a e b: 
+##### a. 

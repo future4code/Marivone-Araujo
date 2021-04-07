@@ -3,21 +3,22 @@ import connection from "../connection";
 import { getTokenData } from "../services/authenticator";
 import { authenticationData } from "../types";
 
-const getUserByProfile = async (
-    req: Request, 
-    res: Response) => {
+const getUser = async (req: Request, res: Response) => {
   try {
+    
     const token: string = req.headers.authorization!;
     const tokenData: authenticationData | null = getTokenData(token);
+        
+    const result = await connection
+    .select('id', 'email')
+    .from('to_do_list_users')
+    .where({id: tokenData?.id})
+    res.status(201).send(result);
+
+} catch (error) {
     
-    if (!tokenData || tokenData.role !== "admin") {
-      res.statusCode = 401;
-      throw new Error("Unauthorized");
-    }
+    console.log(error.message)
     
-    const result: any = await connection("to_do_list_users").where({ id: tokenData.id });
-    res.status(201).send({ email: result[0].email, password: result[0].password });
-  } catch (error) {
     if (res.statusCode === 200) {
       res.status(500).send({ message: "Internal server error" });
     } else {
@@ -25,4 +26,7 @@ const getUserByProfile = async (
     }
   }
 };
-export default getUserByProfile;
+export default getUser;
+
+
+

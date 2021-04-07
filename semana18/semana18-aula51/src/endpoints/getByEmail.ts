@@ -7,7 +7,7 @@ const getUserByEmail = async (req: Request, res: Response) => {
   try {
     const email = req.params.email;
     const result = await connection.raw(`
-        SELECT * FROM to_do_list_users
+      SELECT * FROM to_do_list_users
 	    WHERE email = "${email}"
     `);
 

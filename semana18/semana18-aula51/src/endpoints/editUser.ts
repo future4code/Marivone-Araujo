@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import connection from "../connection";
 import { getTokenData } from "../services/authenticator";
-import { authenticationData, userPersonalInfo } from "../types";
+import { authenticationData, userPersonalInfo, userRole } from "../types";
 
 export default async function editUser(
    req: Request,
@@ -15,7 +15,12 @@ export default async function editUser(
 
       if(!tokenData){
          res.statusCode = 401
-         throw new Error("Unauthorized")
+         throw new Error("Não autorizado")
+      }
+
+      if (tokenData.role !== userRole.admin){
+         res.statusCode = 401
+         throw new Error("Não autorizado: apenas administradores podem acessar.")
       }
 
       if (!name && !nickname) {
@@ -32,9 +37,9 @@ export default async function editUser(
 
    } catch (error) {
       if (res.statusCode === 200) {
-         res.status(500).end()
+         res.status(500).end({message: error.message})
       }
 
-      res.end()
+      res.send({message: error.message})
    }
 }

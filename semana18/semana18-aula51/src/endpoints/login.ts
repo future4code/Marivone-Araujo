@@ -37,7 +37,7 @@ export default async function login(
           throw new Error("Senha incorreta")
         }
     
-        const token: string = generateToken({id: user.id})
+        const token: string = generateToken({id: user.id, role: user.role})
 
         res.send({token})
         // res.send("token gerado pelo jwt")
