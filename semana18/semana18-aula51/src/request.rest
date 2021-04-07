@@ -1,0 +1,62 @@
+# @name signup
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "name": "Isaac Asimov", 
+   "nickname": "Ozimov", 
+   "email": "scifi@foundation.com" ,
+   "password": "robotinic",
+   "role": "ADMIN"
+}
+
+###
+# @name login
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+ 
+   "email": "scifi@foundation.com" ,
+   "password": "robotinic"
+}
+###
+@token = {{login.response.body.token}}
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+@token = {{login.response.body.token}}
+
+PUT http://localhost:3003/user/edit
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "name": "Asimov",
+   "nickname": "O gênio"
+}
+
+###
+
+GET http://localhost:3003/user/king@writer.com
+###
+
+@token = {{login.response.body.token}}
+DELETE  http://localhost:3003/user/1617642644583
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+GET http://localhost:3003/user
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+
