@@ -7,14 +7,19 @@ export default async function getAddressInfo(
     cep: string
 ):Promise<addressInfo | null> {
     
-    const response = await axios.get(`${baseUrl}/${cep}/json`)
+    try {
+        const response = await axios.get(`${baseUrl}/${cep}/json`)
 
-    const {logradouro, bairro, localidade, uf} = response.data 
-
-    return {
-        street: logradouro, 
-        neighbourhood: bairro,
-        city: localidade,
-        state: uf
+        const {logradouro, bairro, localidade, uf} = response.data 
+    
+        return {
+            street: logradouro, 
+            neighbourhood: bairro,
+            city: localidade,
+            state: uf
+        }    
+    } catch (error) {
+        return null 
     }
+    
 }
