@@ -1,24 +1,26 @@
 import { Request, Response } from "express";
 import connection from "../connection";
+import { getTokenData } from "../services/authenticator";
 import generateId from "../services/idGenerator";
-import { recipe } from "../types";
+import { authenticationData, recipe } from "../types";
 
 export default async function postRecipe(
   req: Request,
   res: Response
 ): Promise<void> {
   try {
-    const { title, method } = req.body;
+    const { title, description } = req.body;
 
-    if (!title || !method ) {
+    if (!title || !description ) {
       res.statusCode = 422;
-      throw new Error("Preencha os campos 'title' e'method'");
+      throw new Error("Preencha os campos 'title' e'description'");
     }
     const id: string = generateId();
 
-    const date = Date.now(); 
-    
-    const recipe: recipe = { user_id: id, title, method, date };
+    const access_token: string = req.headers.authorization!;
+    const tokenData: authenticationData | null = getTokenData(access_token);
+
+    const recipe: recipe = { id, user_id: tokenData?.id!, title, description};
     await connection("cookenu_recipes").insert(recipe);
     res.status(201).send({ recipe });
   } catch (error) {
