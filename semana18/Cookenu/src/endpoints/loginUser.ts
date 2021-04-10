@@ -32,7 +32,7 @@ export default async function loginUser(
         }
 
 
-        const access_token: string = generateToken({ id: user.id })
+        const access_token: string = generateToken({ id: user.id, role: user.role })
         res.send ({access_token})
 
     } catch (error) {
