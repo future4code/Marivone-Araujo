@@ -1,6 +1,6 @@
 export enum USER_ROLES {
-   NORMAL = 'NORMAL',
-   ADMIN = 'ADMIN'
+   normal = 'normal',
+   admin = 'admin'
 }
 
 export type authenticationData = {
@@ -34,11 +34,11 @@ export type loginInput = {
 
 export function convertStringToUserRole (role: string): USER_ROLES{
    switch(role){
-      case "NORMAL":
-         return USER_ROLES.NORMAL;
-      case "ADMIN":
-         return USER_ROLES.ADMIN;
+      case "normal":
+         return USER_ROLES.normal;
+      case "admin":
+         return USER_ROLES.admin;
       default:
-         throw new Error ("O user role precisa ser 'NORMAL' ou 'ADMIN'")
+         throw new Error ("O user role precisa ser 'normal' ou 'admin'")
    }
 }

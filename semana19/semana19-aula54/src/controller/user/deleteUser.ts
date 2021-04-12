@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import connection from "../connection";
-import { getTokenData } from "../services/authenticator";
-import { authenticationData } from "../types";
+import { connection } from "../../data/connection";
+import { getTokenData } from "../../services/authenticator";
+import { authenticationData } from "../../model/user";
 
 export default async function deleteUser(
   req: Request,
@@ -22,7 +22,7 @@ export default async function deleteUser(
     res.status(201).send("Usuário deletado com sucesso");
   } catch (error) {
     if (res.statusCode === 200) {
-      res.status(500).send({ message: "Internal server error" });
+      res.status(500).send({ message: error.message });
     } else {
       res.status(res.statusCode).send({ message: error.message });
     }

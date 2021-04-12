@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 import { connection } from "../../data/connection";
-import { authenticationData } from "../../model/user";
-import { getTokenData } from "../../services/authenticator";
 
 export const getAll = async (
    req: Request,
@@ -10,13 +8,13 @@ export const getAll = async (
    try {
 
     const token: string = req.headers.authorization!;
-    const tokenData: authenticationData | null = getTokenData(token);
-        
+        if(!token){
+            throw new Error('Você precisa estar logado para acessar essa informação')
+        }
     const result = await connection
-    .select('*')
+    .select('id', 'name', 'email', 'password', 'role')
     .from('to_do_list_users')
-    .where({token: tokenData})
-    res.status(201).send(result);
+      res.status(201).send(result);
 
 } catch (error) {
     
