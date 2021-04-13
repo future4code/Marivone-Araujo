@@ -1,4 +1,4 @@
-export type task = {
+export type taskDTO = {
    id: string,
    title: string,
    description: string,

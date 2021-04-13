@@ -1,10 +1,10 @@
-import { signupInput, convertStringToUserRole } from "../model/user";
+import { signupInputDTO, convertStringToUserRole } from "../model/user";
 import  generateId  from "../services/idGenerator";
 import { hash } from "../services/hashManager";
 import { insertUser } from "../data/insertUser";
 import { generateToken } from "../services/authenticator";
 
-export async function signupBusiness(input: signupInput): Promise<string> {
+export async function signupBusiness(input: signupInputDTO): Promise<string> {
    try {
       if (
          !input.name ||

@@ -20,9 +20,9 @@ export const getTaskById = async (
          title: result.title,
          description: result.description,
          deadline: result.deadline,
-         status: result.status,
-         authorId: result.author_id,
-         authorNickname: result.nickname
+         // status: result.status,
+         authorId: result.authorId,
+         // authorNickname: result.nickname
       }
 
       res.status(200).send(taskWithUserInfo)

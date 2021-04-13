@@ -1,8 +1,8 @@
 import  connection from "../data/connection";
-import { task } from "../model/task";
+import { taskDTO } from "../model/task";
 
 export const insertTask = async (
-   task: task
+   task: taskDTO
 ) => {
    await connection('to_do_list_tasks')
       .insert({
