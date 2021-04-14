@@ -11,12 +11,12 @@ import deleteRecipe from "./endpoints/deleteRecipe"
 
 app.post('/signup', createUser)
 app.post('/login', loginUser)
-app.post('/recipe', postRecipe)
 app.post ('/user/password/reset', resetPassword)
-
 app.get('/user/profile', getUserByProfile)
-
-app.post ('/user/edit/recipe/:id', editRecipe)
-app.get('/recipe/:id', getRecipe)
 app.get('/user/:id', getUserById)
+
+
+app.post('/recipe', postRecipe)
+app.post ('/edit/recipe/:id', editRecipe)
+app.get('/recipe/:id', getRecipe)
 app.delete('/recipe/:id', deleteRecipe)

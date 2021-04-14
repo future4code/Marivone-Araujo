@@ -20,7 +20,7 @@ const getUserByProfile = async (req: Request, res: Response) => {
       id,
     });
     res
-      .status(201)
+      .status(200)
       .send({ id: result[0].id, name: result[0].name, email: result[0].email });
   } catch (error) {
     if (res.statusCode === 200) {
