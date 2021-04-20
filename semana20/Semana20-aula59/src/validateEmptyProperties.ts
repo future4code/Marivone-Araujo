@@ -22,7 +22,7 @@ export interface ValidateEmptyPropertiesOutput {
   errors: ValidateEmptyPropertiesError[];
 }
 
-interface ValidateEmptyPropertiesError {
+export interface ValidateEmptyPropertiesError {
   key: string;
   value: string;
 }
