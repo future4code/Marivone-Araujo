@@ -1,5 +1,8 @@
-import { v4 } from "uuid"
+import { v4 } from "uuid";
 
-const generateId = (): string => v4()
+export class IdGenerator{
 
-export default generateId 
+    generate(): string{
+        return v4();
+    }
+}

@@ -1,33 +1,32 @@
-
 import * as jwt from "jsonwebtoken";
-import { authenticationData } from "../types";
-import dotenv from "dotenv"
 
-dotenv.config()
+export class Authenticator {
+  public generateToken(input: AuthenticationData,
+    expiresIn: string = process.env.ACCESS_TOKEN_EXPIRES_IN!): string {
+    const token = jwt.sign(
+      {
+        id: input.id,
+        role: input.role
+      },
+      process.env.JWT_KEY as string,
+      {
+        expiresIn,
+      }
+    );
+    return token;
+  }
 
-export const generateToken = (
-    payload: authenticationData
-): string =>{
-    return jwt.sign(
-        payload,
-        String(process.env.JWT_KEY),
-        {expiresIn: "24d"}
-    )
+  public getData(token: string): AuthenticationData {
+    const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+    const result = {
+      id: payload.id,
+      role: payload.role
+    };
+    return result;
+  }
 }
 
-export const getTokenData = () =>(
-    token: string
-): authenticationData | null =>{
-    
-    try {
-        
-    const { id } = jwt.verify(token, process.env.JWT_KEY!) as authenticationData
-
-    return { id }
-
-    } catch (error) {
-        console.log(error.message);
-        return null 
-    }
+interface AuthenticationData {
+  id: string;
+  role?: string;
 }
-
