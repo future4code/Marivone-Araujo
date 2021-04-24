@@ -3,6 +3,7 @@ import {AddressInfo} from "net";
 import express from "express";
 import { userRouter } from "./routes/userRouter";
 import { bandRouter } from "./routes/bandRoute";
+import { showRouter } from "./routes/showRoutes";
 dotenv.config();
 const app = express();
 
@@ -10,6 +11,11 @@ app.use(express.json());
 
 app.use("/user", userRouter);
 app.use("/band", bandRouter);
+
+app.use("/show", showRouter);
+
+
+
 
 
 
